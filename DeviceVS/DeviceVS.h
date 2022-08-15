@@ -15,8 +15,7 @@ public:
 
 private:
     Ui::DeviceVSClass ui;
-    QList<QString>* reg;
-    QStringListModel* model;
-    QListView* view;
+    QByteArray reg;
+
 
 };
