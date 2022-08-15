@@ -15,6 +15,7 @@ public:
 
 private:
     Ui::DeviceVSClass ui;
+
     QByteArray reg;
 
 
