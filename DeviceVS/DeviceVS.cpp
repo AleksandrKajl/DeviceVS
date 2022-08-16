@@ -10,13 +10,17 @@ DeviceVS::DeviceVS(QWidget* parent)
 
     connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(editReg0L()));
     connect(ui.lineEdit_2, SIGNAL(editingFinished()), SLOT(editReg0H()));
+    connect(ui.lineEdit_3, SIGNAL(editingFinished()), SLOT(editReg1()));
+    connect(ui.lineEdit_4, SIGNAL(editingFinished()), SLOT(editReg5()));
+    connect(ui.lineEdit_5, SIGNAL(editingFinished()), SLOT(editReg7_0()));
+    connect(ui.lineEdit_6, SIGNAL(editingFinished()), SLOT(editReg7_4()));
 
     reg[0] = 33;
     reg[1] = 0x15;
     //Reg2 -Reg4 reserve
     reg[5] = 0x75;
     reg[6] = 0x30;
-    reg[7] = 17;
+    reg[7] = 0X11;
     initReg();
 }
 
@@ -33,6 +37,35 @@ void DeviceVS::editReg0L()
 void DeviceVS::editReg0H()
 {
     reg[0] = (reg[0] & 0xF) + (binaryStringToInt(ui.lineEdit_2->text()) * 0x10);
+    updateInfo();
+}
+
+void DeviceVS::editReg1()
+{
+    QString str(ui.lineEdit_3->text());
+    bool Ok;
+    reg[1] = str.sliced(2).toInt(&Ok, 16);
+    if (!Ok)
+        return;
+    updateInfo();
+}
+
+void DeviceVS::editReg5()
+{
+    char16_t var = ui.lineEdit_4->text().toInt();
+    reg[5] = var >> 8;
+    reg[6] = var & 0xFF;
+}
+
+void DeviceVS::editReg7_0()
+{
+    reg[7] = (reg[7] & 0xF0) + ui.lineEdit_5->text().toInt();
+    updateInfo();
+}
+
+void DeviceVS::editReg7_4()
+{
+    reg[7] = (reg[7] & 0xF) + (ui.lineEdit_6->text().toInt() << 4);
     updateInfo();
 }
 
@@ -132,8 +165,8 @@ void DeviceVS::initReg()
     //Reg5 - Reg6
     ui.lineEdit_4->setText(QString::number((reg[5]* 0x100) + reg[6]));      //Собираем значение из двух байт
     regStr = QString::fromStdString(std::bitset<8>(reg[7]).to_string());
-    ui.lineEdit_5->setText(regStr[3]);
-    ui.lineEdit_6->setText(regStr[7]);
+    ui.lineEdit_5->setText(regStr[7]);
+    ui.lineEdit_6->setText(regStr[3]);
 
     updateInfo();
 }

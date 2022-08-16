@@ -25,6 +25,10 @@ private:
 private slots:
     void editReg0L();
     void editReg0H();
+    void editReg1();
+    void editReg5();
+    void editReg7_0();
+    void editReg7_4();
 
 private:
     void updateInfo();
