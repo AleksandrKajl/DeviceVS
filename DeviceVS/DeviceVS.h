@@ -16,7 +16,21 @@ public:
 private:
     Ui::DeviceVSClass ui;
 
-    QByteArray reg;
+    //Массив байт для хранения значений регистров
+    std::array<char, 40> reg{0};
+
+    //массив для преобразования в шестнадцатиричное число
+    std::array<char, 16> hexVal;
+
+private slots:
+    void editReg0L();
+    void editReg0H();
+
+private:
+    void updateInfo();
+    void initReg();
+    char binaryStringToInt(QString str);
+
 
 
 };
