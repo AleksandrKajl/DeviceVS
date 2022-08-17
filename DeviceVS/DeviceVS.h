@@ -3,32 +3,36 @@
 #include <QtWidgets/QMainWindow>
 #include<QStringListModel>
 #include<QListView>
+#include<QUdpSocket>
 #include "ui_DeviceVS.h"
+#include"GroupTwo.h"
 
 class DeviceVS : public QMainWindow
 {
     Q_OBJECT
-
 public:
     DeviceVS(QWidget *parent = nullptr);
     ~DeviceVS();
 
 private:
     Ui::DeviceVSClass ui;
-
+    GroupTwo grTw;
     //Массив байт для хранения значений регистров
     std::array<char, 40> reg{0};
 
-    //массив для преобразования в шестнадцатиричное число
-    std::array<char, 16> hexVal;
+    QUdpSocket* udpSock;
 
 private slots:
-    void editReg0L();
-    void editReg0H();
-    void editReg1();
-    void editReg5();
-    void editReg7_0();
-    void editReg7_4();
+    void slotRecievRequest();
+
+    void slotEditReg0L();
+    void slotEditReg0H();
+    void slotEditReg1();
+    void slotEditReg5();
+    void slotEditReg7_0();
+    void slotEditReg7_4();
+
+    void slotSendData();
 
 private:
     void updateInfo();

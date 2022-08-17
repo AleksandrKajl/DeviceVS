@@ -3,17 +3,20 @@
 
 DeviceVS::DeviceVS(QWidget* parent)
     : QMainWindow(parent)
+    , udpSock(new QUdpSocket(this))
 
 {
     ui.setupUi(this);
-    hexVal = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+    grTw.show();
+    udpSock->bind(5555);
 
-    connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(editReg0L()));
-    connect(ui.lineEdit_2, SIGNAL(editingFinished()), SLOT(editReg0H()));
-    connect(ui.lineEdit_3, SIGNAL(editingFinished()), SLOT(editReg1()));
-    connect(ui.lineEdit_4, SIGNAL(editingFinished()), SLOT(editReg5()));
-    connect(ui.lineEdit_5, SIGNAL(editingFinished()), SLOT(editReg7_0()));
-    connect(ui.lineEdit_6, SIGNAL(editingFinished()), SLOT(editReg7_4()));
+    connect(udpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
+    connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0L()));
+    connect(ui.lineEdit_2, SIGNAL(editingFinished()), SLOT(slotEditReg0H()));
+    connect(ui.lineEdit_3, SIGNAL(editingFinished()), SLOT(slotEditReg1()));
+    connect(ui.lineEdit_4, SIGNAL(editingFinished()), SLOT(slotEditReg5()));
+    connect(ui.lineEdit_5, SIGNAL(editingFinished()), SLOT(slotEditReg7_0()));
+    connect(ui.lineEdit_6, SIGNAL(editingFinished()), SLOT(slotEditReg7_4()));
 
     reg[0] = 33;
     reg[1] = 0x15;
@@ -27,20 +30,34 @@ DeviceVS::DeviceVS(QWidget* parent)
 DeviceVS::~DeviceVS()
 {}
 
-void DeviceVS::editReg0L()
+void DeviceVS::slotRecievRequest()
+{
+    QByteArray data;
+    do
+    {
+        data.resize(udpSock->pendingDatagramSize());
+        udpSock->readDatagram(data.data(), data.size());
+    } while (udpSock->hasPendingDatagrams());
+
+    QDataStream in(&data, QIODevice::ReadOnly);
+    int a, b;
+    in >> a >> b;
+}
+
+void DeviceVS::slotEditReg0L()
 {
     reg[0] = (reg[0] & 0xF0) + binaryStringToInt(ui.lineEdit->text());
     updateInfo();
 }
 
 
-void DeviceVS::editReg0H()
+void DeviceVS::slotEditReg0H()
 {
     reg[0] = (reg[0] & 0xF) + (binaryStringToInt(ui.lineEdit_2->text()) * 0x10);
     updateInfo();
 }
 
-void DeviceVS::editReg1()
+void DeviceVS::slotEditReg1()
 {
     QString str(ui.lineEdit_3->text());
     bool Ok;
@@ -50,24 +67,29 @@ void DeviceVS::editReg1()
     updateInfo();
 }
 
-void DeviceVS::editReg5()
+void DeviceVS::slotEditReg5()
 {
     char16_t var = ui.lineEdit_4->text().toInt();
     reg[5] = var >> 8;
     reg[6] = var & 0xFF;
 }
 
-void DeviceVS::editReg7_0()
+void DeviceVS::slotEditReg7_0()
 {
     reg[7] = (reg[7] & 0xF0) + ui.lineEdit_5->text().toInt();
     updateInfo();
 }
 
-void DeviceVS::editReg7_4()
+void DeviceVS::slotEditReg7_4()
 {
     reg[7] = (reg[7] & 0xF) + (ui.lineEdit_6->text().toInt() << 4);
     updateInfo();
 }
+
+void DeviceVS::slotSendData()
+{
+}
+
 
 void DeviceVS::updateInfo()
 {
@@ -157,16 +179,22 @@ void DeviceVS::initReg()
     QString regStr = QString::fromStdString(std::bitset<8>(reg[0]).to_string());
     //Порядок бит в строке перевернут
     ui.lineEdit->setText(regStr.sliced(4, 4));
+    ui.lineEdit->setInputMask("BBBB");
     ui.lineEdit_2->setText(regStr.sliced(0, 4));
+    ui.lineEdit_2->setInputMask("BBBB");
     //Reg1
     ui.lineEdit_3->setText("0x" + QString::number(reg[1], 16));
+    ui.lineEdit_3->setInputMask("NNhh");
     
     //Reg2 -Reg4 reserve
     //Reg5 - Reg6
     ui.lineEdit_4->setText(QString::number((reg[5]* 0x100) + reg[6]));      //Собираем значение из двух байт
+    ui.lineEdit_4->setInputMask("99999");
     regStr = QString::fromStdString(std::bitset<8>(reg[7]).to_string());
     ui.lineEdit_5->setText(regStr[7]);
+    ui.lineEdit_5->setInputMask("B");
     ui.lineEdit_6->setText(regStr[3]);
+    ui.lineEdit_6->setInputMask("B");
 
     updateInfo();
 }
