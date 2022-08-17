@@ -9,4 +9,19 @@ public:
 	
 private:
 	Ui::MainWindow ui;
+
+	std::array<char, 12> reg{0};
+
+private slots:
+	void slotEditReg0();
+	void slotEditReg1();
+	void slotEditReg2();
+	void slotEditReg3();
+
+private:
+	void initReg();
+
+	void updateInfo();
+
+
 };

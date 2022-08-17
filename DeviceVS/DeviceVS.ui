@@ -91,7 +91,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Граппа 1. Режим работы РГ0-РГ7</string>
+         <string>Режим работы РГ0-РГ7</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

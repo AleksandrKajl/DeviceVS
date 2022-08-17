@@ -16,9 +16,9 @@ public:
 
 private:
     Ui::DeviceVSClass ui;
-    GroupTwo grTw;
+    GroupTwo* grTw;
     //Массив байт для хранения значений регистров
-    std::array<char, 40> reg{0};
+    std::array<char, 8> reg1{0};
 
     QUdpSocket* udpSock;
 
