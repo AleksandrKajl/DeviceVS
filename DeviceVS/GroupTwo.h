@@ -10,7 +10,7 @@ public:
 private:
 	Ui::MainWindow ui;
 
-	std::array<char, 12> reg{0};
+	std::array<char, 23> reg{0};
 
 private slots:
 	void slotEditReg0();

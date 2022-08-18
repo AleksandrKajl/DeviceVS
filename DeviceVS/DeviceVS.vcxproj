@@ -89,12 +89,17 @@
     <QtUic Include="DeviceVS.ui" />
     <QtMoc Include="DeviceVS.h" />
     <ClCompile Include="DeviceVS.cpp" />
+    <ClCompile Include="GroupThree.cpp" />
     <ClCompile Include="GroupTwo.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="GroupThree.ui" />
     <QtUic Include="GroupTwo.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="GroupTwo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="GroupThree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
