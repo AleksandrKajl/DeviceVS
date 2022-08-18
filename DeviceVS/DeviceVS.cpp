@@ -8,7 +8,10 @@ DeviceVS::DeviceVS(QWidget* parent)
 
 {
     ui.setupUi(this);
+    this->setWindowTitle("Режим работы");
+    grTw->setWindowTitle("Абоненты");
     grTw->show();
+
     udpSock->bind(5555);
 
     connect(udpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));

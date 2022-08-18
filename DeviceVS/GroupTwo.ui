@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>732</width>
-    <height>539</height>
+    <width>530</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -816,13 +816,31 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>732</width>
+     <width>530</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_4</tabstop>
+  <tabstop>lineEdit_5</tabstop>
+  <tabstop>lineEdit_6</tabstop>
+  <tabstop>lineEdit_7</tabstop>
+  <tabstop>lineEdit_8</tabstop>
+  <tabstop>lineEdit_9</tabstop>
+  <tabstop>lineEdit_19</tabstop>
+  <tabstop>lineEdit_20</tabstop>
+  <tabstop>lineEdit_21</tabstop>
+  <tabstop>lineEdit_22</tabstop>
+  <tabstop>lineEdit_23</tabstop>
+  <tabstop>lineEdit_24</tabstop>
+  <tabstop>lineEdit_25</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
