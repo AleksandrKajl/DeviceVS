@@ -35,8 +35,6 @@ GroupTwo::GroupTwo(QWidget* parent)
 	//======================================================================================
 
 	initReg();
-	
-
 }
 //------------------Абонент 1----------------------
 void GroupTwo::slotEditReg0()
@@ -51,18 +49,18 @@ void GroupTwo::slotEditReg1()
 
 void GroupTwo::slotEditReg2()
 {
-	std::bitset<2> b(reg[2]);
-	b[0] = ui.lineEdit_3->text().toInt();
-	reg[2] = b.to_ulong();
+	std::bitset<2> rg10(reg[2]);
+	rg10[0] = ui.lineEdit_3->text().toInt();
+	reg[2] = rg10.to_ulong();
 
 	updateInfo();
 }
 
 void GroupTwo::slotEditReg3()
 {
-	std::bitset<2> b(reg[2]);
-	b[1] = ui.lineEdit_4->text().toInt();
-	reg[2] = b.to_ulong();
+	std::bitset<2> rg10(reg[2]);
+	rg10[1] = ui.lineEdit_4->text().toInt();
+	reg[2] = rg10.to_ulong();
 
 	updateInfo();
 }
@@ -80,18 +78,18 @@ void GroupTwo::slotEditReg5()
 
 void GroupTwo::slotEditReg6()
 {
-	std::bitset<2> b(reg[5]);
-	b[0] = ui.lineEdit_7->text().toInt();
-	reg[5] = b.to_ulong();
+	std::bitset<2> rg13(reg[5]);
+	rg13[0] = ui.lineEdit_7->text().toInt();
+	reg[5] = rg13.to_ulong();
 
 	updateInfo();
 }
 
 void GroupTwo::slotEditReg7()
 {
-	std::bitset<2> b(reg[5]);
-	b[1] = ui.lineEdit_8->text().toInt();
-	reg[5] = b.to_ulong();
+	std::bitset<2> rg13(reg[5]);
+	rg13[1] = ui.lineEdit_8->text().toInt();
+	reg[5] = rg13.to_ulong();
 
 	updateInfo();
 }
@@ -110,18 +108,18 @@ void GroupTwo::slotEditReg9()
 
 void GroupTwo::slotEditReg10()
 {
-	std::bitset<2> b(reg[8]);
-	b[0] = ui.lineEdit_20->text().toInt();
-	reg[8] = b.to_ulong();
+	std::bitset<2> rg16(reg[8]);
+	rg16[0] = ui.lineEdit_20->text().toInt();
+	reg[8] = rg16.to_ulong();
 
 	updateInfo();
 }
 
 void GroupTwo::slotEditReg11()
 {
-	std::bitset<2> b(reg[8]);
-	b[1] = ui.lineEdit_21->text().toInt();
-	reg[8] = b.to_ulong();
+	std::bitset<2> rg16(reg[8]);
+	rg16[1] = ui.lineEdit_21->text().toInt();
+	reg[8] = rg16.to_ulong();
 
 	updateInfo();
 }
@@ -140,25 +138,22 @@ void GroupTwo::slotEditReg13()
 
 void GroupTwo::slotEditReg14()
 {
-	std::bitset<2> b(reg[11]);
-	b[0] = ui.lineEdit_24->text().toInt();
-	reg[11] = b.to_ulong();
+	std::bitset<2> rg19(reg[11]);
+	rg19[0] = ui.lineEdit_24->text().toInt();
+	reg[11] = rg19.to_ulong();
 
 	updateInfo();
 }
 
 void GroupTwo::slotEditReg15()
 {
-	std::bitset<2> b(reg[11]);
-	b[1] = ui.lineEdit_25->text().toInt();
-	reg[11] = b.to_ulong();
+	std::bitset<2> rg19(reg[11]);
+	rg19[1] = ui.lineEdit_25->text().toInt();
+	reg[11] = rg19.to_ulong();
 
 	updateInfo();
 }
-
 //==================================================
-
-
 
 void GroupTwo::initReg()
 {

@@ -1,268 +1,301 @@
-//#include"GroupThree.h"
-//
-//#include<bitset>
-//
-//GroupTwo::GroupTwo(QWidget* parent)
-//	: QMainWindow(parent)
-//{
-//	ui.setupUi(this);
-//
-//	reg[0] = 77;
-//	reg[1] = 3;
-//	reg[2] = 3;	//reg3[D:0] Ë reg4[D1]
-//	//----------------¿·ÓÌÂÌÚ 1-------------------------------------------------------------
-//	connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0()));
-//	connect(ui.lineEdit_2, SIGNAL(editingFinished()), SLOT(slotEditReg1()));
-//	connect(ui.lineEdit_3, SIGNAL(editingFinished()), SLOT(slotEditReg2()));
-//	connect(ui.lineEdit_4, SIGNAL(editingFinished()), SLOT(slotEditReg3()));
-//	//======================================================================================
-//	//----------------¿·ÓÌÂÌÚ 2-------------------------------------------------------------
-//	connect(ui.lineEdit_5, SIGNAL(editingFinished()), SLOT(slotEditReg4()));
-//	connect(ui.lineEdit_6, SIGNAL(editingFinished()), SLOT(slotEditReg5()));
-//	connect(ui.lineEdit_7, SIGNAL(editingFinished()), SLOT(slotEditReg6()));
-//	connect(ui.lineEdit_8, SIGNAL(editingFinished()), SLOT(slotEditReg7()));
-//	//======================================================================================
-//	//----------------¿·ÓÌÂÌÚ 3-------------------------------------------------------------
-//	connect(ui.lineEdit_9, SIGNAL(editingFinished()), SLOT(slotEditReg8()));
-//	connect(ui.lineEdit_19, SIGNAL(editingFinished()), SLOT(slotEditReg9()));
-//	connect(ui.lineEdit_20, SIGNAL(editingFinished()), SLOT(slotEditReg10()));
-//	connect(ui.lineEdit_21, SIGNAL(editingFinished()), SLOT(slotEditReg11()));
-//	//======================================================================================
-//	//----------------¿·ÓÌÂÌÚ 4-------------------------------------------------------------
-//	connect(ui.lineEdit_22, SIGNAL(editingFinished()), SLOT(slotEditReg12()));
-//	connect(ui.lineEdit_23, SIGNAL(editingFinished()), SLOT(slotEditReg13()));
-//	connect(ui.lineEdit_24, SIGNAL(editingFinished()), SLOT(slotEditReg14()));
-//	connect(ui.lineEdit_25, SIGNAL(editingFinished()), SLOT(slotEditReg15()));
-//	//======================================================================================
-//
-//	initReg();
-//
-//
-//}
-////------------------¿·ÓÌÂÌÚ 1----------------------
-//void GroupTwo::slotEditReg0()
-//{
-//	reg[0] = ui.lineEdit->text().toInt();
-//}
-//
-//void GroupTwo::slotEditReg1()
-//{
-//	reg[1] = ui.lineEdit_2->text().toInt();
-//}
-//
-//void GroupTwo::slotEditReg2()
-//{
-//	std::bitset<2> b(reg[2]);
-//	b[0] = ui.lineEdit_3->text().toInt();
-//	reg[2] = b.to_ulong();
-//
-//	updateInfo();
-//}
-//
-//void GroupTwo::slotEditReg3()
-//{
-//	std::bitset<2> b(reg[2]);
-//	b[1] = ui.lineEdit_4->text().toInt();
-//	reg[2] = b.to_ulong();
-//
-//	updateInfo();
-//}
-////==================================================
-////----------------¿·ÓÌÂÌÚ 2-------------------------
-//void GroupTwo::slotEditReg4()
-//{
-//	reg[3] = ui.lineEdit_5->text().toInt();
-//}
-//
-//void GroupTwo::slotEditReg5()
-//{
-//	reg[4] = ui.lineEdit_6->text().toInt();
-//}
-//
-//void GroupTwo::slotEditReg6()
-//{
-//	std::bitset<2> b(reg[5]);
-//	b[0] = ui.lineEdit_7->text().toInt();
-//	reg[5] = b.to_ulong();
-//
-//	updateInfo();
-//}
-//
-//void GroupTwo::slotEditReg7()
-//{
-//	std::bitset<2> b(reg[5]);
-//	b[1] = ui.lineEdit_8->text().toInt();
-//	reg[5] = b.to_ulong();
-//
-//	updateInfo();
-//}
-//
-////==================================================
-////----------------¿·ÓÌÂÌÚ 3-------------------------
-//void GroupTwo::slotEditReg8()
-//{
-//	reg[6] = ui.lineEdit_9->text().toInt();
-//}
-//
-//void GroupTwo::slotEditReg9()
-//{
-//	reg[7] = ui.lineEdit_19->text().toInt();
-//}
-//
-//void GroupTwo::slotEditReg10()
-//{
-//	std::bitset<2> b(reg[8]);
-//	b[0] = ui.lineEdit_20->text().toInt();
-//	reg[8] = b.to_ulong();
-//
-//	updateInfo();
-//}
-//
-//void GroupTwo::slotEditReg11()
-//{
-//	std::bitset<2> b(reg[8]);
-//	b[1] = ui.lineEdit_21->text().toInt();
-//	reg[8] = b.to_ulong();
-//
-//	updateInfo();
-//}
-//
-////==================================================
-////----------------¿·ÓÌÂÌÚ 4-------------------------
-//void GroupTwo::slotEditReg12()
-//{
-//	reg[9] = ui.lineEdit_22->text().toInt();
-//}
-//
-//void GroupTwo::slotEditReg13()
-//{
-//	reg[10] = ui.lineEdit_23->text().toInt();
-//}
-//
-//void GroupTwo::slotEditReg14()
-//{
-//	std::bitset<2> b(reg[11]);
-//	b[0] = ui.lineEdit_24->text().toInt();
-//	reg[11] = b.to_ulong();
-//
-//	updateInfo();
-//}
-//
-//void GroupTwo::slotEditReg15()
-//{
-//	std::bitset<2> b(reg[11]);
-//	b[1] = ui.lineEdit_25->text().toInt();
-//	reg[11] = b.to_ulong();
-//
-//	updateInfo();
-//}
-//
-////==================================================
-//
-//
-//
-//void GroupTwo::initReg()
-//{
-//	//--------------------¿·ÓÌÂÌÚ 1-----------------------------------------------
-//	ui.lineEdit->setText(QString::number(reg[0]));
-//	ui.lineEdit->setInputMask("000");
-//	ui.lineEdit_2->setText(QString::number(reg[1]));
-//	ui.lineEdit_2->setInputMask("00");
-//	QString str = QString::fromStdString(std::bitset<2>(reg[2]).to_string());
-//	ui.lineEdit_3->setText(str[1]);
-//	ui.lineEdit_3->setInputMask("B");
-//	ui.lineEdit_4->setText(str[0]);
-//	ui.lineEdit_4->setInputMask("B");
-//	//=============================================================================
-//	//---------------------¿·ÓÌÂÌÚ 2-----------------------------------------------
-//	ui.lineEdit_5->setText(QString::number(reg[3]));
-//	ui.lineEdit_5->setInputMask("000");
-//	ui.lineEdit_6->setText(QString::number(reg[4]));
-//	ui.lineEdit_6->setInputMask("00");
-//	str = QString::fromStdString(std::bitset<2>(reg[5]).to_string());
-//	ui.lineEdit_7->setText(str[1]);
-//	ui.lineEdit_7->setInputMask("B");
-//	ui.lineEdit_8->setText(str[0]);
-//	ui.lineEdit_8->setInputMask("B");
-//
-//	//=============================================================================
-//	//---------------------¿·ÓÌÂÌÚ 3-----------------------------------------------
-//	ui.lineEdit_9->setText(QString::number(reg[6]));
-//	ui.lineEdit_9->setInputMask("000");
-//	ui.lineEdit_19->setText(QString::number(reg[7]));
-//	ui.lineEdit_19->setInputMask("00");
-//	str = QString::fromStdString(std::bitset<2>(reg[8]).to_string());
-//	ui.lineEdit_20->setText(str[1]);
-//	ui.lineEdit_20->setInputMask("B");
-//	ui.lineEdit_21->setText(str[0]);
-//	ui.lineEdit_21->setInputMask("B");
-//
-//	//=============================================================================
-//	//---------------------¿·ÓÌÂÌÚ 4-----------------------------------------------
-//	ui.lineEdit_22->setText(QString::number(reg[9]));
-//	ui.lineEdit_22->setInputMask("000");
-//	ui.lineEdit_23->setText(QString::number(reg[10]));
-//	ui.lineEdit_23->setInputMask("00");
-//	str = QString::fromStdString(std::bitset<2>(reg[11]).to_string());
-//	ui.lineEdit_24->setText(str[1]);
-//	ui.lineEdit_24->setInputMask("B");
-//	ui.lineEdit_25->setText(str[0]);
-//	ui.lineEdit_25->setInputMask("B");
-//
-//	//=============================================================================
-//
-//
-//	updateInfo();
-//}
-//
-//void GroupTwo::updateInfo()
-//{
-//	//------------------¿·ÓÌÂÌÚ 1--------------------------------------------------
-//	if (reg[2] & 1)
-//		ui.label_7->setText("¿‚ÚÓ‚˚ÁÓ‚, ƒ‡");
-//	else
-//		ui.label_7->setText("¿‚ÚÓ‚˚ÁÓ‚, ÕÂÚ");
-//
-//	if (reg[2] & 2)
-//		ui.label_9->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ƒ‡");
-//	else
-//		ui.label_9->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ÕÂÚ");
-//	//=============================================================================	
-//	//------------------¿·ÓÌÂÌÚ 2--------------------------------------------------
-//	if (reg[5] & 1)
-//		ui.label_18->setText("¿‚ÚÓ‚˚ÁÓ‚, ƒ‡");
-//	else
-//		ui.label_18->setText("¿‚ÚÓ‚˚ÁÓ‚, ÕÂÚ");
-//
-//	if (reg[5] & 2)
-//		ui.label_19->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ƒ‡");
-//	else
-//		ui.label_19->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ÕÂÚ");
-//	//=============================================================================
-//
-//	//------------------¿·ÓÌÂÌÚ 3--------------------------------------------------
-//	if (reg[8] & 1)
-//		ui.label_50->setText("¿‚ÚÓ‚˚ÁÓ‚, ƒ‡");
-//	else
-//		ui.label_50->setText("¿‚ÚÓ‚˚ÁÓ‚, ÕÂÚ");
-//
-//	if (reg[8] & 2)
-//		ui.label_51->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ƒ‡");
-//	else
-//		ui.label_51->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ÕÂÚ");
-//	//=============================================================================
-//
-//	//------------------¿·ÓÌÂÌÚ 4--------------------------------------------------
-//	if (reg[11] & 1)
-//		ui.label_94->setText("¿‚ÚÓ‚˚ÁÓ‚, ƒ‡");
-//	else
-//		ui.label_94->setText("¿‚ÚÓ‚˚ÁÓ‚, ÕÂÚ");
-//
-//	if (reg[11] & 2)
-//		ui.label_95->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ƒ‡");
-//	else
-//		ui.label_95->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ÕÂÚ");
-//	//=============================================================================
-//
-//
-//}
+#include"GroupThree.h"
+#include<bitset>
+#include<QMessageBox>
+
+GroupThree::GroupThree(QWidget* parent)
+	: QMainWindow(parent)
+{
+	ui.setupUi(this);
+
+	connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditLine()));
+	connect(ui.lineEdit_2, SIGNAL(editingFinished()), SLOT(slotEditLine_2()));
+	connect(ui.lineEdit_3, SIGNAL(editingFinished()), SLOT(slotEditLine_3()));
+	connect(ui.lineEdit_4, SIGNAL(editingFinished()), SLOT(slotEditLine_4()));
+	connect(ui.lineEdit_5, SIGNAL(editingFinished()), SLOT(slotEditLine_5()));
+	connect(ui.lineEdit_6, SIGNAL(editingFinished()), SLOT(slotEditLine_6()));
+	connect(ui.lineEdit_7, SIGNAL(editingFinished()), SLOT(slotEditLine_7()));
+	connect(ui.lineEdit_8, SIGNAL(editingFinished()), SLOT(slotEditLine_8()));
+	connect(ui.lineEdit_9, SIGNAL(editingFinished()), SLOT(slotEditLine_9()));
+
+	reg[0] = 0b001001;
+	reg[1] = 144;
+	reg[2] = 0b0011;
+	initReg();
+}
+
+void GroupThree::slotEditLine()
+{
+	std::bitset<6> rg32(reg[0]);
+	rg32[0] = ui.lineEdit->text().toInt();
+	reg[0] = rg32.to_ulong();
+
+	updateInfo();
+}
+
+void GroupThree::slotEditLine_2()
+{
+	std::bitset<6> rg32(reg[0]);
+	bool res;
+	char twoBit = ui.lineEdit_2->text().toInt(&res,2);
+	if (!res)
+		QMessageBox::warning(this, "Warning lineEdit_2", "–ù–µ –≤–æ–∑–º–æ–∂–Ω–æ –ø–µ—Ä–µ–≤–µ—Å—Ç–∏ —Å—Ç—Ä–æ–∫—É –≤ —á–∏—Å–ª–æ");
+
+	switch (twoBit)
+	{
+	case(0):
+		rg32[1] = 0;
+		rg32[2] = 0;
+		break;
+	case(1):
+		rg32[1] = 1;
+		rg32[2] = 0;
+		break;
+	case(2):
+		rg32[1] = 0;
+		rg32[2] = 1;
+		break;
+	case(3):
+		rg32[1] = 1;
+		rg32[2] = 1;
+	}
+	
+	reg[0] = rg32.to_ulong();
+	updateInfo();
+}
+
+void GroupThree::slotEditLine_3()
+{
+	std::bitset<6> rg32(reg[0]);
+	bool res;
+	char twoBit = ui.lineEdit_3->text().toInt(&res, 2);
+	if (!res)
+		QMessageBox::warning(this, "Warning lineEdit_2", "–ù–µ –≤–æ–∑–º–æ–∂–Ω–æ –ø–µ—Ä–µ–≤–µ—Å—Ç–∏ —Å—Ç—Ä–æ–∫—É –≤ —á–∏—Å–ª–æ");
+
+	switch (twoBit)
+	{
+	case(0):
+		rg32[3] = 0;
+		rg32[4] = 0;
+		break;
+	case(1):
+		rg32[3] = 1;
+		rg32[4] = 0;
+		break;
+	case(2):
+		rg32[3] = 0;
+		rg32[4] = 1;
+		break;
+	case(3):
+		rg32[3] = 1;
+		rg32[4] = 1;
+	}
+
+	reg[0] = rg32.to_ulong();
+
+	updateInfo();
+}
+void GroupThree::slotEditLine_4()
+{
+	std::bitset<6> rg32(reg[0]);
+	rg32[5] = ui.lineEdit_4->text().toInt();
+	reg[0] = rg32.to_ulong();
+
+	updateInfo();
+}
+void GroupThree::slotEditLine_5()
+{
+	char rg33 = ui.lineEdit_5->text().toInt();
+	if (rg33 > 255)
+		reg[1] = 255;
+	else
+		reg[1] = rg33;
+
+	updateInfo();
+}
+void GroupThree::slotEditLine_6()
+{
+	std::bitset<4> rg34(reg[2]);
+	rg34[0] = ui.lineEdit_6->text().toInt();
+	reg[2] = rg34.to_ulong();
+
+	updateInfo();
+}
+void GroupThree::slotEditLine_7()
+{
+	std::bitset<4> rg34(reg[2]);
+	rg34[1] = ui.lineEdit_7->text().toInt();
+	reg[2] = rg34.to_ulong();
+
+	updateInfo();
+}
+void GroupThree::slotEditLine_8()
+{
+	std::bitset<4> rg34(reg[2]);
+	rg34[2] = ui.lineEdit_8->text().toInt();
+	reg[2] = rg34.to_ulong();
+
+	updateInfo();
+}
+void GroupThree::slotEditLine_9()
+{
+	std::bitset<4> rg34(reg[2]);
+	rg34[3] = ui.lineEdit_9->text().toInt();
+	reg[2] = rg34.to_ulong();
+
+	updateInfo();
+}
+
+void GroupThree::initReg()
+{
+	std::bitset<6> rg32(reg[0]);
+	QString str = QString::fromStdString(rg32.to_string());
+	ui.lineEdit->setText(str[5]);
+	ui.lineEdit->setInputMask("B");
+	ui.lineEdit_2->setText("11");
+	ui.lineEdit_2->setText(str.sliced(3,2));
+	ui.lineEdit_2->setInputMask("BB");
+	ui.lineEdit_3->setText(str.sliced(1, 2));
+	ui.lineEdit_3->setInputMask("BB");
+	ui.lineEdit_4->setText(str[0]);
+	ui.lineEdit_4->setInputMask("B");
+	ui.lineEdit_5->setText(QString::number(reg[1]));
+	ui.lineEdit_5->setInputMask("009");
+	std::bitset<4> rg34(reg[2]);
+	str = QString::fromStdString(rg34.to_string());
+	ui.lineEdit_6->setText(str[3]);
+	ui.lineEdit_6->setInputMask("B");
+	ui.lineEdit_7->setText(str[2]);
+	ui.lineEdit_7->setInputMask("B");
+	ui.lineEdit_8->setText(str[1]);
+	ui.lineEdit_8->setInputMask("B");
+	ui.lineEdit_9->setText(str[0]);
+	ui.lineEdit_9->setInputMask("B");
+
+	updateInfo();
+}
+
+void GroupThree::updateInfo()
+{
+	//–†–ì32[D0]
+	if (reg[0] & 1)
+	{
+		ui.label_3->setText("–ú–æ–¥–µ–º –∏—Å–ø—Ä–∞–≤–µ–Ω");
+		ui.label_3->setStyleSheet("QLabel { background-color : green; color : black; }");
+	}
+	else
+	{
+		ui.label_3->setText("–ú–æ–¥–µ–º –Ω–µ –∏—Å–ø—Ä–∞–≤–µ–Ω");
+		ui.label_3->setStyleSheet("QLabel { background-color : red; color : black; }");
+	}
+		
+	//–†–ì32[D2:D1]
+	char twoBit = (reg[0] >> 1) & 3;
+
+	switch (twoBit)
+	{
+	case(0):
+		ui.label_5->setText("–°–∏–≥–Ω–∞–ª: –ù–æ—Ä–º–∞");
+		ui.label_5->setStyleSheet("QLabel { background-color : green; color : black; }");
+		break;
+	case(1):
+		ui.label_5->setText("–°–∏–≥–Ω–∞–ª: –ü—Ä–µ–¥—É–ø—Ä–µ–∂–¥–µ–Ω–∏–µ");
+		ui.label_5->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+		break;
+	case(2):
+		ui.label_5->setText("–°–∏–≥–Ω–∞–ª: –û—à–∏–±–∫–∞");
+		ui.label_5->setStyleSheet("QLabel { background-color : red; color : black; }");
+	}
+
+	//–†–ì32[D4:D3]
+	twoBit = (reg[0] >> 3) & 3;
+
+	switch (twoBit)
+	{
+	case(0):
+		ui.label_8->setText("–°–≤—è–∑—å: –ù–æ—Ä–º–∞");
+		ui.label_8->setStyleSheet("QLabel { background-color : green; color : black; }");
+		break;
+	case(1):
+		ui.label_8->setText("–°–≤—è–∑—å: –ü—Ä–µ–¥—É–ø—Ä–µ–∂–¥–µ–Ω–∏–µ");
+		ui.label_8->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+		break;
+	case(2):
+		ui.label_8->setText("–°–≤—è–∑—å: –û—à–∏–±–∫–∞");
+		ui.label_8->setStyleSheet("QLabel { background-color : red; color : black; }");
+	}
+
+	//–†–ì32[D5]
+	if (reg[0] >> 5)
+	{
+		ui.label_10->setText("–ù–∞–ª–∏—á–∏–µ –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏–∏: –ï—Å—Ç—å");
+		ui.label_10->setStyleSheet("QLabel { background-color : green; color : black; }");
+	}
+	else
+	{
+		ui.label_10->setText("–ù–∞–ª–∏—á–∏–µ –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏–∏: –ù–µ—Ç");
+		ui.label_10->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+	}
+		
+	//–†–ì33
+	if (reg[1] >= 170)
+		ui.label_12->setStyleSheet("QLabel { background-color : green; color : black; }");
+	else if(reg[1] >= 85)
+		ui.label_12->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+	else
+		ui.label_12->setStyleSheet("QLabel { background-color : red; color : black; }");
+
+	std::bitset<4> rg34(reg[2]);
+	//–†–ì34[D0]
+	if (rg34[0])
+	{
+		ui.label_14->setText("–°–≤—è–∑—å —Å –∞–±–æ–Ω–µ–Ω—Ç–æ–º ‚Ññ1: –ï—Å—Ç—å");
+		ui.label_14->setStyleSheet("QLabel { background-color : green; color : black; }");
+	}
+	else
+	{
+		ui.label_14->setText("–°–≤—è–∑—å —Å –∞–±–æ–Ω–µ–Ω—Ç–æ–º ‚Ññ1: –ù–µ—Ç");
+		ui.label_14->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+	}
+		
+	
+	//–†–ì34[D1]
+	if (rg34[1])
+	{
+		ui.label_16->setText("–°–≤—è–∑—å —Å –∞–±–æ–Ω–µ–Ω—Ç–æ–º ‚Ññ2: –ï—Å—Ç—å");
+		ui.label_16->setStyleSheet("QLabel { background-color : green; color : black; }");
+	}
+	else
+	{
+		ui.label_16->setText("–°–≤—è–∑—å —Å –∞–±–æ–Ω–µ–Ω—Ç–æ–º ‚Ññ2: –ù–µ—Ç");
+		ui.label_16->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+	}
+		
+
+	//–†–ì34[D2]
+	if (rg34[2])
+	{
+		ui.label_18->setText("–°–≤—è–∑—å —Å –∞–±–æ–Ω–µ–Ω—Ç–æ–º ‚Ññ3: –ï—Å—Ç—å");
+		ui.label_18->setStyleSheet("QLabel { background-color : green; color : black; }");
+	}	
+	else
+	{
+		ui.label_18->setText("–°–≤—è–∑—å —Å –∞–±–æ–Ω–µ–Ω—Ç–æ–º ‚Ññ3: –ù–µ—Ç");
+		ui.label_18->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+	}
+		
+
+	//–†–ì34[D3]
+	if (rg34[3])
+	{
+		ui.label_20->setText("–°–≤—è–∑—å —Å –∞–±–æ–Ω–µ–Ω—Ç–æ–º ‚Ññ4: –ï—Å—Ç—å");
+		ui.label_20->setStyleSheet("QLabel { background-color : green; color : black; }");
+	}
+	else
+	{
+		ui.label_20->setText("–°–≤—è–∑—å —Å –∞–±–æ–Ω–µ–Ω—Ç–æ–º ‚Ññ4: –ù–µ—Ç");
+		ui.label_20->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+	}
+		
+
+
+}

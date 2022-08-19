@@ -6,6 +6,7 @@
 #include<QUdpSocket>
 #include "ui_DeviceVS.h"
 #include"GroupTwo.h"
+#include"GroupThree.h"
 
 class DeviceVS : public QMainWindow
 {
@@ -17,8 +18,9 @@ public:
 private:
     Ui::DeviceVSClass ui;
     GroupTwo* grTw;
+    GroupThree* grTh;
     //Массив байт для хранения значений регистров
-    std::array<char, 8> reg1{0};
+    std::array<unsigned char, 40> reg{0};
 
     QUdpSocket* udpSock;
 

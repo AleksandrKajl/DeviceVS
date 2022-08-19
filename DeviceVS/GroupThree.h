@@ -8,17 +8,23 @@ public:
 	GroupThree(QWidget* parent = nullptr);
 
 private:
-	Ui::MainWindow ui;
+	Ui::GroupTree ui;
 
-	std::array<char, 12> reg{ 0 };
+	std::array<unsigned char, 8> reg{ 0 };
 
 private slots:
-	void slotEditReg0();
+	void slotEditLine();
+	void slotEditLine_2();
+	void slotEditLine_3();
+	void slotEditLine_4();
+	void slotEditLine_5();
+	void slotEditLine_6();
+	void slotEditLine_7();
+	void slotEditLine_8();
+	void slotEditLine_9();
 
 private:
 	void initReg();
-
 	void updateInfo();
-
 
 };
