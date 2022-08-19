@@ -5,8 +5,8 @@
 #include<QListView>
 #include<QUdpSocket>
 #include "ui_DeviceVS.h"
-#include"GroupTwo.h"
-#include"GroupThree.h"
+
+class TwoGroup;
 
 class DeviceVS : public QMainWindow
 {
@@ -14,15 +14,16 @@ class DeviceVS : public QMainWindow
 public:
     DeviceVS(QWidget *parent = nullptr);
     ~DeviceVS();
+    DeviceVS* getPtr();
+
+    Ui::DeviceVSClass ui;
 
 private:
-    Ui::DeviceVSClass ui;
-    GroupTwo* grTw;
-    GroupThree* grTh;
     //Массив байт для хранения значений регистров
-    std::array<unsigned char, 40> reg{0};
+    std::array<unsigned char, 40> m_reg{0};
+    TwoGroup* m_twoGroup;
 
-    QUdpSocket* udpSock;
+    QUdpSocket* m_udpSock;
 
 private slots:
     void slotRecievRequest();
@@ -37,22 +38,22 @@ private slots:
     void slotEditReg7_4();
 
     //Группа регистров 2
-    void slotEditReg8();
-    void slotEditReg9();
-    void slotEditReg10_0();
-    void slotEditReg10_1();
-    void slotEditReg11();
-    void slotEditReg12();
-    void slotEditReg13_0();
-    void slotEditReg13_1();
-    void slotEditReg14();
-    void slotEditReg15();
-    void slotEditReg16_0();
-    void slotEditReg16_1();
-    void slotEditReg17();
-    void slotEditReg18();
-    void slotEditReg19_0();
-    void slotEditReg19_1();
+    //void slotEditReg8();
+    //void slotEditReg9();
+    //void slotEditReg10_0();
+    //void slotEditReg10_1();
+    //void slotEditReg11();
+    //void slotEditReg12();
+    //void slotEditReg13_0();
+    //void slotEditReg13_1();
+    //void slotEditReg14();
+    //void slotEditReg15();
+    //void slotEditReg16_0();
+    //void slotEditReg16_1();
+    //void slotEditReg17();
+    //void slotEditReg18();
+    //void slotEditReg19_0();
+    //void slotEditReg19_1();
 
     //Группа регистров 3
     void slotEditReg32_0();

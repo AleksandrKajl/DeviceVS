@@ -40,27 +40,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GroupTwo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GroupThree.cpp">
+    <ClCompile Include="TwoGroup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="GroupTwo.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="GroupThree.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="GroupTwo.h">
+    <ClInclude Include="TwoGroup.h">
       <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="GroupThree.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
+    </ClInclude>
   </ItemGroup>
 </Project>

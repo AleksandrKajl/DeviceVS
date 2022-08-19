@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>811</width>
+    <width>1011</width>
     <height>693</height>
    </rect>
   </property>
@@ -136,7 +136,7 @@
       <item row="19" column="6">
        <widget class="QLabel" name="label_38">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Номер канала</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -155,7 +155,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ17</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -211,7 +211,7 @@
       <item row="26" column="6">
        <widget class="QLabel" name="label_47">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Номер канала</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -221,7 +221,7 @@
       <item row="27" column="6">
        <widget class="QLabel" name="label_49">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Автовызов нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -257,7 +257,7 @@
       <item row="14" column="6">
        <widget class="QLabel" name="label_33">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Поддержание связи нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -289,7 +289,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ34[D1]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -312,7 +312,7 @@
       <item row="11" column="6">
        <widget class="QLabel" name="label_27">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Идинтификатор абонента</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -331,7 +331,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ19[D1]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -350,7 +350,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ32[D2:D1]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -379,7 +379,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ32[D4:D3]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -418,7 +418,7 @@
       <item row="20" column="6">
        <widget class="QLabel" name="label_40">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Автовызов нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -454,7 +454,7 @@
       <item row="17" column="2">
        <widget class="QLabel" name="label_57">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Сигнал: Норма</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -497,7 +497,7 @@
       <item row="21" column="6">
        <widget class="QLabel" name="label_42">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Поддержание связи нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -545,7 +545,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ16[D0]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -564,7 +564,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ18</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -744,7 +744,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ14</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -796,7 +796,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ15</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -806,7 +806,7 @@
       <item row="25" column="6">
        <widget class="QLabel" name="label_45">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Идинтификатор абонента</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -825,7 +825,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ13[D0]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -835,7 +835,7 @@
       <item row="18" column="2">
        <widget class="QLabel" name="label_59">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Связь: Норма</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -887,7 +887,7 @@
       <item row="13" column="6">
        <widget class="QLabel" name="label_31">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Автовызов нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -972,7 +972,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ32[D0]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -982,7 +982,7 @@
       <item row="14" column="2">
        <widget class="QLabel" name="label_55">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Модем исправен</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1060,7 +1060,7 @@
       <item row="18" column="6">
        <widget class="QLabel" name="label_36">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Идинтификатор абонента</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1079,7 +1079,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ32[D5]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1125,7 +1125,7 @@
       <item row="19" column="2">
        <widget class="QLabel" name="label_61">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Наличие информации: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1144,7 +1144,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ34[D0]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1179,7 +1179,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ12</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1221,7 +1221,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ19[D0]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1247,7 +1247,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ13[D1]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1267,7 +1267,7 @@
       <item row="12" column="6">
        <widget class="QLabel" name="label_29">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Номер канала</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1286,7 +1286,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ33</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1296,7 +1296,7 @@
       <item row="20" column="2">
        <widget class="QLabel" name="label_62">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Уровень сигнала</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1306,7 +1306,7 @@
       <item row="28" column="6">
        <widget class="QLabel" name="label_51">
         <property name="text">
-         <string>Режим: Не задан</string>
+         <string>Поддержание связи нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1316,7 +1316,7 @@
       <item row="21" column="2">
        <widget class="QLabel" name="label_65">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Связь с абонентом №1: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1390,7 +1390,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ16[D2]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1422,7 +1422,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>РГ11</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1463,7 +1463,7 @@
       <item row="24" column="2">
        <widget class="QLabel" name="label_67">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Связь с абонентом №2: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1482,7 +1482,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ34[D2]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1501,7 +1501,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D4]</string>
+         <string>РГ34[D3]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1537,7 +1537,7 @@
       <item row="25" column="2">
        <widget class="QLabel" name="label_71">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Связь с абонентом №3: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1547,7 +1547,7 @@
       <item row="26" column="2">
        <widget class="QLabel" name="label_72">
         <property name="text">
-         <string>Сжатие данных: Нет</string>
+         <string>Связь с абонентом №4: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1578,7 +1578,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>811</width>
+     <width>1011</width>
      <height>22</height>
     </rect>
    </property>
