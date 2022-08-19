@@ -34,6 +34,7 @@ DeviceVS::DeviceVS(QWidget* parent)
     connect(ui.lineEdit_13, SIGNAL(editingFinished()), SLOT(slotEditReg13_0()));
     connect(ui.lineEdit_14, SIGNAL(editingFinished()), SLOT(slotEditReg13_1()));
     //======================================================================================
+    // 
     //----------------Абонент 3-------------------------------------------------------------
     connect(ui.lineEdit_15, SIGNAL(editingFinished()), SLOT(slotEditReg14()));
     connect(ui.lineEdit_16, SIGNAL(editingFinished()), SLOT(slotEditReg15()));
