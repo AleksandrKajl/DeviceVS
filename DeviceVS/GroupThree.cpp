@@ -296,6 +296,4 @@ void GroupThree::updateInfo()
 		ui.label_20->setStyleSheet("QLabel { background-color : yellow; color : black; }");
 	}
 		
-
-
 }

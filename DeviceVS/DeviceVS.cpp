@@ -1,5 +1,6 @@
 #include "DeviceVS.h"
 #include<bitset>
+#include<QMessageBox>
 
 DeviceVS::DeviceVS(QWidget* parent)
     : QMainWindow(parent)
@@ -17,12 +18,49 @@ DeviceVS::DeviceVS(QWidget* parent)
     udpSock->bind(5555);
 
     connect(udpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
+    //ГРУППА РЕГИСТРОВ ОДИН
     connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0L()));
     connect(ui.lineEdit_2, SIGNAL(editingFinished()), SLOT(slotEditReg0H()));
     connect(ui.lineEdit_3, SIGNAL(editingFinished()), SLOT(slotEditReg1()));
-    connect(ui.lineEdit_4, SIGNAL(editingFinished()), SLOT(slotEditReg5()));
+    connect(ui.lineEdit_4, SIGNAL(editingFinished()), SLOT(slotEditReg5Reg6()));
     connect(ui.lineEdit_5, SIGNAL(editingFinished()), SLOT(slotEditReg7_0()));
     connect(ui.lineEdit_6, SIGNAL(editingFinished()), SLOT(slotEditReg7_4()));
+    //ГРУППА РЕГИСТРОВ ДВА
+    //----------------Абонент 1-------------------------------------------------------------
+    connect(ui.lineEdit_7, SIGNAL(editingFinished()), SLOT(slotEditReg8()));
+    connect(ui.lineEdit_8, SIGNAL(editingFinished()), SLOT(slotEditReg9()));
+    connect(ui.lineEdit_9, SIGNAL(editingFinished()), SLOT(slotEditReg10_0()));
+    connect(ui.lineEdit_10, SIGNAL(editingFinished()), SLOT(slotEditReg10_1()));
+    //======================================================================================
+    //----------------Абонент 2-------------------------------------------------------------
+    connect(ui.lineEdit_11, SIGNAL(editingFinished()), SLOT(slotEditReg11()));
+    connect(ui.lineEdit_12, SIGNAL(editingFinished()), SLOT(slotEditReg12()));
+    connect(ui.lineEdit_13, SIGNAL(editingFinished()), SLOT(slotEditReg13_0()));
+    connect(ui.lineEdit_14, SIGNAL(editingFinished()), SLOT(slotEditReg13_1()));
+    //======================================================================================
+    //----------------Абонент 3-------------------------------------------------------------
+    connect(ui.lineEdit_15, SIGNAL(editingFinished()), SLOT(slotEditReg14()));
+    connect(ui.lineEdit_16, SIGNAL(editingFinished()), SLOT(slotEditReg15()));
+    connect(ui.lineEdit_17, SIGNAL(editingFinished()), SLOT(slotEditReg16_0()));
+    connect(ui.lineEdit_18, SIGNAL(editingFinished()), SLOT(slotEditReg16_1()));
+    //======================================================================================
+    //----------------Абонент 4-------------------------------------------------------------
+    connect(ui.lineEdit_19, SIGNAL(editingFinished()), SLOT(slotEditReg17()));
+    connect(ui.lineEdit_20, SIGNAL(editingFinished()), SLOT(slotEditReg18()));
+    connect(ui.lineEdit_21, SIGNAL(editingFinished()), SLOT(slotEditReg19_0()));
+    connect(ui.lineEdit_22, SIGNAL(editingFinished()), SLOT(slotEditReg19_1()));
+    //======================================================================================
+    //ГРУППА РЕГИСТРОВ ТРИ
+    connect(ui.lineEdit_23, SIGNAL(editingFinished()), SLOT(slotEditReg32_0()));
+    connect(ui.lineEdit_24, SIGNAL(editingFinished()), SLOT(slotEditReg32_2_1()));
+    connect(ui.lineEdit_25, SIGNAL(editingFinished()), SLOT(slotEditReg32_4_3()));
+    connect(ui.lineEdit_26, SIGNAL(editingFinished()), SLOT(slotEditReg32_5()));
+    connect(ui.lineEdit_27, SIGNAL(editingFinished()), SLOT(slotEditReg33()));
+    connect(ui.lineEdit_28, SIGNAL(editingFinished()), SLOT(slotEditReg34_0()));
+    connect(ui.lineEdit_29, SIGNAL(editingFinished()), SLOT(slotEditReg34_1()));
+    connect(ui.lineEdit_30, SIGNAL(editingFinished()), SLOT(slotEditReg34_2()));
+    connect(ui.lineEdit_31, SIGNAL(editingFinished()), SLOT(slotEditReg34_3()));
+
 
     reg[0] = 33;
     reg[1] = 0x15;
@@ -50,6 +88,7 @@ void DeviceVS::slotRecievRequest()
     in >> a >> b;
 }
 
+//ГРУППА РЕГИСТРОВ 1
 void DeviceVS::slotEditReg0L()
 {
     reg[0] = (reg[0] & 0xF0) + binaryStringToInt(ui.lineEdit->text());
@@ -73,7 +112,7 @@ void DeviceVS::slotEditReg1()
     updateInfo();
 }
 
-void DeviceVS::slotEditReg5()
+void DeviceVS::slotEditReg5Reg6()
 {
     char16_t var = ui.lineEdit_4->text().toInt();
     reg[5] = var >> 8;
@@ -92,13 +131,397 @@ void DeviceVS::slotEditReg7_4()
     updateInfo();
 }
 
+
+//ГРУППА РЕГИСТРОВ ДВА
+//------------------Абонент 1--------------------------------
+void DeviceVS::slotEditReg8()
+{
+    char rg8 = ui.lineEdit_7->text().toInt();
+    if (rg8 > 100)
+        reg[8] = 100;
+    else
+        reg[8] = rg8;
+}
+
+void DeviceVS::slotEditReg9()
+{
+    char rg9 = ui.lineEdit_8->text().toInt();
+    if (rg9 > 10)
+        reg[9] = 10;
+    else
+        reg[9] = rg9;
+}
+
+void DeviceVS::slotEditReg10_0()
+{
+    std::bitset<2> rg10(reg[10]);
+    rg10[0] = ui.lineEdit_9->text().toInt();
+    reg[10] = rg10.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg10_1()
+{
+    std::bitset<2> rg10(reg[10]);
+    rg10[1] = ui.lineEdit_10->text().toInt();
+    reg[10] = rg10.to_ulong();
+
+    updateInfo();
+}
+
+//=======================================================================
+//----------------Абонент 2----------------------------------------------
+void DeviceVS::slotEditReg11()
+{
+    char rg11 = ui.lineEdit_11->text().toInt();
+    if (rg11 > 100)
+        reg[11] = 100;
+    else
+        reg[11] = rg11;
+}
+
+void DeviceVS::slotEditReg12()
+{
+    char rg12 = ui.lineEdit_12->text().toInt();
+    if (rg12 > 10)
+        reg[12] = 10;
+    else
+        reg[12] = rg12;
+}
+
+void DeviceVS::slotEditReg13_0()
+{
+    std::bitset<2> rg13(reg[13]);
+    rg13[0] = ui.lineEdit_13->text().toInt();
+    reg[13] = rg13.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg13_1()
+{
+    std::bitset<2> rg13(reg[13]);
+    rg13[1] = ui.lineEdit_14->text().toInt();
+    reg[13] = rg13.to_ulong();
+
+    updateInfo();
+}
+
+//==================================================
+//----------------Абонент 3-------------------------
+void DeviceVS::slotEditReg14()
+{
+    char rg14 = ui.lineEdit_15->text().toInt();
+    if (rg14 > 100)
+        reg[14] = 100;
+    else
+        reg[14] = rg14;
+}
+
+void DeviceVS::slotEditReg15()
+{
+    char rg15 = ui.lineEdit_16->text().toInt();
+    if (rg15 > 10)
+        reg[15] = 10;
+    else
+        reg[15] = rg15;
+}
+
+void DeviceVS::slotEditReg16_0()
+{
+    std::bitset<2> rg16(reg[16]);
+    rg16[0] = ui.lineEdit_17->text().toInt();
+    reg[16] = rg16.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg16_1()
+{
+    std::bitset<2> rg16(reg[16]);
+    rg16[1] = ui.lineEdit_18->text().toInt();
+    reg[16] = rg16.to_ulong();
+
+    updateInfo();
+}
+
+//==================================================
+//----------------Абонент 4-------------------------
+void DeviceVS::slotEditReg17()
+{
+    char rg17 = ui.lineEdit_19->text().toInt();
+    if (rg17 > 100)
+        reg[17] = 100;
+    else
+        reg[17] = rg17;
+}
+
+void DeviceVS::slotEditReg18()
+{
+    char rg18 = ui.lineEdit_20->text().toInt();
+    if (rg18 > 10)
+        reg[18] = 10;
+    else
+        reg[18] = rg18;
+}
+
+void DeviceVS::slotEditReg19_0()
+{
+    std::bitset<2> rg19(reg[19]);
+    rg19[0] = ui.lineEdit_21->text().toInt();
+    reg[19] = rg19.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg19_1()
+{
+    std::bitset<2> rg19(reg[19]);
+    rg19[1] = ui.lineEdit_22->text().toInt();
+    reg[19] = rg19.to_ulong();
+
+    updateInfo();
+}
+
+
+//ГРУППА РЕГИСТРОВ ТРИ
+void DeviceVS::slotEditReg32_0()
+{
+    std::bitset<6> rg32(reg[32]);
+    rg32[0] = ui.lineEdit_23->text().toInt();
+    reg[32] = rg32.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg32_2_1()
+{
+    std::bitset<6> rg32(reg[32]);
+    bool res;
+    char twoBit = ui.lineEdit_24->text().toInt(&res, 2);
+    if (!res)
+        QMessageBox::warning(this, "Warning lineEdit_2", "Не возможно перевести строку в число");
+
+    switch (twoBit)
+    {
+    case(0):
+        rg32[1] = 0;
+        rg32[2] = 0;
+        break;
+    case(1):
+        rg32[1] = 1;
+        rg32[2] = 0;
+        break;
+    case(2):
+        rg32[1] = 0;
+        rg32[2] = 1;
+        break;
+    case(3):
+        rg32[1] = 1;
+        rg32[2] = 1;
+    }
+
+    reg[32] = rg32.to_ulong();
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg32_4_3()
+{
+    std::bitset<6> rg32(reg[32]);
+    bool res;
+    char twoBit = ui.lineEdit_25->text().toInt(&res, 2);
+    if (!res)
+        QMessageBox::warning(this, "Warning lineEdit_2", "Не возможно перевести строку в число");
+
+    switch (twoBit)
+    {
+    case(0):
+        rg32[3] = 0;
+        rg32[4] = 0;
+        break;
+    case(1):
+        rg32[3] = 1;
+        rg32[4] = 0;
+        break;
+    case(2):
+        rg32[3] = 0;
+        rg32[4] = 1;
+        break;
+    case(3):
+        rg32[3] = 1;
+        rg32[4] = 1;
+    }
+
+    reg[32] = rg32.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg32_5()
+{
+    std::bitset<6> rg32(reg[32]);
+    rg32[5] = ui.lineEdit_26->text().toInt();
+    reg[32] = rg32.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg33()
+{
+    char rg33 = ui.lineEdit_27->text().toInt();
+    if (rg33 > 255)
+        reg[33] = 255;
+    else
+        reg[33] = rg33;
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg34_0()
+{
+    std::bitset<4> rg34(reg[34]);
+    rg34[0] = ui.lineEdit_28->text().toInt();
+    reg[34] = rg34.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg34_1()
+{
+    std::bitset<4> rg34(reg[34]);
+    rg34[1] = ui.lineEdit_29->text().toInt();
+    reg[34] = rg34.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg34_2()
+{
+    std::bitset<4> rg34(reg[34]);
+    rg34[2] = ui.lineEdit_30->text().toInt();
+    reg[34] = rg34.to_ulong();
+
+    updateInfo();
+}
+
+void DeviceVS::slotEditReg34_3()
+{
+    std::bitset<4> rg34(reg[34]);
+    rg34[3] = ui.lineEdit_31->text().toInt();
+    reg[34] = rg34.to_ulong();
+
+    updateInfo();
+}
+
 void DeviceVS::slotSendData()
 {
 }
 
+void DeviceVS::initReg()
+{
+    //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ОДИН
+    //Reg0
+    QString regStr = QString::fromStdString(std::bitset<8>(reg[0]).to_string());
+    //Порядок бит в строке перевернут
+    ui.lineEdit->setText(regStr.sliced(4, 4));
+    ui.lineEdit->setInputMask("BBBB");
+    ui.lineEdit_2->setText(regStr.sliced(0, 4));
+    ui.lineEdit_2->setInputMask("BBBB");
+    //Reg1
+    ui.lineEdit_3->setText("0x" + QString::number(reg[1], 16));
+    ui.lineEdit_3->setInputMask("NNhh");
+
+    //Reg2 -Reg4 reserve
+    //Reg5 - Reg6
+    ui.lineEdit_4->setText(QString::number((reg[5] * 0x100) + reg[6]));      //Собираем значение из двух байт
+    ui.lineEdit_4->setInputMask("99999");
+    regStr = QString::fromStdString(std::bitset<8>(reg[7]).to_string());
+    ui.lineEdit_5->setText(regStr[7]);
+    ui.lineEdit_5->setInputMask("B");
+    ui.lineEdit_6->setText(regStr[3]);
+    ui.lineEdit_6->setInputMask("B");
+
+    //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ДВА
+//--------------------Абонент 1-----------------------------------------------
+    ui.lineEdit_7->setText(QString::number(reg[8]));
+    ui.lineEdit_7->setInputMask("000");
+    ui.lineEdit_8->setText(QString::number(reg[9]));
+    ui.lineEdit_8->setInputMask("00");
+    QString str = QString::fromStdString(std::bitset<2>(reg[10]).to_string());
+    ui.lineEdit_9->setText(str[1]);
+    ui.lineEdit_9->setInputMask("B");
+    ui.lineEdit_10->setText(str[0]);
+    ui.lineEdit_10->setInputMask("B");
+    //=============================================================================
+    //---------------------Абонент 2-----------------------------------------------
+    ui.lineEdit_11->setText(QString::number(reg[11]));
+    ui.lineEdit_11->setInputMask("000");
+    ui.lineEdit_12->setText(QString::number(reg[12]));
+    ui.lineEdit_12->setInputMask("00");
+    str = QString::fromStdString(std::bitset<2>(reg[13]).to_string());
+    ui.lineEdit_13->setText(str[1]);
+    ui.lineEdit_13->setInputMask("B");
+    ui.lineEdit_14->setText(str[0]);
+    ui.lineEdit_14->setInputMask("B");
+
+    //=============================================================================
+    //---------------------Абонент 3-----------------------------------------------
+    ui.lineEdit_15->setText(QString::number(reg[14]));
+    ui.lineEdit_15->setInputMask("000");
+    ui.lineEdit_16->setText(QString::number(reg[15]));
+    ui.lineEdit_16->setInputMask("00");
+    str = QString::fromStdString(std::bitset<2>(reg[16]).to_string());
+    ui.lineEdit_17->setText(str[1]);
+    ui.lineEdit_17->setInputMask("B");
+    ui.lineEdit_18->setText(str[0]);
+    ui.lineEdit_18->setInputMask("B");
+
+    //=============================================================================
+    //---------------------Абонент 4-----------------------------------------------
+    ui.lineEdit_19->setText(QString::number(reg[17]));
+    ui.lineEdit_19->setInputMask("000");
+    ui.lineEdit_20->setText(QString::number(reg[18]));
+    ui.lineEdit_20->setInputMask("00");
+    str = QString::fromStdString(std::bitset<2>(reg[19]).to_string());
+    ui.lineEdit_21->setText(str[1]);
+    ui.lineEdit_21->setInputMask("B");
+    ui.lineEdit_22->setText(str[0]);
+    ui.lineEdit_22->setInputMask("B");
+    //=============================================================================
+
+    //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ДВА
+    std::bitset<6> rg32(reg[32]);
+    str = QString::fromStdString(rg32.to_string());
+    ui.lineEdit_23->setText(str[5]);
+    ui.lineEdit_23->setInputMask("B");
+    //ui.lineEdit_24->setText("11");
+    ui.lineEdit_24->setText(str.sliced(3, 2));
+    ui.lineEdit_24->setInputMask("bb");
+    ui.lineEdit_25->setText(str.sliced(1, 2));
+    ui.lineEdit_25->setInputMask("bb");
+    ui.lineEdit_26->setText(str[0]);
+    ui.lineEdit_26->setInputMask("B");
+    ui.lineEdit_27->setText(QString::number(reg[33]));
+    ui.lineEdit_27->setInputMask("000");
+    std::bitset<4> rg34(reg[34]);
+    str = QString::fromStdString(rg34.to_string());
+    ui.lineEdit_28->setText(str[3]);
+    ui.lineEdit_28->setInputMask("B");
+    ui.lineEdit_29->setText(str[2]);
+    ui.lineEdit_29->setInputMask("B");
+    ui.lineEdit_30->setText(str[1]);
+    ui.lineEdit_30->setInputMask("B");
+    ui.lineEdit_31->setText(str[0]);
+    ui.lineEdit_31->setInputMask("B");
+
+    updateInfo();
+}
 
 void DeviceVS::updateInfo()
 {
+
+    //ОБНОВЛЕНИЕ ИНФОРМАЦИИ О ГРУППЕ РЕГИСТРОВ ДВА
     //Reg0[D3:D0]
     switch (reg[0] & 0xF)
     {
@@ -177,33 +600,178 @@ void DeviceVS::updateInfo()
         ui.label_19->setText("Сжатие есть");
     else
         ui.label_19->setText("Сжатия нет");
-}
 
-void DeviceVS::initReg()
-{
-    //Reg0
-    QString regStr = QString::fromStdString(std::bitset<8>(reg[0]).to_string());
-    //Порядок бит в строке перевернут
-    ui.lineEdit->setText(regStr.sliced(4, 4));
-    ui.lineEdit->setInputMask("BBBB");
-    ui.lineEdit_2->setText(regStr.sliced(0, 4));
-    ui.lineEdit_2->setInputMask("BBBB");
-    //Reg1
-    ui.lineEdit_3->setText("0x" + QString::number(reg[1], 16));
-    ui.lineEdit_3->setInputMask("NNhh");
+    //ОБНОВЛЕНИЕ ИНФОРМАЦИИ О ГРУППЕ РЕГИСТРОВ ДВА
+    //------------------Абонент 1--------------------------------------------------
+    if (reg[10] & 1)
+        ui.label_22->setText("Автовызов, Да");
+    else
+        ui.label_22->setText("Автовызов, Нет");
+
+    if (reg[10] & 2)
+        ui.label_24->setText("Поддежка связи, Да");
+    else
+        ui.label_24->setText("Поддежка связи, Нет");
+    //=============================================================================	
+    //------------------Абонент 2--------------------------------------------------
+    if (reg[13] & 1)
+        ui.label_31->setText("Автовызов, Да");
+    else
+        ui.label_31->setText("Автовызов, Нет");
+
+    if (reg[13] & 2)
+        ui.label_33->setText("Поддежка связи, Да");
+    else
+        ui.label_33->setText("Поддежка связи, Нет");
+    //=============================================================================
+
+    //------------------Абонент 3--------------------------------------------------
+    if (reg[16] & 1)
+        ui.label_40->setText("Автовызов, Да");
+    else
+        ui.label_40->setText("Автовызов, Нет");
+
+    if (reg[16] & 2)
+        ui.label_42->setText("Поддежка связи, Да");
+    else
+        ui.label_42->setText("Поддежка связи, Нет");
+    //=============================================================================
+
+    //------------------Абонент 4--------------------------------------------------
+    if (reg[19] & 1)
+        ui.label_49->setText("Автовызов, Да");
+    else
+        ui.label_49->setText("Автовызов, Нет");
+
+    if (reg[19] & 2)
+        ui.label_51->setText("Поддежка связи, Да");
+    else
+        ui.label_51->setText("Поддежка связи, Нет");
+    //=============================================================================
     
-    //Reg2 -Reg4 reserve
-    //Reg5 - Reg6
-    ui.lineEdit_4->setText(QString::number((reg[5]* 0x100) + reg[6]));      //Собираем значение из двух байт
-    ui.lineEdit_4->setInputMask("99999");
-    regStr = QString::fromStdString(std::bitset<8>(reg[7]).to_string());
-    ui.lineEdit_5->setText(regStr[7]);
-    ui.lineEdit_5->setInputMask("B");
-    ui.lineEdit_6->setText(regStr[3]);
-    ui.lineEdit_6->setInputMask("B");
+    //ОБНОВЛЕНИЕ ИНФОРМАЦИИ О ГРУППЕ РЕГИСТРОВ ДВА
+        //РГ32[D0]
+    if (reg[32] & 1)
+    {
+        ui.label_55->setText("Модем исправен");
+        ui.label_55->setStyleSheet("QLabel { background-color : green; color : black; }");
+    }
+    else
+    {
+        ui.label_55->setText("Модем не исправен");
+        ui.label_55->setStyleSheet("QLabel { background-color : red; color : black; }");
+    }
 
-    updateInfo();
+    //РГ32[D2:D1]
+    char twoBit = (reg[32] >> 1) & 3;
+
+    switch (twoBit)
+    {
+    case(0):
+        ui.label_57->setText("Сигнал: Норма");
+        ui.label_57->setStyleSheet("QLabel { background-color : green; color : black; }");
+        break;
+    case(1):
+        ui.label_57->setText("Сигнал: Предупреждение");
+        ui.label_57->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+        break;
+    case(2):
+        ui.label_57->setText("Сигнал: Ошибка");
+        ui.label_57->setStyleSheet("QLabel { background-color : red; color : black; }");
+    }
+
+    //РГ32[D4:D3]
+    twoBit = (reg[32] >> 3) & 3;
+
+    switch (twoBit)
+    {
+    case(0):
+        ui.label_59->setText("Связь: Норма");
+        ui.label_59->setStyleSheet("QLabel { background-color : green; color : black; }");
+        break;
+    case(1):
+        ui.label_59->setText("Связь: Предупреждение");
+        ui.label_59->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+        break;
+    case(2):
+        ui.label_59->setText("Связь: Ошибка");
+        ui.label_59->setStyleSheet("QLabel { background-color : red; color : black; }");
+    }
+
+    //РГ32[D5]
+    if (reg[32] >> 5)
+    {
+        ui.label_61->setText("Наличие информации: Есть");
+        ui.label_61->setStyleSheet("QLabel { background-color : green; color : black; }");
+    }
+    else
+    {
+        ui.label_61->setText("Наличие информации: Нет");
+        ui.label_61->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+    }
+
+    //РГ33
+    if (reg[33] >= 170)
+        ui.label_62->setStyleSheet("QLabel { background-color : green; color : black; }");
+    else if (reg[33] >= 85)
+        ui.label_62->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+    else
+        ui.label_62->setStyleSheet("QLabel { background-color : red; color : black; }");
+
+    std::bitset<4> rg34(reg[34]);
+    //РГ34[D0]
+    if (rg34[0])
+    {
+        ui.label_65->setText("Связь с абонентом №1: Есть");
+        ui.label_65->setStyleSheet("QLabel { background-color : green; color : black; }");
+    }
+    else
+    {
+        ui.label_65->setText("Связь с абонентом №1: Нет");
+        ui.label_65->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+    }
+
+
+    //РГ34[D1]
+    if (rg34[1])
+    {
+        ui.label_67->setText("Связь с абонентом №2: Есть");
+        ui.label_67->setStyleSheet("QLabel { background-color : green; color : black; }");
+    }
+    else
+    {
+        ui.label_67->setText("Связь с абонентом №2: Нет");
+        ui.label_67->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+    }
+
+
+    //РГ34[D2]
+    if (rg34[2])
+    {
+        ui.label_71->setText("Связь с абонентом №3: Есть");
+        ui.label_71->setStyleSheet("QLabel { background-color : green; color : black; }");
+    }
+    else
+    {
+        ui.label_71->setText("Связь с абонентом №3: Нет");
+        ui.label_71->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+    }
+
+
+    //РГ34[D3]
+    if (rg34[3])
+    {
+        ui.label_72->setText("Связь с абонентом №4: Есть");
+        ui.label_72->setStyleSheet("QLabel { background-color : green; color : black; }");
+    }
+    else
+    {
+        ui.label_72->setText("Связь с абонентом №4: Нет");
+        ui.label_72->setStyleSheet("QLabel { background-color : yellow; color : black; }");
+    }
 }
+
+
 
 char DeviceVS::binaryStringToInt(QString str)
 {

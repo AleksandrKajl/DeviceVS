@@ -477,7 +477,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Состояние прибора</string>
+         <string>Состояние прибора РГ32-РГ39</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
