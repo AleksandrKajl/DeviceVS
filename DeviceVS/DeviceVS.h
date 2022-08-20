@@ -1,11 +1,9 @@
 #pragma once
-
 #include <QtWidgets/QMainWindow>
 #include<QStringListModel>
 #include<QListView>
 #include<bitset>
 #include<QUdpSocket>
-
 
 #include "ui_DeviceVS.h"
 
@@ -25,6 +23,7 @@ private:
     GroupTwo* m_pGroupTwo;
     GroupThree* m_pGroupThree;
     QUdpSocket* m_udpSock;
+    QIntValidator* m_pValidRG5;
 
 public:
     Ui::DeviceVSClass ui;
@@ -48,7 +47,5 @@ private:
     void updateInfo();
     void initReg();
     char binaryStringToInt(QString str);
-
-
 
 };

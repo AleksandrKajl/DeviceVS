@@ -20,66 +20,24 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="0">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
      <layout class="QGridLayout" name="gridLayout_5">
       <property name="sizeConstraint">
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
+      <item row="20" column="2">
+       <widget class="QLabel" name="label_61">
         <property name="text">
-         <string>РГ0[D3:D0]</string>
+         <string>Наличие информации: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="4" column="4" colspan="3">
-       <widget class="QLabel" name="label_14">
-        <property name="text">
-         <string>Абонент № 1</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="5">
-       <widget class="QLineEdit" name="lineEdit_7">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="6">
-       <widget class="QLabel" name="label_22">
-        <property name="text">
-         <string>Автовызов: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="27" column="5">
-       <widget class="QLineEdit" name="lineEdit_21">
+      <item row="26" column="5">
+       <widget class="QLineEdit" name="lineEdit_19">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -88,97 +46,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="QLineEdit" name="lineEdit_3">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="3">
-       <widget class="Line" name="line_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="20" column="5">
-       <widget class="QLineEdit" name="lineEdit_17">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="19" column="6">
-       <widget class="QLabel" name="label_38">
-        <property name="text">
-         <string>Номер канала</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="25" column="4">
-       <widget class="QLabel" name="label_44">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ17</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="1">
-       <widget class="QLineEdit" name="lineEdit_5">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="6">
-       <widget class="QLabel" name="label_11">
-        <property name="text">
-         <string>Идинтификатор абонента</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -208,54 +75,15 @@
         </property>
        </widget>
       </item>
-      <item row="26" column="6">
-       <widget class="QLabel" name="label_47">
-        <property name="text">
-         <string>Номер канала</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
+      <item row="17" column="4" colspan="3">
+       <widget class="Line" name="line_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="27" column="6">
-       <widget class="QLabel" name="label_49">
-        <property name="text">
-         <string>Автовызов: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="4" colspan="3">
-       <widget class="QLabel" name="label_25">
-        <property name="text">
-         <string>Абонент № 2</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="21" column="5">
-       <widget class="QLineEdit" name="lineEdit_18">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="6">
-       <widget class="QLabel" name="label_33">
+      <item row="22" column="6">
+       <widget class="QLabel" name="label_42">
         <property name="text">
          <string>Поддержание связи: Нет</string>
         </property>
@@ -264,110 +92,7 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="lineEdit_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="24" column="0">
-       <widget class="QLabel" name="label_66">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ34[D1]</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="19" column="1">
-       <widget class="QLineEdit" name="lineEdit_26">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="6">
-       <widget class="QLabel" name="label_27">
-        <property name="text">
-         <string>Идинтификатор абонента</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="28" column="4">
-       <widget class="QLabel" name="label_50">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ19[D1]</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="0">
-       <widget class="QLabel" name="label_56">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ32[D2:D1]</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="2">
-       <widget class="QLabel" name="label_12">
-        <property name="text">
-         <string>Частота(МГц)</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="0">
+      <item row="19" column="0">
        <widget class="QLabel" name="label_58">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
@@ -386,463 +111,7 @@
         </property>
        </widget>
       </item>
-      <item row="12" column="0">
-       <widget class="QLabel" name="label_18">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ7[D4]</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="6">
-       <widget class="QLabel" name="label_24">
-        <property name="text">
-         <string>Поддержание связи: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="20" column="6">
-       <widget class="QLabel" name="label_40">
-        <property name="text">
-         <string>Автовызов: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3" rowspan="29">
-       <widget class="Line" name="line">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="4">
-       <widget class="QLabel" name="label_20">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ10[D0]</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="2">
-       <widget class="QLabel" name="label_57">
-        <property name="text">
-         <string>Сигнал: Норма</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="0" colspan="3">
-       <widget class="QLabel" name="label_53">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-          <italic>true</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Состояние прибора РГ32-РГ39</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="2">
-       <widget class="QLabel" name="label_19">
-        <property name="text">
-         <string>Сжатие данных: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="21" column="6">
-       <widget class="QLabel" name="label_42">
-        <property name="text">
-         <string>Поддержание связи: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="5">
-       <widget class="QLineEdit" name="lineEdit_15">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="1">
-       <widget class="QLineEdit" name="lineEdit_6">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="20" column="4">
-       <widget class="QLabel" name="label_39">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ16[D0]</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="26" column="4">
-       <widget class="QLabel" name="label_46">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ18</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="4">
-       <widget class="QLabel" name="label_23">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ10[D1]</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="26" column="5">
-       <widget class="QLineEdit" name="lineEdit_20">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="2">
-       <widget class="QLabel" name="label_16">
-        <property name="text">
-         <string>Инверсия сигнала: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
-       <widget class="QLineEdit" name="lineEdit_4">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="19" column="5">
-       <widget class="QLineEdit" name="lineEdit_16">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="20" column="1">
-       <widget class="QLineEdit" name="lineEdit_27">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="6">
-       <widget class="QLabel" name="label_21">
-        <property name="text">
-         <string>Номер канала</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="5">
-       <widget class="QLineEdit" name="lineEdit_14">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="4">
-       <widget class="QLabel" name="label_7">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ8</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="1">
-       <widget class="QLineEdit" name="lineEdit_24">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="5">
-       <widget class="QLineEdit" name="lineEdit_13">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="4">
-       <widget class="QLabel" name="label_35">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ14</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="4" colspan="3">
-       <widget class="Line" name="line_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="28" column="5">
-       <widget class="QLineEdit" name="lineEdit_22">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="24" column="4" colspan="3">
-       <widget class="QLabel" name="label_43">
-        <property name="text">
-         <string>Абонент № 4</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="19" column="4">
-       <widget class="QLabel" name="label_37">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ15</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="25" column="6">
-       <widget class="QLabel" name="label_45">
-        <property name="text">
-         <string>Идинтификатор абонента</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="4">
-       <widget class="QLabel" name="label_30">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>РГ13[D0]</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="2">
-       <widget class="QLabel" name="label_59">
-        <property name="text">
-         <string>Связь: Норма</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="21" column="1">
+      <item row="22" column="1">
        <widget class="QLineEdit" name="lineEdit_28">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -855,47 +124,8 @@
         </property>
        </widget>
       </item>
-      <item row="18" column="1">
-       <widget class="QLineEdit" name="lineEdit_25">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="5">
-       <widget class="QLineEdit" name="lineEdit_11">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="6">
-       <widget class="QLabel" name="label_31">
-        <property name="text">
-         <string>Автовызов: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
       <item row="11" column="0">
-       <widget class="QLabel" name="label_15">
+       <widget class="QLabel" name="label_13">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -906,30 +136,44 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ7[D0]</string>
+         <string>РГ5-РГ6</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="7" column="0" rowspan="2" colspan="3">
-       <widget class="QLabel" name="label_10">
-        <property name="font">
-         <font>
-          <bold>true</bold>
-         </font>
+      <item row="25" column="0">
+       <widget class="QLabel" name="label_66">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ2-РГ4-Резерв</string>
+         <string>РГ34[D1]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="24" column="1">
-       <widget class="QLineEdit" name="lineEdit_29">
+      <item row="25" column="2">
+       <widget class="QLabel" name="label_67">
+        <property name="text">
+         <string>Связь с абонентом №2: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="21" column="1">
+       <widget class="QLineEdit" name="lineEdit_27">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -960,8 +204,8 @@
         </property>
        </widget>
       </item>
-      <item row="14" column="0">
-       <widget class="QLabel" name="label_54">
+      <item row="22" column="0">
+       <widget class="QLabel" name="label_64">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -972,25 +216,137 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ32[D0]</string>
+         <string>РГ34[D0]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="14" column="2">
-       <widget class="QLabel" name="label_55">
+      <item row="6" column="1">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_73">
+           <property name="text">
+            <string>0x</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="9" column="4">
+       <widget class="QLabel" name="label_23">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
         <property name="text">
-         <string>Модем исправен</string>
+         <string>РГ10[D1]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="12" column="5">
-       <widget class="QLineEdit" name="lineEdit_12">
+      <item row="26" column="0">
+       <widget class="QLabel" name="label_68">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ34[D2]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3" rowspan="30">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="6">
+       <widget class="QLabel" name="label_38">
+        <property name="text">
+         <string>Номер канала</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="1">
+       <widget class="QLineEdit" name="lineEdit_6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="1">
+       <widget class="QLineEdit" name="lineEdit_4">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="28" column="5">
+       <widget class="QLineEdit" name="lineEdit_21">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -999,6 +355,198 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="0">
+       <widget class="QLabel" name="label_56">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ32[D2:D1]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="29" column="5">
+       <widget class="QLineEdit" name="lineEdit_22">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="5">
+       <widget class="QLineEdit" name="lineEdit_7">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ0[D3:D0]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="5">
+       <widget class="QLineEdit" name="lineEdit_10">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="24" column="4" colspan="3">
+       <widget class="Line" name="line_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0" rowspan="2" colspan="3">
+       <widget class="QLabel" name="label_10">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>РГ2-РГ4-Резерв</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="1">
+       <widget class="QLineEdit" name="lineEdit_5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="4">
+       <widget class="QLabel" name="label_28">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ12</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="28" column="6">
+       <widget class="QLabel" name="label_49">
+        <property name="text">
+         <string>Автовызов: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="4">
+       <widget class="QLabel" name="label_37">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ15</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="1">
+       <widget class="QLineEdit" name="lineEdit_23">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1024,41 +572,31 @@
         </property>
        </widget>
       </item>
-      <item row="23" column="4" colspan="3">
-       <widget class="Line" name="line_6">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+      <item row="25" column="4" colspan="3">
+       <widget class="QLabel" name="label_43">
+        <property name="text">
+         <string>Абонент № 4</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="8" column="5">
-       <widget class="QLineEdit" name="lineEdit_10">
+      <item row="26" column="1">
+       <widget class="QLineEdit" name="lineEdit_30">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="text">
-         <string/>
-        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="4" column="2">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Режим: Не задан</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="6">
-       <widget class="QLabel" name="label_36">
+      <item row="5" column="6">
+       <widget class="QLabel" name="label_11">
         <property name="text">
          <string>Идинтификатор абонента</string>
         </property>
@@ -1067,8 +605,21 @@
         </property>
        </widget>
       </item>
-      <item row="19" column="0">
-       <widget class="QLabel" name="label_60">
+      <item row="25" column="1">
+       <widget class="QLineEdit" name="lineEdit_29">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="4">
+       <widget class="QLabel" name="label_26">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1079,22 +630,15 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ32[D5]</string>
+         <string>РГ11</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="9" column="4" colspan="3">
-       <widget class="Line" name="line_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
-       <widget class="QLabel" name="label_13">
+      <item row="26" column="4">
+       <widget class="QLabel" name="label_44">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1105,35 +649,15 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ5-РГ6</string>
+         <string>РГ17</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="5" column="2">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Тип связи: Не задан</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="19" column="2">
-       <widget class="QLabel" name="label_61">
-        <property name="text">
-         <string>Наличие информации: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="21" column="0">
-       <widget class="QLabel" name="label_64">
+      <item row="27" column="0">
+       <widget class="QLabel" name="label_69">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1144,15 +668,48 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ34[D0]</string>
+         <string>РГ34[D3]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="25" column="5">
-       <widget class="QLineEdit" name="lineEdit_19">
+      <item row="9" column="6">
+       <widget class="QLabel" name="label_24">
+        <property name="text">
+         <string>Поддержание связи: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="2">
+       <widget class="QLabel" name="label_55">
+        <property name="text">
+         <string>Модем исправен</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="1">
+       <widget class="QLineEdit" name="lineEdit_24">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="5">
+       <widget class="QLineEdit" name="lineEdit_9">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1167,8 +724,8 @@
         </property>
        </widget>
       </item>
-      <item row="12" column="4">
-       <widget class="QLabel" name="label_28">
+      <item row="22" column="4">
+       <widget class="QLabel" name="label_41">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1179,15 +736,109 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ12</string>
+         <string>РГ16[D2]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="6" column="5">
-       <widget class="QLineEdit" name="lineEdit_8">
+      <item row="11" column="2">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Частота(МГц)</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="6">
+       <widget class="QLabel" name="label_29">
+        <property name="text">
+         <string>Номер канала</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="5">
+       <widget class="QLineEdit" name="lineEdit_12">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="5">
+       <widget class="QLineEdit" name="lineEdit_13">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="0">
+       <widget class="QLabel" name="label_54">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ32[D0]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0" colspan="3">
+       <widget class="QLabel" name="label_53">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Состояние прибора РГ32-РГ39</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="1">
+       <widget class="QLineEdit" name="lineEdit_25">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1199,17 +850,109 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="2">
-       <widget class="QLabel" name="label_9">
+      <item row="21" column="5">
+       <widget class="QLineEdit" name="lineEdit_17">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="text">
-         <string>Скорость(Кбит/с): Не задан</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="27" column="4">
+      <item row="19" column="2">
+       <widget class="QLabel" name="label_59">
+        <property name="text">
+         <string>Связь: Норма</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="21" column="2">
+       <widget class="QLabel" name="label_62">
+        <property name="text">
+         <string>Уровень сигнала</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="27" column="6">
+       <widget class="QLabel" name="label_47">
+        <property name="text">
+         <string>Номер канала</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="2">
+       <widget class="QLabel" name="label_19">
+        <property name="text">
+         <string>Сжатие данных: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="27" column="1">
+       <widget class="QLineEdit" name="lineEdit_31">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="1">
+       <widget class="QLineEdit" name="lineEdit_26">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="21" column="6">
+       <widget class="QLabel" name="label_40">
+        <property name="text">
+         <string>Автовызов: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="6">
+       <widget class="QLabel" name="label_22">
+        <property name="text">
+         <string>Автовызов: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="28" column="4">
        <widget class="QLabel" name="label_48">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
@@ -1228,15 +971,44 @@
         </property>
        </widget>
       </item>
-      <item row="16" column="4" colspan="3">
-       <widget class="Line" name="line_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+      <item row="4" column="4" colspan="3">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>Абонент № 1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="27" column="5">
+       <widget class="QLineEdit" name="lineEdit_20">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="6">
+       <widget class="QLabel" name="label_27">
+        <property name="text">
+         <string>Идинтификатор абонента</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
       <item row="14" column="4">
-       <widget class="QLabel" name="label_32">
+       <widget class="QLabel" name="label_30">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1247,14 +1019,113 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ13[D1]</string>
+         <string>РГ13[D0]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="17" column="4" colspan="3">
+      <item row="21" column="4">
+       <widget class="QLabel" name="label_39">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ16[D0]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0">
+       <widget class="QLabel" name="label_18">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ7[D4]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="27" column="2">
+       <widget class="QLabel" name="label_72">
+        <property name="text">
+         <string>Связь с абонентом №4: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4" colspan="3">
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="0">
+       <widget class="QLabel" name="label_60">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ32[D5]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="30" column="4" colspan="3">
+       <widget class="QLabel" name="label_52">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>РГ20-РГ31 Резерв</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="6">
+       <widget class="QLabel" name="label_31">
+        <property name="text">
+         <string>Автовызов: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="4" colspan="3">
        <widget class="QLabel" name="label_34">
         <property name="text">
          <string>Абонент № 3</string>
@@ -1264,46 +1135,33 @@
         </property>
        </widget>
       </item>
-      <item row="12" column="6">
-       <widget class="QLabel" name="label_29">
-        <property name="text">
-         <string>Номер канала</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="20" column="0">
-       <widget class="QLabel" name="label_63">
+      <item row="15" column="5">
+       <widget class="QLineEdit" name="lineEdit_14">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
         <property name="text">
-         <string>РГ33</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="20" column="2">
-       <widget class="QLabel" name="label_62">
+      <item row="11" column="4" colspan="3">
+       <widget class="QLabel" name="label_25">
         <property name="text">
-         <string>Уровень сигнала</string>
+         <string>Абонент № 2</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="28" column="6">
+      <item row="29" column="6">
        <widget class="QLabel" name="label_51">
         <property name="text">
          <string>Поддержание связи: Нет</string>
@@ -1313,10 +1171,26 @@
         </property>
        </widget>
       </item>
-      <item row="21" column="2">
-       <widget class="QLabel" name="label_65">
+      <item row="15" column="6">
+       <widget class="QLabel" name="label_33">
         <property name="text">
-         <string>Связь с абонентом №1: Нет</string>
+         <string>Поддержание связи: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="5">
+       <widget class="QLineEdit" name="lineEdit_15">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1346,13 +1220,42 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+      <item row="28" column="0" rowspan="3" colspan="3">
+       <widget class="QLabel" name="label_70">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>РГ35-РГ39 Резерв</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="4" colspan="3">
+       <widget class="Line" name="line_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="2">
+       <widget class="QLabel" name="label_16">
+        <property name="text">
+         <string>Инверсия сигнала: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="26" column="6">
+       <widget class="QLabel" name="label_45">
+        <property name="text">
+         <string>Идинтификатор абонента</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1362,7 +1265,7 @@
       <item row="6" column="4">
        <widget class="QLabel" name="label_17">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1378,8 +1281,8 @@
         </property>
        </widget>
       </item>
-      <item row="21" column="4">
-       <widget class="QLabel" name="label_41">
+      <item row="27" column="4">
+       <widget class="QLabel" name="label_46">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1390,15 +1293,54 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ16[D2]</string>
+         <string>РГ18</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="14" column="1">
-       <widget class="QLineEdit" name="lineEdit_23">
+      <item row="4" column="2">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Режим: Не задан</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="4">
+       <widget class="QLabel" name="label_20">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ10[D0]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="22" column="2">
+       <widget class="QLabel" name="label_65">
+        <property name="text">
+         <string>Связь с абонентом №1: Нет</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="5">
+       <widget class="QLineEdit" name="lineEdit_8">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1410,8 +1352,8 @@
         </property>
        </widget>
       </item>
-      <item row="11" column="4">
-       <widget class="QLabel" name="label_26">
+      <item row="15" column="4">
+       <widget class="QLabel" name="label_32">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1422,15 +1364,115 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ11</string>
+         <string>РГ13[D1]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="7" column="5">
-       <widget class="QLineEdit" name="lineEdit_9">
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="6">
+       <widget class="QLabel" name="label_21">
+        <property name="text">
+         <string>Номер канала</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Тип связи: Не задан</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="21" column="0">
+       <widget class="QLabel" name="label_63">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ33</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="4">
+       <widget class="QLabel" name="label_35">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ14</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="2">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Скорость(Кбит/с): Не задан</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QLabel" name="label_15">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>РГ7[D0]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="22" column="5">
+       <widget class="QLineEdit" name="lineEdit_18">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1445,33 +1487,28 @@
         </property>
        </widget>
       </item>
-      <item row="29" column="4" colspan="3">
-       <widget class="QLabel" name="label_52">
-        <property name="font">
-         <font>
-          <bold>true</bold>
-         </font>
-        </property>
+      <item row="19" column="6">
+       <widget class="QLabel" name="label_36">
         <property name="text">
-         <string>РГ20-РГ31 Резерв</string>
+         <string>Идинтификатор абонента</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="24" column="2">
-       <widget class="QLabel" name="label_67">
+      <item row="18" column="2">
+       <widget class="QLabel" name="label_57">
         <property name="text">
-         <string>Связь с абонентом №2: Нет</string>
+         <string>Сигнал: Норма</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="25" column="0">
-       <widget class="QLabel" name="label_68">
+      <item row="29" column="4">
+       <widget class="QLabel" name="label_50">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1482,15 +1519,15 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ34[D2]</string>
+         <string>РГ19[D1]</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="26" column="0">
-       <widget class="QLabel" name="label_69">
+      <item row="5" column="4">
+       <widget class="QLabel" name="label_7">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1501,40 +1538,37 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>РГ34[D3]</string>
+         <string>РГ8</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="25" column="1">
-       <widget class="QLineEdit" name="lineEdit_30">
+      <item row="20" column="5">
+       <widget class="QLineEdit" name="lineEdit_16">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="26" column="1">
-       <widget class="QLineEdit" name="lineEdit_31">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+        <property name="text">
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="25" column="2">
+      <item row="3" column="0" colspan="3">
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="26" column="2">
        <widget class="QLabel" name="label_71">
         <property name="text">
          <string>Связь с абонентом №3: Нет</string>
@@ -1544,25 +1578,16 @@
         </property>
        </widget>
       </item>
-      <item row="26" column="2">
-       <widget class="QLabel" name="label_72">
-        <property name="text">
-         <string>Связь с абонентом №4: Нет</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="27" column="0" rowspan="3" colspan="3">
-       <widget class="QLabel" name="label_70">
-        <property name="font">
-         <font>
-          <bold>true</bold>
-         </font>
+      <item row="12" column="5">
+       <widget class="QLineEdit" name="lineEdit_11">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
         <property name="text">
-         <string>РГ35-РГ39 Резерв</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

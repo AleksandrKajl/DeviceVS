@@ -31,4 +31,6 @@ private:
 	
 private:
 	DeviceVS* m_pDev;
+    QIntValidator* m_pValidReg8;
+    QIntValidator* m_pValidReg9;
 };

@@ -1,7 +1,9 @@
 #include"GroupTwo.h"
 
 GroupTwo::GroupTwo(DeviceVS* pDevice)
-	: m_pDev(pDevice)
+    : m_pDev(pDevice)
+    , m_pValidReg8(new QIntValidator(0, 100, this))
+    , m_pValidReg9(new QIntValidator(0, 10, this))
 {
     //----------------Абонент 1-------------------------------------------------------------
     connect(m_pDev->ui.lineEdit_7, SIGNAL(editingFinished()), SLOT(slotEditReg8()));
@@ -29,8 +31,19 @@ GroupTwo::GroupTwo(DeviceVS* pDevice)
     connect(m_pDev->ui.lineEdit_22, SIGNAL(editingFinished()), SLOT(slotEditReg19_1()));
     //======================================================================================
     
-    initReg();
+    m_pDev->ui.lineEdit_7->setValidator(m_pValidReg8);
+    m_pDev->ui.lineEdit_8->setValidator(m_pValidReg9);
 
+    m_pDev->ui.lineEdit_11->setValidator(m_pValidReg8);
+    m_pDev->ui.lineEdit_12->setValidator(m_pValidReg9);
+
+    m_pDev->ui.lineEdit_15->setValidator(m_pValidReg8);
+    m_pDev->ui.lineEdit_16->setValidator(m_pValidReg9);
+
+    m_pDev->ui.lineEdit_19->setValidator(m_pValidReg8);
+    m_pDev->ui.lineEdit_20->setValidator(m_pValidReg9);
+
+    initReg();
 }
 
 void GroupTwo::slotEditReg8()
@@ -102,7 +115,7 @@ void GroupTwo::slotEditReg13_1()
     rg13[1] = m_pDev->ui.lineEdit_14->text().toInt();
     m_pDev->m_reg[13] = rg13.to_ulong();
 
-    //updateInfo();
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg14()
@@ -183,9 +196,9 @@ void GroupTwo::initReg()
         //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ДВА
 //--------------------Абонент 1-----------------------------------------------
     m_pDev->ui.lineEdit_7->setText(QString::number(m_pDev->m_reg[8]));
-    m_pDev->ui.lineEdit_7->setInputMask("000");
+    //m_pDev->ui.lineEdit_7->setInputMask("000");
     m_pDev->ui.lineEdit_8->setText(QString::number(m_pDev->m_reg[9]));
-    m_pDev->ui.lineEdit_8->setInputMask("00");
+    //m_pDev->ui.lineEdit_8->setInputMask("00");
     QString str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[10]).to_string());
     m_pDev->ui.lineEdit_9->setText(str[1]);
     m_pDev->ui.lineEdit_9->setInputMask("B");
@@ -194,9 +207,9 @@ void GroupTwo::initReg()
     //=============================================================================
     //---------------------Абонент 2-----------------------------------------------
     m_pDev->ui.lineEdit_11->setText(QString::number(m_pDev->m_reg[11]));
-    m_pDev->ui.lineEdit_11->setInputMask("000");
+    //m_pDev->ui.lineEdit_11->setInputMask("000");
     m_pDev->ui.lineEdit_12->setText(QString::number(m_pDev->m_reg[12]));
-    m_pDev->ui.lineEdit_12->setInputMask("00");
+    //m_pDev->ui.lineEdit_12->setInputMask("00");
     str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[13]).to_string());
     m_pDev->ui.lineEdit_13->setText(str[1]);
     m_pDev->ui.lineEdit_13->setInputMask("B");
@@ -206,9 +219,9 @@ void GroupTwo::initReg()
     //=============================================================================
     //---------------------Абонент 3-----------------------------------------------
     m_pDev->ui.lineEdit_15->setText(QString::number(m_pDev->m_reg[14]));
-    m_pDev->ui.lineEdit_15->setInputMask("000");
+    //m_pDev->ui.lineEdit_15->setInputMask("000");
     m_pDev->ui.lineEdit_16->setText(QString::number(m_pDev->m_reg[15]));
-    m_pDev->ui.lineEdit_16->setInputMask("00");
+    //m_pDev->ui.lineEdit_16->setInputMask("00");
     str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[16]).to_string());
     m_pDev->ui.lineEdit_17->setText(str[1]);
     m_pDev->ui.lineEdit_17->setInputMask("B");
@@ -218,9 +231,9 @@ void GroupTwo::initReg()
     //=============================================================================
     //---------------------Абонент 4-----------------------------------------------
     m_pDev->ui.lineEdit_19->setText(QString::number(m_pDev->m_reg[17]));
-    m_pDev->ui.lineEdit_19->setInputMask("000");
+    //m_pDev->ui.lineEdit_19->setInputMask("000");
     m_pDev->ui.lineEdit_20->setText(QString::number(m_pDev->m_reg[18]));
-    m_pDev->ui.lineEdit_20->setInputMask("00");
+    //m_pDev->ui.lineEdit_20->setInputMask("00");
     str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[19]).to_string());
     m_pDev->ui.lineEdit_21->setText(str[1]);
     m_pDev->ui.lineEdit_21->setInputMask("B");

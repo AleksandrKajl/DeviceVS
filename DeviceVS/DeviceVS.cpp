@@ -7,11 +7,11 @@ DeviceVS::DeviceVS(QWidget* parent)
     , m_udpSock(new QUdpSocket(this))
     , m_pGroupTwo(nullptr)
     , m_pGroupThree(nullptr)
+    , m_pValidRG5(new QIntValidator(0, 30000, this))
 {
     ui.setupUi(this);
     m_pGroupTwo = new GroupTwo(this);
     m_pGroupThree = new GroupThree(this);
-    this->setWindowTitle("Режим работы");
 
     m_udpSock->bind(5555);
 
@@ -24,12 +24,13 @@ DeviceVS::DeviceVS(QWidget* parent)
     connect(ui.lineEdit_5, SIGNAL(editingFinished()), SLOT(slotEditReg7_0()));
     connect(ui.lineEdit_6, SIGNAL(editingFinished()), SLOT(slotEditReg7_4()));
 
-    m_reg[0] = 33;
-    m_reg[1] = 0x15;
-    //Reg2 -Reg4 reserve
-    m_reg[5] = 0x75;
-    m_reg[6] = 0x30;
-    m_reg[7] = 0X11;
+    ui.lineEdit_4->setValidator(m_pValidRG5);
+    //m_reg[0] = 33;
+    //m_reg[1] = 0x15;
+    ////Reg2 -Reg4 reserve
+    //m_reg[5] = 0x75;
+    //m_reg[6] = 0x30;
+    //m_reg[7] = 0X11;
     initReg();
 }
 
@@ -62,7 +63,6 @@ void DeviceVS::slotEditReg0L()
     updateInfo();
 }
 
-
 void DeviceVS::slotEditReg0H()
 {
     m_reg[0] = (m_reg[0] & 0xF) + (binaryStringToInt(ui.lineEdit_2->text()) * 0x10);
@@ -71,7 +71,7 @@ void DeviceVS::slotEditReg0H()
 
 void DeviceVS::slotEditReg1()
 {
-    QString str(ui.lineEdit_3->text());
+    QString str("0x" + ui.lineEdit_3->text());
     bool Ok;
     m_reg[1] = str.sliced(2).toInt(&Ok, 16);
     if (!Ok)
@@ -114,27 +114,24 @@ void DeviceVS::initReg()
     ui.lineEdit_2->setText(regStr.sliced(0, 4));
     ui.lineEdit_2->setInputMask("BBBB");
     //Reg1
-    ui.lineEdit_3->setText("0x" + QString::number(m_reg[1], 16));
-    ui.lineEdit_3->setInputMask("NNhh");
+    ui.lineEdit_3->setText(QString::number(m_reg[1], 16));
+    ui.lineEdit_3->setInputMask("hh");
 
     //Reg2 -Reg4 reserve
     //Reg5 - Reg6
     ui.lineEdit_4->setText(QString::number((m_reg[5] * 0x100) + m_reg[6]));      //Собираем значение из двух байт
-    ui.lineEdit_4->setInputMask("99999");
+    //ui.lineEdit_4->setInputMask("99999");
     regStr = QString::fromStdString(std::bitset<8>(m_reg[7]).to_string());
     ui.lineEdit_5->setText(regStr[7]);
     ui.lineEdit_5->setInputMask("B");
     ui.lineEdit_6->setText(regStr[3]);
     ui.lineEdit_6->setInputMask("B");
 
-
-
     updateInfo();
 }
 
 void DeviceVS::updateInfo()
 {
-
     //ОБНОВЛЕНИЕ ИНФОРМАЦИИ О ГРУППЕ РЕГИСТРОВ ДВА
     //Reg0[D3:D0]
     switch (m_reg[0] & 0xF)
@@ -150,7 +147,6 @@ void DeviceVS::updateInfo()
         break;
     case(3):
         ui.label_2->setText("Основной");
-        break;
     }
 
     //Reg0[D7:D4]
@@ -167,7 +163,6 @@ void DeviceVS::updateInfo()
         break;
     case(3):
         ui.label_4->setText("Полудуплексная");
-        break;
     }
 
     //Reg1
@@ -199,8 +194,6 @@ void DeviceVS::updateInfo()
         break;
     case(0x15):
         ui.label_9->setText("512");
-        break;
-
     }
 
     //Reg7[D0]
@@ -214,7 +207,6 @@ void DeviceVS::updateInfo()
         ui.label_19->setText("Сжатие есть");
     else
         ui.label_19->setText("Сжатия нет");
-
 }
 
 char DeviceVS::binaryStringToInt(QString str)
