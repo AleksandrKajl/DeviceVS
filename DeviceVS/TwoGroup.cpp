@@ -4,26 +4,26 @@
 TwoGroup::TwoGroup(DeviceVS* parent)
 	: m_pDev(parent)
 {
-    //----------------¿·ÓÌÂÌÚ†1-------------------------------------------------------------
+    //----------------–ê–±–æ–Ω–µ–Ω—Ç¬†1-------------------------------------------------------------
     connect(m_pDev->ui.lineEdit_7, SIGNAL(editingFinished()), SLOT(slotEditReg8()));
     connect(m_pDev->ui.lineEdit_8, SIGNAL(editingFinished()), SLOT(slotEditReg9()));
     connect(m_pDev->ui.lineEdit_9, SIGNAL(editingFinished()), SLOT(slotEditReg10_0()));
     connect(m_pDev->ui.lineEdit_10, SIGNAL(editingFinished()), SLOT(slotEditReg10_1()));
     //======================================================================================
-    //----------------¿·ÓÌÂÌÚ†2-------------------------------------------------------------
+    //----------------–ê–±–æ–Ω–µ–Ω—Ç¬†2-------------------------------------------------------------
     connect(m_pDev->ui.lineEdit_11, SIGNAL(editingFinished()), SLOT(slotEditReg11()));
     connect(m_pDev->ui.lineEdit_12, SIGNAL(editingFinished()), SLOT(slotEditReg12()));
     connect(m_pDev->ui.lineEdit_13, SIGNAL(editingFinished()), SLOT(slotEditReg13_0()));
     connect(m_pDev->ui.lineEdit_14, SIGNAL(editingFinished()), SLOT(slotEditReg13_1()));
     //======================================================================================
     // 
-    //----------------¿·ÓÌÂÌÚ†3-------------------------------------------------------------
+    //----------------–ê–±–æ–Ω–µ–Ω—Ç¬†3-------------------------------------------------------------
     connect(m_pDev->ui.lineEdit_15, SIGNAL(editingFinished()), SLOT(slotEditReg14()));
     connect(m_pDev->ui.lineEdit_16, SIGNAL(editingFinished()), SLOT(slotEditReg15()));
     connect(m_pDev->ui.lineEdit_17, SIGNAL(editingFinished()), SLOT(slotEditReg16_0()));
     connect(m_pDev->ui.lineEdit_18, SIGNAL(editingFinished()), SLOT(slotEditReg16_1()));
     //======================================================================================
-    //----------------¿·ÓÌÂÌÚ†4-------------------------------------------------------------
+    //----------------–ê–±–æ–Ω–µ–Ω—Ç¬†4-------------------------------------------------------------
     connect(m_pDev->ui.lineEdit_19, SIGNAL(editingFinished()), SLOT(slotEditReg17()));
     connect(m_pDev->ui.lineEdit_20, SIGNAL(editingFinished()), SLOT(slotEditReg18()));
     connect(m_pDev->ui.lineEdit_21, SIGNAL(editingFinished()), SLOT(slotEditReg19_0()));
@@ -181,8 +181,8 @@ void TwoGroup::slotEditReg19_1()
 
 void TwoGroup::initReg()
 {
-        //»Õ»÷»¿À»«¿÷»ﬂ √–”œœ€ –≈√»—“–Œ¬ ƒ¬¿
-//--------------------¿·ÓÌÂÌÚ†1-----------------------------------------------
+        //–ò–ù–ò–¶–ò–ê–õ–ò–ó–ê–¶–ò–Ø –ì–†–£–ü–ü–´ –†–ï–ì–ò–°–¢–†–û–í –î–í–ê
+//--------------------–ê–±–æ–Ω–µ–Ω—Ç¬†1-----------------------------------------------
     m_pDev->ui.lineEdit_7->setText(QString::number(m_pDev->m_reg[8]));
     m_pDev->ui.lineEdit_7->setInputMask("000");
     m_pDev->ui.lineEdit_8->setText(QString::number(m_pDev->m_reg[9]));
@@ -193,7 +193,7 @@ void TwoGroup::initReg()
     m_pDev->ui.lineEdit_10->setText(str[0]);
     m_pDev->ui.lineEdit_10->setInputMask("B");
     //=============================================================================
-    //---------------------¿·ÓÌÂÌÚ†2-----------------------------------------------
+    //---------------------–ê–±–æ–Ω–µ–Ω—Ç¬†2-----------------------------------------------
     m_pDev->ui.lineEdit_11->setText(QString::number(m_pDev->m_reg[11]));
     m_pDev->ui.lineEdit_11->setInputMask("000");
     m_pDev->ui.lineEdit_12->setText(QString::number(m_pDev->m_reg[12]));
@@ -205,7 +205,7 @@ void TwoGroup::initReg()
     m_pDev->ui.lineEdit_14->setInputMask("B");
 
     //=============================================================================
-    //---------------------¿·ÓÌÂÌÚ†3-----------------------------------------------
+    //---------------------–ê–±–æ–Ω–µ–Ω—Ç¬†3-----------------------------------------------
     m_pDev->ui.lineEdit_15->setText(QString::number(m_pDev->m_reg[14]));
     m_pDev->ui.lineEdit_15->setInputMask("000");
     m_pDev->ui.lineEdit_16->setText(QString::number(m_pDev->m_reg[15]));
@@ -217,7 +217,7 @@ void TwoGroup::initReg()
     m_pDev->ui.lineEdit_18->setInputMask("B");
 
     //=============================================================================
-    //---------------------¿·ÓÌÂÌÚ†4-----------------------------------------------
+    //---------------------–ê–±–æ–Ω–µ–Ω—Ç¬†4-----------------------------------------------
     m_pDev->ui.lineEdit_19->setText(QString::number(m_pDev->m_reg[17]));
     m_pDev->ui.lineEdit_19->setInputMask("000");
     m_pDev->ui.lineEdit_20->setText(QString::number(m_pDev->m_reg[18]));
@@ -232,51 +232,51 @@ void TwoGroup::initReg()
 
 void TwoGroup::updateInfo()
 {
-   //Œ¡ÕŒ¬À≈Õ»≈ »Õ‘Œ–Ã¿÷»» Œ √–”œœ≈ –≈√»—“–Œ¬ ƒ¬¿
-  //------------------¿·ÓÌÂÌÚ†1--------------------------------------------------
+   //–û–ë–ù–û–í–õ–ï–ù–ò–ï –ò–ù–§–û–†–ú–ê–¶–ò–ò –û –ì–†–£–ü–ü–ï –†–ï–ì–ò–°–¢–†–û–í –î–í–ê
+  //------------------–ê–±–æ–Ω–µ–Ω—Ç¬†1--------------------------------------------------
     if (m_pDev->m_reg[10] & 1)
-        m_pDev->ui.label_22->setText("¿‚ÚÓ‚˚ÁÓ‚, ƒ‡");
+        m_pDev->ui.label_22->setText("–ê–≤—Ç–æ–≤—ã–∑–æ–≤: –î–∞");
     else
-        m_pDev->ui.label_22->setText("¿‚ÚÓ‚˚ÁÓ‚, ÕÂÚ");
+        m_pDev->ui.label_22->setText("–ê–≤—Ç–æ–≤—ã–∑–æ–≤: –ù–µ—Ç");
 
     if (m_pDev->m_reg[10] & 2)
-        m_pDev->ui.label_24->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ƒ‡");
+        m_pDev->ui.label_24->setText("–ü–æ–¥–¥–µ—Ä–∂–∞–Ω–∏–µ —Å–≤—è–∑–∏: –î–∞");
     else
-        m_pDev->ui.label_24->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ÕÂÚ");
+        m_pDev->ui.label_24->setText("–ü–æ–¥–¥–µ—Ä–∂–∞–Ω–∏–µ —Å–≤—è–∑–∏: –ù–µ—Ç");
     //=============================================================================	
-    //------------------¿·ÓÌÂÌÚ†2--------------------------------------------------
+    //------------------–ê–±–æ–Ω–µ–Ω—Ç¬†2--------------------------------------------------
     if (m_pDev->m_reg[13] & 1)
-        m_pDev->ui.label_31->setText("¿‚ÚÓ‚˚ÁÓ‚, ƒ‡");
+        m_pDev->ui.label_31->setText("–ê–≤—Ç–æ–≤—ã–∑–æ–≤: –î–∞");
     else
-        m_pDev->ui.label_31->setText("¿‚ÚÓ‚˚ÁÓ‚, ÕÂÚ");
+        m_pDev->ui.label_31->setText("–ê–≤—Ç–æ–≤—ã–∑–æ–≤: –ù–µ—Ç");
 
     if (m_pDev->m_reg[13] & 2)
-        m_pDev->ui.label_33->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ƒ‡");
+        m_pDev->ui.label_33->setText("–ü–æ–¥–¥–µ—Ä–∂–∞–Ω–∏–µ —Å–≤—è–∑–∏: –î–∞");
     else
-        m_pDev->ui.label_33->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ÕÂÚ");
+        m_pDev->ui.label_33->setText("–ü–æ–¥–¥–µ—Ä–∂–∞–Ω–∏–µ —Å–≤—è–∑–∏: –ù–µ—Ç");
     //=============================================================================
 
-    //------------------¿·ÓÌÂÌÚ†3--------------------------------------------------
+    //------------------–ê–±–æ–Ω–µ–Ω—Ç¬†3--------------------------------------------------
     if (m_pDev->m_reg[16] & 1)
-        m_pDev->ui.label_40->setText("¿‚ÚÓ‚˚ÁÓ‚, ƒ‡");
+        m_pDev->ui.label_40->setText("–ê–≤—Ç–æ–≤—ã–∑–æ–≤: –î–∞");
     else
-        m_pDev->ui.label_40->setText("¿‚ÚÓ‚˚ÁÓ‚, ÕÂÚ");
+        m_pDev->ui.label_40->setText("–ê–≤—Ç–æ–≤—ã–∑–æ–≤: –ù–µ—Ç");
 
     if (m_pDev->m_reg[16] & 2)
-        m_pDev->ui.label_42->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ƒ‡");
+        m_pDev->ui.label_42->setText("–ü–æ–¥–¥–µ—Ä–∂–∞–Ω–∏–µ —Å–≤—è–∑–∏: –î–∞");
     else
-        m_pDev->ui.label_42->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ÕÂÚ");
+        m_pDev->ui.label_42->setText("–ü–æ–¥–¥–µ—Ä–∂–∞–Ω–∏–µ —Å–≤—è–∑–∏: –ù–µ—Ç");
     //=============================================================================
 
-    //------------------¿·ÓÌÂÌÚ†4--------------------------------------------------
+    //------------------–ê–±–æ–Ω–µ–Ω—Ç¬†4--------------------------------------------------
     if (m_pDev->m_reg[19] & 1)
-        m_pDev->ui.label_49->setText("¿‚ÚÓ‚˚ÁÓ‚, ƒ‡");
+        m_pDev->ui.label_49->setText("–ê–≤—Ç–æ–≤—ã–∑–æ–≤: –î–∞");
     else
-        m_pDev->ui.label_49->setText("¿‚ÚÓ‚˚ÁÓ‚, ÕÂÚ");
+        m_pDev->ui.label_49->setText("–ê–≤—Ç–æ–≤—ã–∑–æ–≤: –ù–µ—Ç");
 
     if (m_pDev->m_reg[19] & 2)
-        m_pDev->ui.label_51->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ƒ‡");
+        m_pDev->ui.label_51->setText("–ü–æ–¥–¥–µ—Ä–∂–∞–Ω–∏–µ —Å–≤—è–∑–∏: –î–∞");
     else
-        m_pDev->ui.label_51->setText("œÓ‰‰ÂÊÍ‡ Ò‚ˇÁË, ÕÂÚ");
+        m_pDev->ui.label_51->setText("–ü–æ–¥–¥–µ—Ä–∂–∞–Ω–∏–µ —Å–≤—è–∑–∏: –ù–µ—Ç");
     //=============================================================================
 }

@@ -14,7 +14,9 @@ class DeviceVS : public QMainWindow
 public:
     DeviceVS(QWidget *parent = nullptr);
     ~DeviceVS();
+
     DeviceVS* getPtr();
+
 private:
     TwoGroup* m_twoGroup;
     QUdpSocket* m_udpSock;
@@ -24,8 +26,6 @@ public:
 
     //Массив байт для хранения значений регистров
     std::array<unsigned char, 40> m_reg{ 0 };
-
-
 
 private slots:
     void slotRecievRequest();
@@ -38,24 +38,6 @@ private slots:
     void slotEditReg5Reg6();
     void slotEditReg7_0();
     void slotEditReg7_4();
-
-    //Группа регистров 2
-    //void slotEditReg8();
-    //void slotEditReg9();
-    //void slotEditReg10_0();
-    //void slotEditReg10_1();
-    //void slotEditReg11();
-    //void slotEditReg12();
-    //void slotEditReg13_0();
-    //void slotEditReg13_1();
-    //void slotEditReg14();
-    //void slotEditReg15();
-    //void slotEditReg16_0();
-    //void slotEditReg16_1();
-    //void slotEditReg17();
-    //void slotEditReg18();
-    //void slotEditReg19_0();
-    //void slotEditReg19_1();
 
     //Группа регистров 3
     void slotEditReg32_0();

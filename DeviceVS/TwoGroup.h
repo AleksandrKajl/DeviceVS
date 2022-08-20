@@ -6,7 +6,6 @@ class TwoGroup : public QObject
     Q_OBJECT
 public:
 	TwoGroup(DeviceVS* ptrDevice);
-    //DeviceVS* m_pDev;
 
 public slots:
     void slotEditReg8();
