@@ -10,6 +10,7 @@
 #include "ui_DeviceVS.h"
 
 class GroupTwo;
+class GroupThree;
 
 class DeviceVS : public QMainWindow
 {
@@ -21,7 +22,8 @@ public:
     DeviceVS* getPtr();
 
 private:
-    GroupTwo* m_twoGroup;
+    GroupTwo* m_pGroupTwo;
+    GroupThree* m_pGroupThree;
     QUdpSocket* m_udpSock;
 
 public:

@@ -1,13 +1,16 @@
 #include "DeviceVS.h"
 #include"GroupTwo.h"
+#include"GroupThree.h"
 
 DeviceVS::DeviceVS(QWidget* parent)
     : QMainWindow(parent)
     , m_udpSock(new QUdpSocket(this))
-    , m_twoGroup(nullptr)
+    , m_pGroupTwo(nullptr)
+    , m_pGroupThree(nullptr)
 {
     ui.setupUi(this);
-    m_twoGroup = new GroupTwo(this);
+    m_pGroupTwo = new GroupTwo(this);
+    m_pGroupThree = new GroupThree(this);
     this->setWindowTitle("Режим работы");
 
     m_udpSock->bind(5555);

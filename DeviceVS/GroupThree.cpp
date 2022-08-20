@@ -2,9 +2,10 @@
 #include<QMessageBox>
 
 GroupThree::GroupThree(DeviceVS* pDevice)
-	: m_pDev(pDevice)
+    : m_pDev(pDevice)
+    , m_pValid(new QIntValidator(0, 255, this))
 {
-    //ГРУППА РЕГИСТРОВ ТРИ
+    //Р“Р РЈРџРџРђ Р Р•Р“РРЎРўР РћР’ РўР Р
     connect(m_pDev->ui.lineEdit_23, SIGNAL(editingFinished()), SLOT(slotEditReg32_0()));
     connect(m_pDev->ui.lineEdit_24, SIGNAL(editingFinished()), SLOT(slotEditReg32_2_1()));
     connect(m_pDev->ui.lineEdit_25, SIGNAL(editingFinished()), SLOT(slotEditReg32_4_3()));
@@ -14,6 +15,10 @@ GroupThree::GroupThree(DeviceVS* pDevice)
     connect(m_pDev->ui.lineEdit_29, SIGNAL(editingFinished()), SLOT(slotEditReg34_1()));
     connect(m_pDev->ui.lineEdit_30, SIGNAL(editingFinished()), SLOT(slotEditReg34_2()));
     connect(m_pDev->ui.lineEdit_31, SIGNAL(editingFinished()), SLOT(slotEditReg34_3()));
+
+    m_pDev->ui.lineEdit_27->setValidator(m_pValid);
+
+    initReg();
 }
 
 void GroupThree::slotEditReg32_0()
@@ -31,7 +36,7 @@ void GroupThree::slotEditReg32_2_1()
     bool res;
     char twoBit = m_pDev->ui.lineEdit_24->text().toInt(&res, 2);
     if (!res)
-        QMessageBox::warning(nullptr, "Warning lineEdit_2", "Не возможно перевести строку в число");
+        QMessageBox::warning(nullptr, "Warning lineEdit_2", "РќРµ РІРѕР·РјРѕР¶РЅРѕ РїРµСЂРµРІРµСЃС‚Рё СЃС‚СЂРѕРєСѓ РІ С‡РёСЃР»Рѕ");
 
     switch (twoBit)
     {
@@ -62,7 +67,7 @@ void GroupThree::slotEditReg32_4_3()
     bool res;
     char twoBit = m_pDev->ui.lineEdit_25->text().toInt(&res, 2);
     if (!res)
-        QMessageBox::warning(nullptr, "Warning lineEdit_2", "Не возможно перевести строку в число");
+        QMessageBox::warning(nullptr, "Warning lineEdit_2", "РќРµ РІРѕР·РјРѕР¶РЅРѕ РїРµСЂРµРІРµСЃС‚Рё СЃС‚СЂРѕРєСѓ РІ С‡РёСЃР»Рѕ");
 
     switch (twoBit)
     {
@@ -99,7 +104,7 @@ void GroupThree::slotEditReg32_5()
 
 void GroupThree::slotEditReg33()
 {
-    char rg33 = m_pDev->ui.lineEdit_27->text().toInt();
+    int rg33 = m_pDev->ui.lineEdit_27->text().toInt();
     if (rg33 > 255)
         m_pDev->m_reg[33] = 255;
     else
@@ -146,7 +151,7 @@ void GroupThree::slotEditReg34_3()
 
 void GroupThree::initReg()
 {
-    //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ТРИ
+    //РРќРР¦РРђР›РР—РђР¦РРЇ Р“Р РЈРџРџР« Р Р•Р“РРЎРўР РћР’ РўР Р
     std::bitset<6> rg32(m_pDev->m_reg[32]);
     QString str = QString::fromStdString(rg32.to_string());
     m_pDev->ui.lineEdit_23->setText(str[5]);
@@ -159,7 +164,7 @@ void GroupThree::initReg()
     m_pDev->ui.lineEdit_26->setText(str[0]);
     m_pDev->ui.lineEdit_26->setInputMask("B");
     m_pDev->ui.lineEdit_27->setText(QString::number(m_pDev->m_reg[33]));
-    m_pDev->ui.lineEdit_27->setInputMask("000");
+    //m_pDev->ui.lineEdit_27->setInputMask("000");
     std::bitset<4> rg34(m_pDev->m_reg[34]);
     str = QString::fromStdString(rg34.to_string());
     m_pDev->ui.lineEdit_28->setText(str[3]);
@@ -170,71 +175,73 @@ void GroupThree::initReg()
     m_pDev->ui.lineEdit_30->setInputMask("B");
     m_pDev->ui.lineEdit_31->setText(str[0]);
     m_pDev->ui.lineEdit_31->setInputMask("B");
+    
+    updateInfo();
 }
 
 void GroupThree::updateInfo()
 {
-    //РГ32[D0]
+    //Р Р“32[D0]
     if (m_pDev->m_reg[32] & 1)
     {
-        m_pDev->ui.label_55->setText("Модем исправен");
+        m_pDev->ui.label_55->setText("РњРѕРґРµРј РёСЃРїСЂР°РІРµРЅ");
         m_pDev->ui.label_55->setStyleSheet("QLabel { background-color : green; color : black; }");
     }
     else
     {
-        m_pDev->ui.label_55->setText("Модем не исправен");
+        m_pDev->ui.label_55->setText("РњРѕРґРµРј РЅРµ РёСЃРїСЂР°РІРµРЅ");
         m_pDev->ui.label_55->setStyleSheet("QLabel { background-color : red; color : black; }");
     }
 
-    //РГ32[D2:D1]
+    //Р Р“32[D2:D1]
     char twoBit = (m_pDev->m_reg[32] >> 1) & 3;
 
     switch (twoBit)
     {
     case(0):
-        m_pDev->ui.label_57->setText("Сигнал: Норма");
+        m_pDev->ui.label_57->setText("РЎРёРіРЅР°Р»: РќРѕСЂРјР°");
         m_pDev->ui.label_57->setStyleSheet("QLabel { background-color : green; color : black; }");
         break;
     case(1):
-        m_pDev->ui.label_57->setText("Сигнал: Предупреждение");
+        m_pDev->ui.label_57->setText("РЎРёРіРЅР°Р»: РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ");
         m_pDev->ui.label_57->setStyleSheet("QLabel { background-color : yellow; color : black; }");
         break;
     case(2):
-        m_pDev->ui.label_57->setText("Сигнал: Ошибка");
+        m_pDev->ui.label_57->setText("РЎРёРіРЅР°Р»: РћС€РёР±РєР°");
         m_pDev->ui.label_57->setStyleSheet("QLabel { background-color : red; color : black; }");
     }
 
-    //РГ32[D4:D3]
+    //Р Р“32[D4:D3]
     twoBit = (m_pDev->m_reg[32] >> 3) & 3;
 
     switch (twoBit)
     {
     case(0):
-        m_pDev->ui.label_59->setText("Связь: Норма");
+        m_pDev->ui.label_59->setText("РЎРІСЏР·СЊ: РќРѕСЂРјР°");
         m_pDev->ui.label_59->setStyleSheet("QLabel { background-color : green; color : black; }");
         break;
     case(1):
-        m_pDev->ui.label_59->setText("Связь: Предупреждение");
+        m_pDev->ui.label_59->setText("РЎРІСЏР·СЊ: РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ");
         m_pDev->ui.label_59->setStyleSheet("QLabel { background-color : yellow; color : black; }");
         break;
     case(2):
-        m_pDev->ui.label_59->setText("Связь: Ошибка");
+        m_pDev->ui.label_59->setText("РЎРІСЏР·СЊ: РћС€РёР±РєР°");
         m_pDev->ui.label_59->setStyleSheet("QLabel { background-color : red; color : black; }");
     }
 
-    //РГ32[D5]
+    //Р Р“32[D5]
     if (m_pDev->m_reg[32] >> 5)
     {
-        m_pDev->ui.label_61->setText("Наличие информации: Есть");
+        m_pDev->ui.label_61->setText("РќР°Р»РёС‡РёРµ РёРЅС„РѕСЂРјР°С†РёРё: Р•СЃС‚СЊ");
         m_pDev->ui.label_61->setStyleSheet("QLabel { background-color : green; color : black; }");
     }
     else
     {
-        m_pDev->ui.label_61->setText("Наличие информации: Нет");
+        m_pDev->ui.label_61->setText("РќР°Р»РёС‡РёРµ РёРЅС„РѕСЂРјР°С†РёРё: РќРµС‚");
         m_pDev->ui.label_61->setStyleSheet("QLabel { background-color : yellow; color : black; }");
     }
 
-    //РГ33
+    //Р Р“33
     if (m_pDev->m_reg[33] >= 170)
         m_pDev->ui.label_62->setStyleSheet("QLabel { background-color : green; color : black; }");
     else if (m_pDev->m_reg[33] >= 85)
@@ -243,54 +250,54 @@ void GroupThree::updateInfo()
         m_pDev->ui.label_62->setStyleSheet("QLabel { background-color : red; color : black; }");
 
     std::bitset<4> rg34(m_pDev->m_reg[34]);
-    //РГ34[D0]
+    //Р Р“34[D0]
     if (rg34[0])
     {
-        m_pDev->ui.label_65->setText("Связь с абонентом №1: Есть");
+        m_pDev->ui.label_65->setText("РЎРІСЏР·СЊ СЃ Р°Р±РѕРЅРµРЅС‚РѕРј в„–1: Р•СЃС‚СЊ");
         m_pDev->ui.label_65->setStyleSheet("QLabel { background-color : green; color : black; }");
     }
     else
     {
-        m_pDev->ui.label_65->setText("Связь с абонентом №1: Нет");
+        m_pDev->ui.label_65->setText("РЎРІСЏР·СЊ СЃ Р°Р±РѕРЅРµРЅС‚РѕРј в„–1: РќРµС‚");
         m_pDev->ui.label_65->setStyleSheet("QLabel { background-color : yellow; color : black; }");
     }
 
 
-    //РГ34[D1]
+    //Р Р“34[D1]
     if (rg34[1])
     {
-        m_pDev->ui.label_67->setText("Связь с абонентом №2: Есть");
+        m_pDev->ui.label_67->setText("РЎРІСЏР·СЊ СЃ Р°Р±РѕРЅРµРЅС‚РѕРј в„–2: Р•СЃС‚СЊ");
         m_pDev->ui.label_67->setStyleSheet("QLabel { background-color : green; color : black; }");
     }
     else
     {
-        m_pDev->ui.label_67->setText("Связь с абонентом №2: Нет");
+        m_pDev->ui.label_67->setText("РЎРІСЏР·СЊ СЃ Р°Р±РѕРЅРµРЅС‚РѕРј в„–2: РќРµС‚");
         m_pDev->ui.label_67->setStyleSheet("QLabel { background-color : yellow; color : black; }");
     }
 
 
-    //РГ34[D2]
+    //Р Р“34[D2]
     if (rg34[2])
     {
-        m_pDev->ui.label_71->setText("Связь с абонентом №3: Есть");
+        m_pDev->ui.label_71->setText("РЎРІСЏР·СЊ СЃ Р°Р±РѕРЅРµРЅС‚РѕРј в„–3: Р•СЃС‚СЊ");
         m_pDev->ui.label_71->setStyleSheet("QLabel { background-color : green; color : black; }");
     }
     else
     {
-        m_pDev->ui.label_71->setText("Связь с абонентом №3: Нет");
+        m_pDev->ui.label_71->setText("РЎРІСЏР·СЊ СЃ Р°Р±РѕРЅРµРЅС‚РѕРј в„–3: РќРµС‚");
         m_pDev->ui.label_71->setStyleSheet("QLabel { background-color : yellow; color : black; }");
     }
 
 
-    //РГ34[D3]
+    //Р Р“34[D3]
     if (rg34[3])
     {
-        m_pDev->ui.label_72->setText("Связь с абонентом №4: Есть");
+        m_pDev->ui.label_72->setText("РЎРІСЏР·СЊ СЃ Р°Р±РѕРЅРµРЅС‚РѕРј в„–4: Р•СЃС‚СЊ");
         m_pDev->ui.label_72->setStyleSheet("QLabel { background-color : green; color : black; }");
     }
     else
     {
-        m_pDev->ui.label_72->setText("Связь с абонентом №4: Нет");
+        m_pDev->ui.label_72->setText("РЎРІСЏР·СЊ СЃ Р°Р±РѕРЅРµРЅС‚РѕРј в„–4: РќРµС‚");
         m_pDev->ui.label_72->setStyleSheet("QLabel { background-color : yellow; color : black; }");
     }
 }
