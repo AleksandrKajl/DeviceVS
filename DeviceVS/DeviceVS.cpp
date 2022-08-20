@@ -9,12 +9,12 @@ DeviceVS::DeviceVS(QWidget* parent)
     , m_pGroupThree(nullptr)
     , m_pValidRG5(new QIntValidator(0, 30000, this))
 {
+    m_reg.fill(0, 40);
     ui.setupUi(this);
     m_pGroupTwo = new GroupTwo(this);
     m_pGroupThree = new GroupThree(this);
 
     m_pUdpSock->bind(QHostAddress::Any, 5555);
-    m_reg.fill(40, 0);
     
     connect(m_pUdpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
     //ГРУППА РЕГИСТРОВ ОДИН
@@ -56,18 +56,18 @@ void DeviceVS::slotRecievRequest()
     unsigned char request;
     unsigned char groupReg;
     in >> request >> groupReg;
-    if (request == READ_REQ)
-    {
-        m_pUdpSock->writeDatagram(readData(groupReg), QHostAddress::LocalHost, 5555);
-    }
-    else if(request == WRITE_REQ)
-    {
+    //if (request == READ_REQ)
+    //{
+    //    m_pUdpSock->writeDatagram(readData(groupReg), QHostAddress::LocalHost, 5555);
+    //}
+    //else if(request == WRITE_REQ)
+    //{
 
-    }
-    else
-    {
+    //}
+    //else
+    //{
 
-    }
+    //}
 
 }
 
@@ -235,23 +235,23 @@ char DeviceVS::binaryStringToInt(QString str)
     return res;
 }
 
-QByteArray DeviceVS::readData(unsigned char groupReg)
-{
-    QByteArray data;
-    QDataStream out(&data,QIODevice::WriteOnly);
-    //QDataStream dt(m_reg.data(),)
-    //switch (groupReg)
-    //{
-    //case(REG_ALL):
-    //    out << REQ_COMPLETED << REG_ALL << m_reg;
-    //    break;
-    //case(REG_GROUP_1):
-    //    break;
-    //case(REG_GROUP_2):
-    //    break;
-    //case(REG_GROUP_3):
-
-    //}
-
-    return data;
-}
+//QByteArray DeviceVS::readData(unsigned char groupReg)
+//{
+//    QByteArray data;
+//    QDataStream out(&data,QIODevice::WriteOnly);
+//    //QDataStream dt(m_reg.data(),)
+//    //switch (groupReg)
+//    //{
+//    //case(REG_ALL):
+//    //    out << REQ_COMPLETED << REG_ALL << m_reg;
+//    //    break;
+//    //case(REG_GROUP_1):
+//    //    break;
+//    //case(REG_GROUP_2):
+//    //    break;
+//    //case(REG_GROUP_3):
+//
+//    //}
+//
+//    return data;
+//}

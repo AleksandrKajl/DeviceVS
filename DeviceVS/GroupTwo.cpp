@@ -163,6 +163,7 @@ void GroupTwo::initReg()
 {
         //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ДВА
 //--------------------Абонент 1-----------------------------------------------
+    m_pDev->m_reg[1];
     m_pDev->ui.lineEdit_7->setText(QString::number(m_pDev->m_reg[8]));
     //m_pDev->ui.lineEdit_7->setInputMask("000");
     m_pDev->ui.lineEdit_8->setText(QString::number(m_pDev->m_reg[9]));

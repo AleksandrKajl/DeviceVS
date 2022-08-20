@@ -31,7 +31,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>6.3.1_msvc2019_64</QtInstall>
+    <QtInstall>6.3.0_msvc2019_64</QtInstall>
     <QtModules>core;gui;network;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -85,12 +85,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GroupThree.cpp" />
-    <ClCompile Include="GroupTwo.cpp" />
     <QtRcc Include="DeviceVS.qrc" />
     <QtUic Include="DeviceVS.ui" />
     <QtMoc Include="DeviceVS.h" />
     <ClCompile Include="DeviceVS.cpp" />
+    <ClCompile Include="GroupThree.cpp" />
+    <ClCompile Include="GroupTwo.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

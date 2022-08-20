@@ -61,7 +61,7 @@ private:
     void updateInfo();
     void initReg();
     char binaryStringToInt(QString str);
-    QByteArray readData(unsigned char groupReg);
+    //QByteArray readData(unsigned char groupReg);
 
 
 };
