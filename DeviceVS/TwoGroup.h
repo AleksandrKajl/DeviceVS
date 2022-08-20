@@ -1,13 +1,14 @@
 #pragma once
 #include"DeviceVS.h"
 
-class TwoGroup
+class TwoGroup : public QObject
 {
+    Q_OBJECT
 public:
-	TwoGroup(DeviceVS* parent);
+	TwoGroup(DeviceVS* ptrDevice);
+    //DeviceVS* m_pDev;
 
-
-private slots:
+public slots:
     void slotEditReg8();
     void slotEditReg9();
     void slotEditReg10_0();
@@ -24,7 +25,11 @@ private slots:
     void slotEditReg18();
     void slotEditReg19_0();
     void slotEditReg19_1();
+
+private:
+    void initReg();
+    void updateInfo();
 	
 private:
-	DeviceVS* m_dev;
+	DeviceVS* m_pDev;
 };

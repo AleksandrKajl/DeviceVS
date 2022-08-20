@@ -15,15 +15,17 @@ public:
     DeviceVS(QWidget *parent = nullptr);
     ~DeviceVS();
     DeviceVS* getPtr();
+private:
+    TwoGroup* m_twoGroup;
+    QUdpSocket* m_udpSock;
 
+public:
     Ui::DeviceVSClass ui;
 
-private:
     //Массив байт для хранения значений регистров
-    std::array<unsigned char, 40> m_reg{0};
-    TwoGroup* m_twoGroup;
+    std::array<unsigned char, 40> m_reg{ 0 };
 
-    QUdpSocket* m_udpSock;
+
 
 private slots:
     void slotRecievRequest();

@@ -45,8 +45,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TwoGroup.h">
+    <QtMoc Include="TwoGroup.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
   </ItemGroup>
 </Project>
