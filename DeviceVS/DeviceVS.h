@@ -43,6 +43,7 @@ public:
     //Массив байт для хранения значений регистров
     std::array<unsigned char, 40> m_reg{ 0 };
 
+
 private slots:
     void slotRecievRequest();
     void slotSendData();
