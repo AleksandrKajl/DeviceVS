@@ -55,18 +55,18 @@ void DeviceVS::slotRecievRequest()
     unsigned char request;
     unsigned char groupReg;
     in >> request >> groupReg;
-    if (request == READ_REQ)
-    {
-        m_pUdpSock->writeDatagram(readData(groupReg), QHostAddress::LocalHost, 5555);
-    }
-    else if(request == WRITE_REQ)
-    {
+    //if (request == READ_REQ)
+    //{
+    //    m_pUdpSock->writeDatagram(readData(groupReg), QHostAddress::LocalHost, 5555);
+    //}
+    //else if(request == WRITE_REQ)
+    //{
 
-    }
-    else
-    {
+    //}
+    //else
+    //{
 
-    }
+    //}
 
 }
 
@@ -234,23 +234,23 @@ char DeviceVS::binaryStringToInt(QString str)
     return res;
 }
 
-QByteArray DeviceVS::readData(unsigned char groupReg)
-{
-    QByteArray data;
-    QDataStream out(&data,QIODevice::WriteOnly);
-    //QDataStream dt(m_reg.data(),)
-    //switch (groupReg)
-    //{
-    //case(REG_ALL):
-    //    out << REQ_COMPLETED << REG_ALL << m_reg;
-    //    break;
-    //case(REG_GROUP_1):
-    //    break;
-    //case(REG_GROUP_2):
-    //    break;
-    //case(REG_GROUP_3):
-
-    //}
-
-    return;
-}
+//QByteArray DeviceVS::readData(unsigned char groupReg)
+//{
+//    QByteArray data;
+//    QDataStream out(&data,QIODevice::WriteOnly);
+//    //QDataStream dt(m_reg.data(),)
+//    //switch (groupReg)
+//    //{
+//    //case(REG_ALL):
+//    //    out << REQ_COMPLETED << REG_ALL << m_reg;
+//    //    break;
+//    //case(REG_GROUP_1):
+//    //    break;
+//    //case(REG_GROUP_2):
+//    //    break;
+//    //case(REG_GROUP_3):
+//
+//    //}
+//
+//    return data;
+//}
