@@ -41,12 +41,13 @@ public:
     Ui::DeviceVSClass ui;
 
     //Массив байт для хранения значений регистров
-    std::array<unsigned char, 40> m_reg{ 0 };
+    QByteArray m_reg;
 
 
 private slots:
     void slotRecievRequest();
     void slotSendData();
+
 
     //Группа регистров 1
     void slotEditReg0L();

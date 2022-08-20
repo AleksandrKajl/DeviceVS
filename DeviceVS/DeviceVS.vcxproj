@@ -85,12 +85,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GroupThree.cpp" />
-    <ClCompile Include="GroupTwo.cpp" />
     <QtRcc Include="DeviceVS.qrc" />
     <QtUic Include="DeviceVS.ui" />
     <QtMoc Include="DeviceVS.h" />
     <ClCompile Include="DeviceVS.cpp" />
+    <ClCompile Include="GroupThree.cpp" />
+    <ClCompile Include="GroupTwo.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

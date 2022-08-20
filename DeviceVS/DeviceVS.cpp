@@ -9,12 +9,13 @@ DeviceVS::DeviceVS(QWidget* parent)
     , m_pGroupThree(nullptr)
     , m_pValidRG5(new QIntValidator(0, 30000, this))
 {
+    m_reg.fill(0, 40);
     ui.setupUi(this);
     m_pGroupTwo = new GroupTwo(this);
     m_pGroupThree = new GroupThree(this);
 
     m_pUdpSock->bind(QHostAddress::Any, 5555);
-
+    
     connect(m_pUdpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
     //ГРУППА РЕГИСТРОВ ОДИН
     connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0L()));
