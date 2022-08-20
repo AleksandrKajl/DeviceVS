@@ -30,7 +30,7 @@ GroupTwo::GroupTwo(DeviceVS* pDevice)
     connect(m_pDev->ui.lineEdit_21, SIGNAL(editingFinished()), SLOT(slotEditReg19_0()));
     connect(m_pDev->ui.lineEdit_22, SIGNAL(editingFinished()), SLOT(slotEditReg19_1()));
     //======================================================================================
-    
+
     m_pDev->ui.lineEdit_7->setValidator(m_pValidReg8);
     m_pDev->ui.lineEdit_8->setValidator(m_pValidReg9);
 
@@ -48,20 +48,12 @@ GroupTwo::GroupTwo(DeviceVS* pDevice)
 
 void GroupTwo::slotEditReg8()
 {
-    char rg8 = m_pDev->ui.lineEdit_7->text().toInt();
-    if (rg8 > 100)
-        m_pDev->m_reg[8] = 100;
-    else
-        m_pDev->m_reg[8] = rg8;
+    m_pDev->m_reg[8] = m_pDev->ui.lineEdit_7->text().toInt();
 }
 
 void GroupTwo::slotEditReg9()
 {
-    char rg9 = m_pDev->ui.lineEdit_8->text().toInt();
-    if (rg9 > 10)
-        m_pDev->m_reg[9] = 10;
-    else
-        m_pDev->m_reg[9] = rg9;
+    m_pDev->m_reg[9] = m_pDev->ui.lineEdit_8->text().toInt();
 }
 
 void GroupTwo::slotEditReg10_0()
@@ -84,20 +76,12 @@ void GroupTwo::slotEditReg10_1()
 
 void GroupTwo::slotEditReg11()
 {
-    char rg11 = m_pDev->ui.lineEdit_11->text().toInt();
-    if (rg11 > 100)
-        m_pDev->m_reg[11] = 100;
-    else
-        m_pDev->m_reg[11] = rg11;
+        m_pDev->m_reg[11] = m_pDev->ui.lineEdit_11->text().toInt();
 }
 
 void GroupTwo::slotEditReg12()
 {
-    char rg12 = m_pDev->ui.lineEdit_12->text().toInt();
-    if (rg12 > 10)
-        m_pDev->m_reg[12] = 10;
-    else
-        m_pDev->m_reg[12] = rg12;
+    m_pDev->m_reg[12] = m_pDev->ui.lineEdit_12->text().toInt();
 }
 
 void GroupTwo::slotEditReg13_0()
@@ -120,21 +104,12 @@ void GroupTwo::slotEditReg13_1()
 
 void GroupTwo::slotEditReg14()
 {
-    char rg14 = m_pDev->ui.lineEdit_15->text().toInt();
-    if (rg14 > 100)
-        m_pDev->m_reg[14] = 100;
-    else
-        m_pDev->m_reg[14] = rg14;
-
+    m_pDev->m_reg[14] = m_pDev->ui.lineEdit_15->text().toInt();
 }
 
 void GroupTwo::slotEditReg15()
 {
-    char rg15 = m_pDev->ui.lineEdit_16->text().toInt();
-    if (rg15 > 10)
-        m_pDev->m_reg[15] = 10;
-    else
-        m_pDev->m_reg[15] = rg15;
+    m_pDev->m_reg[15] = m_pDev->ui.lineEdit_16->text().toInt();
 }
 
 void GroupTwo::slotEditReg16_0()
@@ -157,20 +132,13 @@ void GroupTwo::slotEditReg16_1()
 
 void GroupTwo::slotEditReg17()
 {
-    char rg17 = m_pDev->ui.lineEdit_19->text().toInt();
-    if (rg17 > 100)
-        m_pDev->m_reg[17] = 100;
-    else
-        m_pDev->m_reg[17] = rg17;
+    m_pDev->m_reg[17] = m_pDev->ui.lineEdit_19->text().toInt();
 }
 
 void GroupTwo::slotEditReg18()
 {
-    char rg18 = m_pDev->ui.lineEdit_20->text().toInt();
-    if (rg18 > 10)
-        m_pDev->m_reg[18] = 10;
-    else
-        m_pDev->m_reg[18] = rg18;
+    
+    m_pDev->m_reg[18] = m_pDev->ui.lineEdit_20->text().toInt();
 }
 
 void GroupTwo::slotEditReg19_0()
