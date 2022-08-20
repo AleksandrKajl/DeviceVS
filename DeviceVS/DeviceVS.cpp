@@ -14,7 +14,8 @@ DeviceVS::DeviceVS(QWidget* parent)
     m_pGroupThree = new GroupThree(this);
 
     m_pUdpSock->bind(QHostAddress::Any, 5555);
-
+    m_reg.fill(40, 0);
+    
     connect(m_pUdpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
     //ГРУППА РЕГИСТРОВ ОДИН
     connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0L()));
@@ -252,5 +253,5 @@ QByteArray DeviceVS::readData(unsigned char groupReg)
 
     //}
 
-    return;
+    return data;
 }
