@@ -7,6 +7,18 @@
 
 #include "ui_DeviceVS.h"
 
+//йнмярюмрш гюопнянб дкъ сярпниярбю
+#define READ_REQ 31
+#define WRITE_REQ 30
+#define REQ_COMPLETED 40
+#define REQ_FAILED 41
+
+//йнмярюмрш дкъ бшанпю цпсоош пецхярпнб
+#define REG_ALL 0
+#define REG_GROUP_1 1
+#define REG_GROUP_2 2
+#define REG_GROUP_3 3
+
 class GroupTwo;
 class GroupThree;
 
@@ -22,7 +34,7 @@ public:
 private:
     GroupTwo* m_pGroupTwo;
     GroupThree* m_pGroupThree;
-    QUdpSocket* m_udpSock;
+    QUdpSocket* m_pUdpSock;
     QIntValidator* m_pValidRG5;
 
 public:
@@ -47,5 +59,7 @@ private:
     void updateInfo();
     void initReg();
     char binaryStringToInt(QString str);
+    QByteArray readData(unsigned char groupReg);
+
 
 };

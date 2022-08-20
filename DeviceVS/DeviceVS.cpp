@@ -4,7 +4,7 @@
 
 DeviceVS::DeviceVS(QWidget* parent)
     : QMainWindow(parent)
-    , m_udpSock(new QUdpSocket(this))
+    , m_pUdpSock(new QUdpSocket(this))
     , m_pGroupTwo(nullptr)
     , m_pGroupThree(nullptr)
     , m_pValidRG5(new QIntValidator(0, 30000, this))
@@ -13,9 +13,9 @@ DeviceVS::DeviceVS(QWidget* parent)
     m_pGroupTwo = new GroupTwo(this);
     m_pGroupThree = new GroupThree(this);
 
-    m_udpSock->bind(5555);
+    m_pUdpSock->bind(QHostAddress::Any, 5555);
 
-    connect(m_udpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
+    connect(m_pUdpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
     //ГРУППА РЕГИСТРОВ ОДИН
     connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0L()));
     connect(ui.lineEdit_2, SIGNAL(editingFinished()), SLOT(slotEditReg0H()));
@@ -47,13 +47,27 @@ void DeviceVS::slotRecievRequest()
     QByteArray data;
     do
     {
-        data.resize(m_udpSock->pendingDatagramSize());
-        m_udpSock->readDatagram(data.data(), data.size());
-    } while (m_udpSock->hasPendingDatagrams());
+        data.resize(m_pUdpSock->pendingDatagramSize());
+        m_pUdpSock->readDatagram(data.data(), data.size());
+    } while (m_pUdpSock->hasPendingDatagrams());
 
     QDataStream in(&data, QIODevice::ReadOnly);
-    int a, b;
-    in >> a >> b;
+    unsigned char request;
+    unsigned char groupReg;
+    in >> request >> groupReg;
+    if (request == READ_REQ)
+    {
+        m_pUdpSock->writeDatagram(readData(groupReg), QHostAddress::LocalHost, 5555);
+    }
+    else if(request == WRITE_REQ)
+    {
+
+    }
+    else
+    {
+
+    }
+
 }
 
 //ГРУППА РЕГИСТРОВ 1
@@ -218,4 +232,25 @@ char DeviceVS::binaryStringToInt(QString str)
         res += i.unicode() - '0';
     }
     return res;
+}
+
+QByteArray DeviceVS::readData(unsigned char groupReg)
+{
+    QByteArray data;
+    QDataStream out(&data,QIODevice::WriteOnly);
+    //QDataStream dt(m_reg.data(),)
+    //switch (groupReg)
+    //{
+    //case(REG_ALL):
+    //    out << REQ_COMPLETED << REG_ALL << m_reg;
+    //    break;
+    //case(REG_GROUP_1):
+    //    break;
+    //case(REG_GROUP_2):
+    //    break;
+    //case(REG_GROUP_3):
+
+    //}
+
+    return;
 }
