@@ -1,11 +1,11 @@
 #pragma once
 #include"DeviceVS.h"
 
-class TwoGroup : public QObject
+class GroupTwo : public QObject
 {
     Q_OBJECT
 public:
-	TwoGroup(DeviceVS* ptrDevice);
+	GroupTwo(DeviceVS* pDevice);
 
 public slots:
     void slotEditReg8();

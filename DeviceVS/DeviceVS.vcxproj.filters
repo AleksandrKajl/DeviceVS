@@ -40,12 +40,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TwoGroup.cpp">
+    <ClCompile Include="GroupTwo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupThree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="TwoGroup.h">
+    <QtMoc Include="GroupTwo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="GroupThree.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

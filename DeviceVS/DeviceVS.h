@@ -3,10 +3,13 @@
 #include <QtWidgets/QMainWindow>
 #include<QStringListModel>
 #include<QListView>
+#include<bitset>
 #include<QUdpSocket>
+
+
 #include "ui_DeviceVS.h"
 
-class TwoGroup;
+class GroupTwo;
 
 class DeviceVS : public QMainWindow
 {
@@ -18,7 +21,7 @@ public:
     DeviceVS* getPtr();
 
 private:
-    TwoGroup* m_twoGroup;
+    GroupTwo* m_twoGroup;
     QUdpSocket* m_udpSock;
 
 public:
@@ -38,17 +41,6 @@ private slots:
     void slotEditReg5Reg6();
     void slotEditReg7_0();
     void slotEditReg7_4();
-
-    //Группа регистров 3
-    void slotEditReg32_0();
-    void slotEditReg32_2_1();
-    void slotEditReg32_4_3();
-    void slotEditReg32_5();
-    void slotEditReg33();
-    void slotEditReg34_0();
-    void slotEditReg34_1();
-    void slotEditReg34_2();
-    void slotEditReg34_3();
 
 private:
     void updateInfo();

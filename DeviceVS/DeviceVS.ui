@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1011</width>
-    <height>693</height>
+    <height>713</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,7 @@
       <item row="7" column="6">
        <widget class="QLabel" name="label_22">
         <property name="text">
-         <string>Автовызов нет</string>
+         <string>Автовызов: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -221,7 +221,7 @@
       <item row="27" column="6">
        <widget class="QLabel" name="label_49">
         <property name="text">
-         <string>Автовызов нет</string>
+         <string>Автовызов: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -257,7 +257,7 @@
       <item row="14" column="6">
        <widget class="QLabel" name="label_33">
         <property name="text">
-         <string>Поддержание связи нет</string>
+         <string>Поддержание связи: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -408,7 +408,7 @@
       <item row="8" column="6">
        <widget class="QLabel" name="label_24">
         <property name="text">
-         <string>Поддержание связи нет</string>
+         <string>Поддержание связи: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -418,7 +418,7 @@
       <item row="20" column="6">
        <widget class="QLabel" name="label_40">
         <property name="text">
-         <string>Автовызов нет</string>
+         <string>Автовызов: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -497,7 +497,7 @@
       <item row="21" column="6">
        <widget class="QLabel" name="label_42">
         <property name="text">
-         <string>Поддержание связи нет</string>
+         <string>Поддержание связи: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -887,7 +887,7 @@
       <item row="13" column="6">
        <widget class="QLabel" name="label_31">
         <property name="text">
-         <string>Автовызов нет</string>
+         <string>Автовызов: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1306,7 +1306,7 @@
       <item row="28" column="6">
        <widget class="QLabel" name="label_51">
         <property name="text">
-         <string>Поддержание связи нет</string>
+         <string>Поддержание связи: Нет</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1595,8 +1595,37 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_4</tabstop>
   <tabstop>lineEdit_5</tabstop>
   <tabstop>lineEdit_6</tabstop>
+  <tabstop>lineEdit_7</tabstop>
+  <tabstop>lineEdit_8</tabstop>
+  <tabstop>lineEdit_9</tabstop>
+  <tabstop>lineEdit_10</tabstop>
+  <tabstop>lineEdit_11</tabstop>
+  <tabstop>lineEdit_12</tabstop>
+  <tabstop>lineEdit_13</tabstop>
+  <tabstop>lineEdit_14</tabstop>
+  <tabstop>lineEdit_15</tabstop>
+  <tabstop>lineEdit_16</tabstop>
+  <tabstop>lineEdit_17</tabstop>
+  <tabstop>lineEdit_18</tabstop>
+  <tabstop>lineEdit_19</tabstop>
+  <tabstop>lineEdit_20</tabstop>
+  <tabstop>lineEdit_21</tabstop>
+  <tabstop>lineEdit_22</tabstop>
+  <tabstop>lineEdit_23</tabstop>
+  <tabstop>lineEdit_24</tabstop>
+  <tabstop>lineEdit_25</tabstop>
+  <tabstop>lineEdit_26</tabstop>
+  <tabstop>lineEdit_27</tabstop>
+  <tabstop>lineEdit_28</tabstop>
+  <tabstop>lineEdit_29</tabstop>
+  <tabstop>lineEdit_30</tabstop>
+  <tabstop>lineEdit_31</tabstop>
  </tabstops>
  <resources>
   <include location="DeviceVS.qrc"/>

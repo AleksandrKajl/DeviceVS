@@ -1,8 +1,7 @@
-#include"TwoGroup.h"
-#include<bitset>
+#include"GroupTwo.h"
 
-TwoGroup::TwoGroup(DeviceVS* parent)
-	: m_pDev(parent)
+GroupTwo::GroupTwo(DeviceVS* pDevice)
+	: m_pDev(pDevice)
 {
     //----------------Абонент 1-------------------------------------------------------------
     connect(m_pDev->ui.lineEdit_7, SIGNAL(editingFinished()), SLOT(slotEditReg8()));
@@ -34,7 +33,7 @@ TwoGroup::TwoGroup(DeviceVS* parent)
 
 }
 
-void TwoGroup::slotEditReg8()
+void GroupTwo::slotEditReg8()
 {
     char rg8 = m_pDev->ui.lineEdit_7->text().toInt();
     if (rg8 > 100)
@@ -43,7 +42,7 @@ void TwoGroup::slotEditReg8()
         m_pDev->m_reg[8] = rg8;
 }
 
-void TwoGroup::slotEditReg9()
+void GroupTwo::slotEditReg9()
 {
     char rg9 = m_pDev->ui.lineEdit_8->text().toInt();
     if (rg9 > 10)
@@ -52,7 +51,7 @@ void TwoGroup::slotEditReg9()
         m_pDev->m_reg[9] = rg9;
 }
 
-void TwoGroup::slotEditReg10_0()
+void GroupTwo::slotEditReg10_0()
 {
     std::bitset<2> rg10(m_pDev->m_reg[10]);
     rg10[0] = m_pDev->ui.lineEdit_9->text().toInt();
@@ -61,7 +60,7 @@ void TwoGroup::slotEditReg10_0()
     updateInfo();
 }
 
-void TwoGroup::slotEditReg10_1()
+void GroupTwo::slotEditReg10_1()
 {
     std::bitset<2> rg10(m_pDev->m_reg[10]);
     rg10[1] = m_pDev->ui.lineEdit_10->text().toInt();
@@ -70,7 +69,7 @@ void TwoGroup::slotEditReg10_1()
     updateInfo();
 }
 
-void TwoGroup::slotEditReg11()
+void GroupTwo::slotEditReg11()
 {
     char rg11 = m_pDev->ui.lineEdit_11->text().toInt();
     if (rg11 > 100)
@@ -79,7 +78,7 @@ void TwoGroup::slotEditReg11()
         m_pDev->m_reg[11] = rg11;
 }
 
-void TwoGroup::slotEditReg12()
+void GroupTwo::slotEditReg12()
 {
     char rg12 = m_pDev->ui.lineEdit_12->text().toInt();
     if (rg12 > 10)
@@ -88,7 +87,7 @@ void TwoGroup::slotEditReg12()
         m_pDev->m_reg[12] = rg12;
 }
 
-void TwoGroup::slotEditReg13_0()
+void GroupTwo::slotEditReg13_0()
 {
     std::bitset<2> rg13(m_pDev->m_reg[13]);
     rg13[0] = m_pDev->ui.lineEdit_13->text().toInt();
@@ -97,7 +96,7 @@ void TwoGroup::slotEditReg13_0()
     updateInfo();
 }
 
-void TwoGroup::slotEditReg13_1()
+void GroupTwo::slotEditReg13_1()
 {
     std::bitset<2> rg13(m_pDev->m_reg[13]);
     rg13[1] = m_pDev->ui.lineEdit_14->text().toInt();
@@ -106,7 +105,7 @@ void TwoGroup::slotEditReg13_1()
     //updateInfo();
 }
 
-void TwoGroup::slotEditReg14()
+void GroupTwo::slotEditReg14()
 {
     char rg14 = m_pDev->ui.lineEdit_15->text().toInt();
     if (rg14 > 100)
@@ -116,7 +115,7 @@ void TwoGroup::slotEditReg14()
 
 }
 
-void TwoGroup::slotEditReg15()
+void GroupTwo::slotEditReg15()
 {
     char rg15 = m_pDev->ui.lineEdit_16->text().toInt();
     if (rg15 > 10)
@@ -125,7 +124,7 @@ void TwoGroup::slotEditReg15()
         m_pDev->m_reg[15] = rg15;
 }
 
-void TwoGroup::slotEditReg16_0()
+void GroupTwo::slotEditReg16_0()
 {
     std::bitset<2> rg16(m_pDev->m_reg[16]);
     rg16[0] = m_pDev->ui.lineEdit_17->text().toInt();
@@ -134,7 +133,7 @@ void TwoGroup::slotEditReg16_0()
     updateInfo();
 }
 
-void TwoGroup::slotEditReg16_1()
+void GroupTwo::slotEditReg16_1()
 {
     std::bitset<2> rg16(m_pDev->m_reg[16]);
     rg16[1] = m_pDev->ui.lineEdit_18->text().toInt();
@@ -143,7 +142,7 @@ void TwoGroup::slotEditReg16_1()
     updateInfo();
 }
 
-void TwoGroup::slotEditReg17()
+void GroupTwo::slotEditReg17()
 {
     char rg17 = m_pDev->ui.lineEdit_19->text().toInt();
     if (rg17 > 100)
@@ -152,7 +151,7 @@ void TwoGroup::slotEditReg17()
         m_pDev->m_reg[17] = rg17;
 }
 
-void TwoGroup::slotEditReg18()
+void GroupTwo::slotEditReg18()
 {
     char rg18 = m_pDev->ui.lineEdit_20->text().toInt();
     if (rg18 > 10)
@@ -161,7 +160,7 @@ void TwoGroup::slotEditReg18()
         m_pDev->m_reg[18] = rg18;
 }
 
-void TwoGroup::slotEditReg19_0()
+void GroupTwo::slotEditReg19_0()
 {
     std::bitset<2> rg19(m_pDev->m_reg[19]);
     rg19[0] = m_pDev->ui.lineEdit_21->text().toInt();
@@ -170,7 +169,7 @@ void TwoGroup::slotEditReg19_0()
     updateInfo();
 }
 
-void TwoGroup::slotEditReg19_1()
+void GroupTwo::slotEditReg19_1()
 {
     std::bitset<2> rg19(m_pDev->m_reg[19]);
     rg19[1] = m_pDev->ui.lineEdit_22->text().toInt();
@@ -179,7 +178,7 @@ void TwoGroup::slotEditReg19_1()
     updateInfo();
 }
 
-void TwoGroup::initReg()
+void GroupTwo::initReg()
 {
         //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ДВА
 //--------------------Абонент 1-----------------------------------------------
@@ -230,7 +229,7 @@ void TwoGroup::initReg()
     //=============================================================================
 }
 
-void TwoGroup::updateInfo()
+void GroupTwo::updateInfo()
 {
    //ОБНОВЛЕНИЕ ИНФОРМАЦИИ О ГРУППЕ РЕГИСТРОВ ДВА
   //------------------Абонент 1--------------------------------------------------
