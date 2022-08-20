@@ -48,6 +48,7 @@ private slots:
     void slotRecievRequest();
     void slotSendData();
 
+
     //Группа регистров 1
     void slotEditReg0L();
     void slotEditReg0H();
