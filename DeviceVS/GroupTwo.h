@@ -6,6 +6,7 @@ class GroupTwo : public QObject
     Q_OBJECT
 public:
 	GroupTwo(DeviceVS* pDevice);
+    void initReg();
 
 public slots:
     void slotEditReg8();
@@ -26,7 +27,6 @@ public slots:
     void slotEditReg19_1();
 
 private:
-    void initReg();
     void updateInfo();
 	
 private:

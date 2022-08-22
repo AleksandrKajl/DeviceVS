@@ -6,6 +6,7 @@ class GroupThree : public QObject
 	Q_OBJECT
 public:
 	GroupThree(DeviceVS* pDevice);
+    void initReg();
 
 public slots:
     //Группа регистров 3
@@ -20,7 +21,6 @@ public slots:
     void slotEditReg34_3();
 
 private:
-    void initReg();
     void updateInfo();
 
 private:

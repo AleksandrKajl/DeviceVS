@@ -104,7 +104,7 @@ void GroupThree::slotEditReg32_5()
 
 void GroupThree::slotEditReg33()
 {
-    int rg33 = m_pDev->ui.lineEdit_27->text().toInt();
+    int rg33 = m_pDev->ui.lineEdit_27->text().toUInt();
     if (rg33 > 255)
         m_pDev->m_reg[33] = 255;
     else
@@ -163,7 +163,7 @@ void GroupThree::initReg()
     m_pDev->ui.lineEdit_25->setInputMask("bb");
     m_pDev->ui.lineEdit_26->setText(str[0]);
     m_pDev->ui.lineEdit_26->setInputMask("B");
-    m_pDev->ui.lineEdit_27->setText(QString::number(m_pDev->m_reg[33]));
+    m_pDev->ui.lineEdit_27->setText(QString::number((uint8_t)m_pDev->m_reg[33]));
     //m_pDev->ui.lineEdit_27->setInputMask("000");
     std::bitset<4> rg34(m_pDev->m_reg[34]);
     str = QString::fromStdString(rg34.to_string());

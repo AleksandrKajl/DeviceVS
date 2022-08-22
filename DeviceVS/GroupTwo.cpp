@@ -164,22 +164,22 @@ void GroupTwo::initReg()
         //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ДВА
 //--------------------Абонент 1-----------------------------------------------
     m_pDev->m_reg[1];
-    m_pDev->ui.lineEdit_7->setText(QString::number(m_pDev->m_reg[8]));
+    m_pDev->ui.lineEdit_7->setText(QString::number((uint8_t)m_pDev->m_reg[8]));
     //m_pDev->ui.lineEdit_7->setInputMask("000");
-    m_pDev->ui.lineEdit_8->setText(QString::number(m_pDev->m_reg[9]));
+    m_pDev->ui.lineEdit_8->setText(QString::number((uint8_t)m_pDev->m_reg[9]));
     //m_pDev->ui.lineEdit_8->setInputMask("00");
-    QString str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[10]).to_string());
+    QString str = QString::fromStdString(std::bitset<2>((uint8_t)m_pDev->m_reg[10]).to_string());
     m_pDev->ui.lineEdit_9->setText(str[1]);
     m_pDev->ui.lineEdit_9->setInputMask("B");
     m_pDev->ui.lineEdit_10->setText(str[0]);
     m_pDev->ui.lineEdit_10->setInputMask("B");
     //=============================================================================
     //---------------------Абонент 2-----------------------------------------------
-    m_pDev->ui.lineEdit_11->setText(QString::number(m_pDev->m_reg[11]));
+    m_pDev->ui.lineEdit_11->setText(QString::number((uint8_t)m_pDev->m_reg[11]));
     //m_pDev->ui.lineEdit_11->setInputMask("000");
-    m_pDev->ui.lineEdit_12->setText(QString::number(m_pDev->m_reg[12]));
+    m_pDev->ui.lineEdit_12->setText(QString::number((uint8_t)m_pDev->m_reg[12]));
     //m_pDev->ui.lineEdit_12->setInputMask("00");
-    str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[13]).to_string());
+    str = QString::fromStdString(std::bitset<2>((uint8_t)m_pDev->m_reg[13]).to_string());
     m_pDev->ui.lineEdit_13->setText(str[1]);
     m_pDev->ui.lineEdit_13->setInputMask("B");
     m_pDev->ui.lineEdit_14->setText(str[0]);
@@ -187,11 +187,11 @@ void GroupTwo::initReg()
 
     //=============================================================================
     //---------------------Абонент 3-----------------------------------------------
-    m_pDev->ui.lineEdit_15->setText(QString::number(m_pDev->m_reg[14]));
+    m_pDev->ui.lineEdit_15->setText(QString::number((uint8_t)m_pDev->m_reg[14]));
     //m_pDev->ui.lineEdit_15->setInputMask("000");
-    m_pDev->ui.lineEdit_16->setText(QString::number(m_pDev->m_reg[15]));
+    m_pDev->ui.lineEdit_16->setText(QString::number((uint8_t)m_pDev->m_reg[15]));
     //m_pDev->ui.lineEdit_16->setInputMask("00");
-    str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[16]).to_string());
+    str = QString::fromStdString(std::bitset<2>((uint8_t)m_pDev->m_reg[16]).to_string());
     m_pDev->ui.lineEdit_17->setText(str[1]);
     m_pDev->ui.lineEdit_17->setInputMask("B");
     m_pDev->ui.lineEdit_18->setText(str[0]);
@@ -199,16 +199,18 @@ void GroupTwo::initReg()
 
     //=============================================================================
     //---------------------Абонент 4-----------------------------------------------
-    m_pDev->ui.lineEdit_19->setText(QString::number(m_pDev->m_reg[17]));
+    m_pDev->ui.lineEdit_19->setText(QString::number((uint8_t)m_pDev->m_reg[17]));
     //m_pDev->ui.lineEdit_19->setInputMask("000");
-    m_pDev->ui.lineEdit_20->setText(QString::number(m_pDev->m_reg[18]));
+    m_pDev->ui.lineEdit_20->setText(QString::number((uint8_t)m_pDev->m_reg[18]));
     //m_pDev->ui.lineEdit_20->setInputMask("00");
-    str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[19]).to_string());
+    str = QString::fromStdString(std::bitset<2>((uint8_t)m_pDev->m_reg[19]).to_string());
     m_pDev->ui.lineEdit_21->setText(str[1]);
     m_pDev->ui.lineEdit_21->setInputMask("B");
     m_pDev->ui.lineEdit_22->setText(str[0]);
     m_pDev->ui.lineEdit_22->setInputMask("B");
     //=============================================================================
+
+    updateInfo();
 }
 
 void GroupTwo::updateInfo()

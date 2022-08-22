@@ -14,7 +14,7 @@ DeviceVS::DeviceVS(QWidget* parent)
     m_pGroupTwo = new GroupTwo(this);
     m_pGroupThree = new GroupThree(this);
 
-    m_pUdpSock->bind(QHostAddress::Any, 5555);
+    m_pUdpSock->bind(5555);
     
     connect(m_pUdpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
     //ГРУППА РЕГИСТРОВ ОДИН
@@ -43,6 +43,7 @@ DeviceVS* DeviceVS::getPtr()
     return this;
 }
 
+//Приём запроса
 void DeviceVS::slotRecievRequest()
 {
     QByteArray data;
@@ -53,22 +54,74 @@ void DeviceVS::slotRecievRequest()
     } while (m_pUdpSock->hasPendingDatagrams());
 
     QDataStream in(&data, QIODevice::ReadOnly);
-    unsigned char request;
-    unsigned char groupReg;
+    uint8_t request;
+    uint8_t groupReg;
     in >> request >> groupReg;
-    //if (request == READ_REQ)
-    //{
-    //    m_pUdpSock->writeDatagram(readData(groupReg), QHostAddress::LocalHost, 5555);
-    //}
-    //else if(request == WRITE_REQ)
-    //{
+    if (request == READ_REQ)
+    {
+        m_pUdpSock->writeDatagram(readData(groupReg), QHostAddress::LocalHost, 4444);
+    }
+    else if(request == WRITE_REQ)
+    {
+        QByteArray reg;
+        in >> reg;
+        m_pUdpSock->writeDatagram(writeData(reg, groupReg), QHostAddress::LocalHost, 4444);
+    }
+    else
+    {
 
-    //}
-    //else
-    //{
+    }
 
-    //}
+}
 
+QByteArray DeviceVS::writeData(QByteArray reg, uint8_t groupReg)
+{
+    QByteArray data;
+    QDataStream out(&data, QIODevice::WriteOnly);
+    
+    switch (groupReg)
+    {
+    case(1):
+        m_reg.replace(0, 8, reg);
+        initReg();
+        break;
+    case(2):
+        m_reg.replace(8, 23, reg);
+        m_pGroupTwo->initReg();
+        break;
+    case(3):
+        m_reg.replace(32, 8, reg);
+        m_pGroupThree->initReg();
+        break;
+    }
+    
+    
+    out << REQ_COMPLETED << REG_GROUP_1;
+    return data;
+
+}
+
+QByteArray DeviceVS::readData(uint8_t groupReg)
+{
+    QByteArray data;
+    QDataStream out(&data, QIODevice::WriteOnly);
+    switch (groupReg)
+    {
+    case(0):
+        out << REQ_COMPLETED << REG_ALL << m_reg;
+        break;
+    case(1):
+        out << REQ_COMPLETED << REG_GROUP_1 << m_reg.sliced(0, 8);
+        break;
+    case(2):
+        out << REQ_COMPLETED << REG_GROUP_2 << m_reg.sliced(8, 23);
+        break;
+    case(3):
+        out << REQ_COMPLETED << REG_GROUP_3 << m_reg.sliced(32, 7);
+
+    }
+
+    return data;
 }
 
 //ГРУППА РЕГИСТРОВ 1
@@ -97,8 +150,8 @@ void DeviceVS::slotEditReg1()
 void DeviceVS::slotEditReg5Reg6()
 {
     char16_t var = ui.lineEdit_4->text().toInt();
-    m_reg[5] = var >> 8;
-    m_reg[6] = var & 0xFF;
+    m_reg[5] = var & 0xFF;
+    m_reg[6] = var >> 8;
 }
 
 void DeviceVS::slotEditReg7_0()
@@ -134,7 +187,7 @@ void DeviceVS::initReg()
 
     //Reg2 -Reg4 reserve
     //Reg5 - Reg6
-    ui.lineEdit_4->setText(QString::number((m_reg[5] * 0x100) + m_reg[6]));      //Собираем значение из двух байт
+    ui.lineEdit_4->setText(QString::number((uint8_t)(m_reg[6] * 0x100) + m_reg[5]));      //Собираем значение из двух байт
     //ui.lineEdit_4->setInputMask("99999");
     regStr = QString::fromStdString(std::bitset<8>(m_reg[7]).to_string());
     ui.lineEdit_5->setText(regStr[7]);
@@ -235,23 +288,3 @@ char DeviceVS::binaryStringToInt(QString str)
     return res;
 }
 
-//QByteArray DeviceVS::readData(unsigned char groupReg)
-//{
-//    QByteArray data;
-//    QDataStream out(&data,QIODevice::WriteOnly);
-//    //QDataStream dt(m_reg.data(),)
-//    //switch (groupReg)
-//    //{
-//    //case(REG_ALL):
-//    //    out << REQ_COMPLETED << REG_ALL << m_reg;
-//    //    break;
-//    //case(REG_GROUP_1):
-//    //    break;
-//    //case(REG_GROUP_2):
-//    //    break;
-//    //case(REG_GROUP_3):
-//
-//    //}
-//
-//    return data;
-//}
