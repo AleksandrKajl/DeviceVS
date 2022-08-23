@@ -62,6 +62,7 @@ private slots:
     void slotEditReg7_0();
     void slotEditReg7_4();
 
+
 private:
     void updateInfo();
     void initReg();
