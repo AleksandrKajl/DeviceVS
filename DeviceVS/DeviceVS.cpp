@@ -1,6 +1,7 @@
 #include "DeviceVS.h"
 #include"GroupTwo.h"
 #include"GroupThree.h"
+#include<QMessageBox>
 
 DeviceVS::DeviceVS(QWidget* parent)
     : QMainWindow(parent)
@@ -16,6 +17,8 @@ DeviceVS::DeviceVS(QWidget* parent)
 
     m_pUdpSock->bind(5555);
     
+    //ui.mainToolBar->addAction(QIcon(":/Resource/open-file.png"), tr("Open"), this, SLOT(openFile()));
+    connect(ui.action, SIGNAL(triggered()), SLOT(openLog()));
     connect(m_pUdpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
     //ГРУППА РЕГИСТРОВ ОДИН
     connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0L()));
@@ -65,16 +68,16 @@ void DeviceVS::slotRecievRequest()
     {
         QByteArray reg;
         in >> reg;
-        m_pUdpSock->writeDatagram(writeData(reg, groupReg), QHostAddress::LocalHost, 4444);
+        writeData(reg, groupReg);
+        //m_pUdpSock->writeDatagram(writeData(reg, groupReg), QHostAddress::LocalHost, 4444);
     }
     else
-    {
-
-    }
+        QMessageBox::warning(this, "Предупреждение", "Принят ошибочный запрос!");
 
 }
 
-QByteArray DeviceVS::writeData(QByteArray reg, uint8_t groupReg)
+//Запись принятых данных в массив регистров
+QByteArray DeviceVS::writeData(QByteArray& reg, const uint8_t groupReg)
 {
     QByteArray data;
     QDataStream out(&data, QIODevice::WriteOnly);
@@ -95,13 +98,13 @@ QByteArray DeviceVS::writeData(QByteArray reg, uint8_t groupReg)
         break;
     }
     
-    
     out << REQ_COMPLETED << REG_GROUP_1;
     return data;
 
 }
 
-QByteArray DeviceVS::readData(uint8_t groupReg)
+//Чтение данных для отправки
+QByteArray DeviceVS::readData(const uint8_t groupReg)
 {
     QByteArray data;
     QDataStream out(&data, QIODevice::WriteOnly);
@@ -117,8 +120,7 @@ QByteArray DeviceVS::readData(uint8_t groupReg)
         out << REQ_COMPLETED << REG_GROUP_2 << m_reg.sliced(8, 23);
         break;
     case(3):
-        out << REQ_COMPLETED << REG_GROUP_3 << m_reg.sliced(32, 7);
-
+        out << REQ_COMPLETED << REG_GROUP_3 << m_reg.sliced(32, 8);
     }
 
     return data;
@@ -154,6 +156,11 @@ void DeviceVS::slotEditReg5Reg6()
     m_reg[6] = var >> 8;
 }
 
+void DeviceVS::openLog()
+{
+
+}
+
 void DeviceVS::slotEditReg7_0()
 {
     m_reg[7] = (m_reg[7] & 0xF0) + ui.lineEdit_5->text().toInt();
@@ -167,9 +174,9 @@ void DeviceVS::slotEditReg7_4()
 }
 
 
-void DeviceVS::slotSendData()
-{
-}
+//void DeviceVS::slotSendData()
+//{
+//}
 
 void DeviceVS::initReg()
 {
@@ -187,7 +194,7 @@ void DeviceVS::initReg()
 
     //Reg2 -Reg4 reserve
     //Reg5 - Reg6
-    ui.lineEdit_4->setText(QString::number((uint8_t)(m_reg[6] * 0x100) + m_reg[5]));      //Собираем значение из двух байт
+    ui.lineEdit_4->setText(QString::number((uint16_t)((m_reg[6] * 0x100) + m_reg[5])));      //Собираем значение из двух байт
     //ui.lineEdit_4->setInputMask("99999");
     regStr = QString::fromStdString(std::bitset<8>(m_reg[7]).to_string());
     ui.lineEdit_5->setText(regStr[7]);

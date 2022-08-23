@@ -242,9 +242,9 @@ void GroupThree::updateInfo()
     }
 
     //РГ33
-    if (m_pDev->m_reg[33] >= 170)
+    if ((uint8_t)m_pDev->m_reg[33] >= 170)
         m_pDev->ui.label_62->setStyleSheet("QLabel { background-color : green; color : black; }");
-    else if (m_pDev->m_reg[33] >= 85)
+    else if ((uint8_t)m_pDev->m_reg[33] >= 85)
         m_pDev->ui.label_62->setStyleSheet("QLabel { background-color : yellow; color : black; }");
     else
         m_pDev->ui.label_62->setStyleSheet("QLabel { background-color : red; color : black; }");

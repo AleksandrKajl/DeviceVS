@@ -30,13 +30,13 @@ private:
     QUdpSocket* m_pUdpSock;
     QIntValidator* m_pValidRG5;
 
-    //КОНСТАНТЫ ЗАПРОСОВ ДЛЯ УСТРОЙСТВА
+    //РљРћРќРЎРўРђРќРўР« Р—РђРџР РћРЎРћР’ Р”Р›РЇ РЈРЎРўР РћР™РЎРўР’Рђ
     const uint8_t READ_REQ = 31;
     const uint8_t WRITE_REQ = 30;
     const uint8_t REQ_COMPLETED = 40;
     const uint8_t REQ_FAILED = 41;
 
-    //КОНСТАНТЫ ДЛЯ ВЫБОРА ГРУППЫ РЕГИСТРОВ
+    //РљРћРќРЎРўРђРќРўР« Р”Р›РЇ Р’Р«Р‘РћР Рђ Р“Р РЈРџРџР« Р Р•Р“РРЎРўР РћР’
     const uint8_t REG_ALL = 0;
     const uint8_t REG_GROUP_1 = 1;
     const uint8_t REG_GROUP_2 = 2;
@@ -45,16 +45,16 @@ private:
 public:
     Ui::DeviceVSClass ui;
 
-    //Массив байт для хранения значений регистров
+    //РњР°СЃСЃРёРІ Р±Р°Р№С‚ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№ СЂРµРіРёСЃС‚СЂРѕРІ
     QByteArray m_reg;
 
 
 private slots:
     void slotRecievRequest();
-    void slotSendData();
+    //void slotSendData();
+    void openLog();
 
-
-    //Группа регистров 1
+    //Р“СЂСѓРїРїР° СЂРµРіРёСЃС‚СЂРѕРІ 1
     void slotEditReg0L();
     void slotEditReg0H();
     void slotEditReg1();
@@ -66,7 +66,7 @@ private:
     void updateInfo();
     void initReg();
     char binaryStringToInt(QString str);
-    QByteArray readData(uint8_t groupReg);
-    QByteArray writeData(QByteArray reg, uint8_t groupReg);
+    QByteArray readData(const uint8_t groupReg);
+    QByteArray writeData(QByteArray& reg, const uint8_t groupReg);
 
 };

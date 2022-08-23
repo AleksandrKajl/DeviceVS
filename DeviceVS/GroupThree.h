@@ -9,7 +9,7 @@ public:
     void initReg();
 
 public slots:
-    //Группа регистров 3
+    //Р“СЂСѓРїРїР° СЂРµРіРёСЃС‚СЂРѕРІ 3
     void slotEditReg32_0();
     void slotEditReg32_2_1();
     void slotEditReg32_4_3();
