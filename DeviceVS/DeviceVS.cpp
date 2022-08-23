@@ -9,7 +9,10 @@ DeviceVS::DeviceVS(QWidget* parent)
     , m_pGroupTwo(nullptr)
     , m_pGroupThree(nullptr)
     , m_pValidRG5(new QIntValidator(0, 30000, this))
+    , m_fs(new FileSys(this))
+    , m_txtEdt(new QTextEdit())
 {
+
     m_reg.fill(0, 40);
     ui.setupUi(this);
     m_pGroupTwo = new GroupTwo(this);
@@ -39,7 +42,9 @@ DeviceVS::DeviceVS(QWidget* parent)
 }
 
 DeviceVS::~DeviceVS()
-{}
+{
+    delete m_txtEdt;
+}
 
 DeviceVS* DeviceVS::getPtr()
 {
@@ -158,6 +163,14 @@ void DeviceVS::slotEditReg5Reg6()
 
 void DeviceVS::openLog()
 {
+    m_txtEdt->resize(800, 600);
+    m_txtEdt->setWindowTitle("Журнал событий");
+    m_txtEdt->show();
+    m_txtEdt->setPlainText(m_fs->openFile());
+    m_txtEdt->setReadOnly(true);
+    //m_fs->getFile()->open(QFile::WriteOnly | QFile::Text);
+    //m_fs->getFile()->write("xxx");
+    //m_fs->getFile()->close();
 
 }
 

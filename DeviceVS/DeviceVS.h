@@ -4,13 +4,9 @@
 #include<QListView>
 #include<bitset>
 #include<QUdpSocket>
-
+#include<QTextEdit>
+#include"FileSys.h"
 #include "ui_DeviceVS.h"
-
-//#define REG_ALL 0
-//#define REG_GROUP_1 1
-//#define REG_GROUP_2 2
-//#define REG_GROUP_3 3
 
 class GroupTwo;
 class GroupThree;
@@ -29,6 +25,8 @@ private:
     GroupThree* m_pGroupThree;
     QUdpSocket* m_pUdpSock;
     QIntValidator* m_pValidRG5;
+    FileSys* m_fs;
+    QTextEdit* m_txtEdt;
 
     //КОНСТАНТЫ ЗАПРОСОВ ДЛЯ УСТРОЙСТВА
     const uint8_t READ_REQ = 31;
@@ -44,7 +42,6 @@ private:
 
 public:
     Ui::DeviceVSClass ui;
-
     //Массив байт для хранения значений регистров
     QByteArray m_reg;
 
