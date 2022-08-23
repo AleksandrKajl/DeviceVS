@@ -62,8 +62,8 @@ void DeviceVS::slotRecievRequest()
     } while (m_pUdpSock->hasPendingDatagrams());
 
     QDataStream in(&data, QIODevice::ReadOnly);
-    uint8_t request;
-    uint8_t groupReg;
+    uint8_t request{};
+    uint8_t groupReg{};
     in >> request >> groupReg;
     if (request == READ_REQ)
     {
@@ -86,9 +86,13 @@ QByteArray DeviceVS::writeData(QByteArray& reg, const uint8_t groupReg)
 {
     QByteArray data;
     QDataStream out(&data, QIODevice::WriteOnly);
-    
+
     switch (groupReg)
     {
+    case(0):
+        m_reg.replace(0, 40, reg);
+        initAllReg();
+        break;
     case(1):
         m_reg.replace(0, 8, reg);
         initReg();
@@ -101,30 +105,48 @@ QByteArray DeviceVS::writeData(QByteArray& reg, const uint8_t groupReg)
         m_reg.replace(32, 8, reg);
         m_pGroupThree->initReg();
         break;
+    default:
+        QMessageBox::warning(this, "Предупреждение", "Заппись в эту группу регистров не возможна, её не существует!");
+
     }
     
+    QString str = "Запись данных\t";
+    m_fs->writeLog(str, groupReg ,reg);
     out << REQ_COMPLETED << REG_GROUP_1;
     return data;
 
+}
+
+void DeviceVS::initAllReg()
+{
+    initReg();
+    m_pGroupTwo->initReg();
+    m_pGroupThree->initReg();
 }
 
 //Чтение данных для отправки
 QByteArray DeviceVS::readData(const uint8_t groupReg)
 {
     QByteArray data;
-    QDataStream out(&data, QIODevice::WriteOnly);
+    QDataStream out(&data, QIODevice::WriteOnly);    
+    QString str = "Чтение данных\t";
+
     switch (groupReg)
     {
     case(0):
+        m_fs->writeLog(str, REG_ALL, m_reg);
         out << REQ_COMPLETED << REG_ALL << m_reg;
         break;
     case(1):
+        m_fs->writeLog(str, REG_GROUP_1 ,m_reg.sliced(0, 8));
         out << REQ_COMPLETED << REG_GROUP_1 << m_reg.sliced(0, 8);
         break;
     case(2):
+        m_fs->writeLog(str, REG_GROUP_2 ,m_reg.sliced(8, 23));
         out << REQ_COMPLETED << REG_GROUP_2 << m_reg.sliced(8, 23);
         break;
     case(3):
+        m_fs->writeLog(str, REG_GROUP_3 ,m_reg.sliced(32, 8));
         out << REQ_COMPLETED << REG_GROUP_3 << m_reg.sliced(32, 8);
     }
 
@@ -147,7 +169,7 @@ void DeviceVS::slotEditReg0H()
 void DeviceVS::slotEditReg1()
 {
     QString str("0x" + ui.lineEdit_3->text());
-    bool Ok;
+    bool Ok{};
     m_reg[1] = str.sliced(2).toInt(&Ok, 16);
     if (!Ok)
         return;

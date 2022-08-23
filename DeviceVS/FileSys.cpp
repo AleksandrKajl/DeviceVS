@@ -13,6 +13,39 @@ FileSys::~FileSys()
     delete file;
 }
 
+QString FileSys::dataToStr(QByteArray& data)
+{
+    QString str;
+    for (int i{}; i < data.size(); ++i)
+    {
+        QString prefix;
+        if ((uint8_t)data[i] < 0x10)
+            prefix.append("0");
+        str.append(prefix + QString::number((uint8_t)data[i], 16).toUpper() + ' ');
+    }
+    return str;
+}
+
+void FileSys::writeLog(QString str,uint8_t group, QByteArray data)
+{
+    QString txt;
+    file->setFileName("logfile.txt");
+    if (file->open(QFile::ReadOnly | QFile::ExistingOnly))
+    {
+        txt = file->readAll();
+        file->close();
+    }
+
+    if (file->open(QFile::WriteOnly))
+    {
+        QTextStream log(file);
+        log << txt <<QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss\t")
+            << str << "Группа регистров " << group <<'\t' 
+            << dataToStr(data) << '\n';
+        file->close();
+    }
+}
+
 QString FileSys::openFile()
 {
     file->setFileName("logfile.txt");
@@ -24,7 +57,6 @@ QString FileSys::openFile()
         file->close();
         return text;
     }
-
 
     return nullptr;
 }

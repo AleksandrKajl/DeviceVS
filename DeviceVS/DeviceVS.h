@@ -27,6 +27,8 @@ private:
     QIntValidator* m_pValidRG5;
     FileSys* m_fs;
     QTextEdit* m_txtEdt;
+    QString logFileName = "logfile.log";
+
 
     //КОНСТАНТЫ ЗАПРОСОВ ДЛЯ УСТРОЙСТВА
     const uint8_t READ_REQ = 31;
@@ -66,5 +68,5 @@ private:
     char binaryStringToInt(QString str);
     QByteArray readData(const uint8_t groupReg);
     QByteArray writeData(QByteArray& reg, const uint8_t groupReg);
-
+    void initAllReg();
 };
