@@ -21,7 +21,9 @@ DeviceVS::DeviceVS(QWidget* parent)
     m_pUdpSock->bind(5555);
     
     //ui.mainToolBar->addAction(QIcon(":/Resource/open-file.png"), tr("Open"), this, SLOT(openFile()));
-    connect(ui.action, SIGNAL(triggered()), SLOT(openLog()));
+    connect(ui.action, SIGNAL(triggered()), SLOT(slotOpenLog()));
+    connect(ui.action_2, SIGNAL(triggered()), SLOT(slotLoadSettings()));
+    connect(ui.action_3, SIGNAL(triggered()), SLOT(slotSaveSettings()));
     connect(m_pUdpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
     //ГРУППА РЕГИСТРОВ ОДИН
     connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0L()));
@@ -138,15 +140,15 @@ QByteArray DeviceVS::readData(const uint8_t groupReg)
         out << REQ_COMPLETED << REG_ALL << m_reg;
         break;
     case(1):
-        m_fs->writeLog(str, REG_GROUP_1 ,m_reg.sliced(0, 8));
+        m_fs->writeLog(str, REG_GROUP_1 , m_reg.sliced(0, 8));
         out << REQ_COMPLETED << REG_GROUP_1 << m_reg.sliced(0, 8);
         break;
     case(2):
-        m_fs->writeLog(str, REG_GROUP_2 ,m_reg.sliced(8, 23));
+        m_fs->writeLog(str, REG_GROUP_2 , m_reg.sliced(8, 23));
         out << REQ_COMPLETED << REG_GROUP_2 << m_reg.sliced(8, 23);
         break;
     case(3):
-        m_fs->writeLog(str, REG_GROUP_3 ,m_reg.sliced(32, 8));
+        m_fs->writeLog(str, REG_GROUP_3 , m_reg.sliced(32, 8));
         out << REQ_COMPLETED << REG_GROUP_3 << m_reg.sliced(32, 8);
     }
 
@@ -183,17 +185,24 @@ void DeviceVS::slotEditReg5Reg6()
     m_reg[6] = var >> 8;
 }
 
-void DeviceVS::openLog()
+void DeviceVS::slotOpenLog()
 {
-    m_txtEdt->resize(800, 600);
+    m_txtEdt->resize(1150, 800);
     m_txtEdt->setWindowTitle("Журнал событий");
     m_txtEdt->show();
-    m_txtEdt->setPlainText(m_fs->openFile());
+    m_txtEdt->setPlainText(m_fs->openLog());
     m_txtEdt->setReadOnly(true);
-    //m_fs->getFile()->open(QFile::WriteOnly | QFile::Text);
-    //m_fs->getFile()->write("xxx");
-    //m_fs->getFile()->close();
+}
 
+void DeviceVS::slotSaveSettings()
+{
+    m_fs->saveSettings(m_reg);
+}
+
+void DeviceVS::slotLoadSettings()
+{
+    m_reg.replace(0, 40, m_fs->loadSettings());
+    initAllReg();
 }
 
 void DeviceVS::slotEditReg7_0()
@@ -207,11 +216,6 @@ void DeviceVS::slotEditReg7_4()
     m_reg[7] = (m_reg[7] & 0xF) + (ui.lineEdit_6->text().toInt() << 4);
     updateInfo();
 }
-
-
-//void DeviceVS::slotSendData()
-//{
-//}
 
 void DeviceVS::initReg()
 {

@@ -13,7 +13,7 @@ FileSys::~FileSys()
     delete file;
 }
 
-QString FileSys::dataToStr(QByteArray& data)
+QString FileSys::dataToStr(const QByteArray& data)
 {
     QString str;
     for (int i{}; i < data.size(); ++i)
@@ -26,7 +26,7 @@ QString FileSys::dataToStr(QByteArray& data)
     return str;
 }
 
-void FileSys::writeLog(QString str,uint8_t group, QByteArray data)
+void FileSys::writeLog(QString str,uint8_t group, const QByteArray& data)
 {
     QString txt;
     file->setFileName("logfile.txt");
@@ -46,7 +46,7 @@ void FileSys::writeLog(QString str,uint8_t group, QByteArray data)
     }
 }
 
-QString FileSys::openFile()
+QString FileSys::openLog()
 {
     file->setFileName("logfile.txt");
     if (file->open(QFile::ReadOnly | QFile::Text))
@@ -61,32 +61,42 @@ QString FileSys::openFile()
     return nullptr;
 }
 
-void FileSys::saveFile(QString txt)
+void FileSys::saveSettings(QByteArray& data)
 {
-    QString str = QFileDialog::getSaveFileName(this, tr("Save file"),
-        QDir::currentPath(), tr("Text file(*.txt);; All(*.*)"));
+    QString str = QFileDialog::getSaveFileName(this, tr("Save settings"),
+        QDir::currentPath(), tr("All(*.*)"));
 
     if (!str.isEmpty())
     {
-        if (str.endsWith(".txt"))
+        if (str.endsWith(".dat"))
         {
             file->setFileName(str);
             if (file->open(QFile::WriteOnly))
             {
-                QTextStream stream(file);
-                stream << txt;
+                QDataStream stream(file);
+                stream << data;
+                file->close();
             }
         }
     }
 }
 
-QString FileSys::loadFile(QString str)
+QByteArray FileSys::loadSettings()
 {
-    file->setFileName(str);
-    if (file->open(QFile::ReadOnly | QFile::ExistingOnly))
-        str = file->readAll();
+    QString str = QFileDialog::getOpenFileName(this, tr("Load settings"),
+        QDir::currentPath(), tr("All(*.*)"));
 
-    return str;
+    file->setFileName(str);
+    if (file->open(QFile::ReadOnly | QFile::Text))
+    {
+        QByteArray data;
+        QDataStream in(file);
+        in >> data;       
+        file->close();
+        return data;
+    }
+
+    return nullptr;
 }
 
 QFile* FileSys::getFile()

@@ -51,7 +51,10 @@ public:
 private slots:
     void slotRecievRequest();
     //void slotSendData();
-    void openLog();
+    void slotOpenLog();
+    void slotSaveSettings();
+    void slotLoadSettings();
+
 
     //Группа регистров 1
     void slotEditReg0L();

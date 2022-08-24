@@ -8,13 +8,13 @@ public:
 	FileSys(QWidget* parent = nullptr);
 	~FileSys();
 
-	QString openFile();
-	void saveFile(QString txt);
-	QString loadFile(QString str);
+	QString openLog();
+	void saveSettings(QByteArray& data);
+	QByteArray loadSettings();
 	QFile* getFile();
-	void writeLog(QString str, uint8_t group,QByteArray data);
+	void writeLog(QString str, uint8_t group, const QByteArray& data);
 private:
-	QString dataToStr(QByteArray& data);
+	QString dataToStr(const QByteArray& data);
 
 private:
 	QFile* file;
