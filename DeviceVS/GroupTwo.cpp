@@ -1,10 +1,11 @@
 #include"GroupTwo.h"
 
+
 GroupTwo::GroupTwo(DeviceVS* pDevice)
     : QObject(pDevice)
     , m_pDev(pDevice)
-    , m_pValidReg8(new QIntValidator(0, 100, this))
-    , m_pValidReg9(new QIntValidator(0, 10, this))
+    , m_pValidReg8(new QIntValidator(0, 999, this))
+    , m_pValidReg9(new QIntValidator(0, 99, this))
 {
     //----------------Абонент 1-------------------------------------------------------------
     connect(m_pDev->ui.lineEdit_7, SIGNAL(editingFinished()), SLOT(slotEditReg8()));
@@ -49,12 +50,20 @@ GroupTwo::GroupTwo(DeviceVS* pDevice)
 
 void GroupTwo::slotEditReg8()
 {
-    m_pDev->m_reg[8] = m_pDev->ui.lineEdit_7->text().toInt();
+    uint16_t reg = m_pDev->ui.lineEdit_7->text().toInt();
+    //Если привышает один байт записываем 0xFF
+    if (reg > 255)
+        m_pDev->m_reg[8] = 255;
+    else
+        m_pDev->m_reg[8] = reg;
+
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg9()
 {
     m_pDev->m_reg[9] = m_pDev->ui.lineEdit_8->text().toInt();
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg10_0()
@@ -77,12 +86,19 @@ void GroupTwo::slotEditReg10_1()
 
 void GroupTwo::slotEditReg11()
 {
-        m_pDev->m_reg[11] = m_pDev->ui.lineEdit_11->text().toInt();
+    uint16_t reg = m_pDev->ui.lineEdit_11->text().toInt();
+    //Если привышает один байт записываем 0xFF
+    if (reg > 255)
+        m_pDev->m_reg[11] = 255;
+    else
+        m_pDev->m_reg[11] = reg;
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg12()
 {
     m_pDev->m_reg[12] = m_pDev->ui.lineEdit_12->text().toInt();
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg13_0()
@@ -105,12 +121,19 @@ void GroupTwo::slotEditReg13_1()
 
 void GroupTwo::slotEditReg14()
 {
-    m_pDev->m_reg[14] = m_pDev->ui.lineEdit_15->text().toInt();
+    uint16_t reg = m_pDev->ui.lineEdit_15->text().toInt();
+    //Если привышает один байт записываем 0xFF
+    if (reg > 255)
+        m_pDev->m_reg[14] = 255;
+    else
+        m_pDev->m_reg[14] = reg;
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg15()
 {
     m_pDev->m_reg[15] = m_pDev->ui.lineEdit_16->text().toInt();
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg16_0()
@@ -133,13 +156,21 @@ void GroupTwo::slotEditReg16_1()
 
 void GroupTwo::slotEditReg17()
 {
-    m_pDev->m_reg[17] = m_pDev->ui.lineEdit_19->text().toInt();
+    uint16_t reg = m_pDev->ui.lineEdit_19->text().toInt();
+    //Если привышает один байт записываем 0xFF
+    if (reg > 255)
+        m_pDev->m_reg[17] = 255;
+    else
+        m_pDev->m_reg[17] = reg;
+
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg18()
 {
     
     m_pDev->m_reg[18] = m_pDev->ui.lineEdit_20->text().toInt();
+    updateInfo();
 }
 
 void GroupTwo::slotEditReg19_0()
@@ -162,14 +193,13 @@ void GroupTwo::slotEditReg19_1()
 
 void GroupTwo::initReg()
 {
-        //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ДВА
+    //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ДВА
 //--------------------Абонент 1-----------------------------------------------
-    m_pDev->m_reg[1];
     m_pDev->ui.lineEdit_7->setText(QString::number((uint8_t)m_pDev->m_reg[8]));
     //m_pDev->ui.lineEdit_7->setInputMask("000");
     m_pDev->ui.lineEdit_8->setText(QString::number((uint8_t)m_pDev->m_reg[9]));
     //m_pDev->ui.lineEdit_8->setInputMask("00");
-    QString str = QString::fromStdString(std::bitset<2>((uint8_t)m_pDev->m_reg[10]).to_string());
+    QString str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[10]).to_string());
     m_pDev->ui.lineEdit_9->setText(str[1]);
     m_pDev->ui.lineEdit_9->setInputMask("B");
     m_pDev->ui.lineEdit_10->setText(str[0]);
@@ -180,7 +210,7 @@ void GroupTwo::initReg()
     //m_pDev->ui.lineEdit_11->setInputMask("000");
     m_pDev->ui.lineEdit_12->setText(QString::number((uint8_t)m_pDev->m_reg[12]));
     //m_pDev->ui.lineEdit_12->setInputMask("00");
-    str = QString::fromStdString(std::bitset<2>((uint8_t)m_pDev->m_reg[13]).to_string());
+    str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[13]).to_string());
     m_pDev->ui.lineEdit_13->setText(str[1]);
     m_pDev->ui.lineEdit_13->setInputMask("B");
     m_pDev->ui.lineEdit_14->setText(str[0]);
@@ -192,7 +222,7 @@ void GroupTwo::initReg()
     //m_pDev->ui.lineEdit_15->setInputMask("000");
     m_pDev->ui.lineEdit_16->setText(QString::number((uint8_t)m_pDev->m_reg[15]));
     //m_pDev->ui.lineEdit_16->setInputMask("00");
-    str = QString::fromStdString(std::bitset<2>((uint8_t)m_pDev->m_reg[16]).to_string());
+    str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[16]).to_string());
     m_pDev->ui.lineEdit_17->setText(str[1]);
     m_pDev->ui.lineEdit_17->setInputMask("B");
     m_pDev->ui.lineEdit_18->setText(str[0]);
@@ -204,7 +234,7 @@ void GroupTwo::initReg()
     //m_pDev->ui.lineEdit_19->setInputMask("000");
     m_pDev->ui.lineEdit_20->setText(QString::number((uint8_t)m_pDev->m_reg[18]));
     //m_pDev->ui.lineEdit_20->setInputMask("00");
-    str = QString::fromStdString(std::bitset<2>((uint8_t)m_pDev->m_reg[19]).to_string());
+    str = QString::fromStdString(std::bitset<2>(m_pDev->m_reg[19]).to_string());
     m_pDev->ui.lineEdit_21->setText(str[1]);
     m_pDev->ui.lineEdit_21->setInputMask("B");
     m_pDev->ui.lineEdit_22->setText(str[0]);
@@ -216,24 +246,53 @@ void GroupTwo::initReg()
 
 void GroupTwo::updateInfo()
 {
+    QString err("Не верное значение");
    //ОБНОВЛЕНИЕ ИНФОРМАЦИИ О ГРУППЕ РЕГИСТРОВ ДВА
   //------------------Абонент 1--------------------------------------------------
+    //РГ8
+    if((uint8_t)m_pDev->m_reg[8] > 100)
+        m_pDev->ui.label_11->setText(err);
+    else
+        m_pDev->ui.label_11->setText("Идинтификатор абонента");
+
+    //РГ9
+    if (m_pDev->m_reg[9] > 10)
+        m_pDev->ui.label_21->setText(err);
+    else
+        m_pDev->ui.label_21->setText("Номер канала");
+    
+    //РГ10_0
     if (m_pDev->m_reg[10] & 1)
         m_pDev->ui.label_22->setText("Автовызов: Да");
     else
         m_pDev->ui.label_22->setText("Автовызов: Нет");
 
+    //РГ10_1
     if (m_pDev->m_reg[10] & 2)
         m_pDev->ui.label_24->setText("Поддержание связи: Да");
     else
         m_pDev->ui.label_24->setText("Поддержание связи: Нет");
     //=============================================================================	
     //------------------Абонент 2--------------------------------------------------
+    //РГ11
+    if ((uint8_t)m_pDev->m_reg[11] > 100)
+        m_pDev->ui.label_27->setText(err);
+    else
+        m_pDev->ui.label_27->setText("Идинтификатор абонента");
+
+    //РГ12
+    if (m_pDev->m_reg[12] > 10)
+        m_pDev->ui.label_29->setText(err);
+    else
+        m_pDev->ui.label_29->setText("Номер канала");
+    
+    //РГ13_0
     if (m_pDev->m_reg[13] & 1)
         m_pDev->ui.label_31->setText("Автовызов: Да");
     else
         m_pDev->ui.label_31->setText("Автовызов: Нет");
 
+    //РГ13_1
     if (m_pDev->m_reg[13] & 2)
         m_pDev->ui.label_33->setText("Поддержание связи: Да");
     else
@@ -241,11 +300,25 @@ void GroupTwo::updateInfo()
     //=============================================================================
 
     //------------------Абонент 3--------------------------------------------------
+    //РГ14
+    if ((uint8_t)m_pDev->m_reg[14] > 100)
+        m_pDev->ui.label_36->setText(err);
+    else
+        m_pDev->ui.label_36->setText("Идинтификатор абонента");
+
+    //РГ15
+    if (m_pDev->m_reg[15] > 10)
+        m_pDev->ui.label_38->setText(err);
+    else
+        m_pDev->ui.label_38->setText("Номер канала");
+
+    //РГ16_0
     if (m_pDev->m_reg[16] & 1)
         m_pDev->ui.label_40->setText("Автовызов: Да");
     else
         m_pDev->ui.label_40->setText("Автовызов: Нет");
 
+    //РГ16_1
     if (m_pDev->m_reg[16] & 2)
         m_pDev->ui.label_42->setText("Поддержание связи: Да");
     else
@@ -253,11 +326,25 @@ void GroupTwo::updateInfo()
     //=============================================================================
 
     //------------------Абонент 4--------------------------------------------------
+    //РГ17
+    if ((uint8_t)m_pDev->m_reg[17] > 100)
+        m_pDev->ui.label_45->setText(err);
+    else
+        m_pDev->ui.label_45->setText("Идинтификатор абонента");
+
+    //РГ18
+    if (m_pDev->m_reg[18] > 10)
+        m_pDev->ui.label_47->setText(err);
+    else
+        m_pDev->ui.label_47->setText("Номер канала");
+
+    //РГ19_0
     if (m_pDev->m_reg[19] & 1)
         m_pDev->ui.label_49->setText("Автовызов: Да");
     else
         m_pDev->ui.label_49->setText("Автовызов: Нет");
 
+    //РГ19_1
     if (m_pDev->m_reg[19] & 2)
         m_pDev->ui.label_51->setText("Поддержание связи: Да");
     else
