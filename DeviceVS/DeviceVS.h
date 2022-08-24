@@ -19,6 +19,7 @@ public:
 
     DeviceVS* getPtr();
 
+
 private:
     GroupTwo* m_pGroupTwo;
     GroupThree* m_pGroupThree;
