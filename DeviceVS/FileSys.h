@@ -12,10 +12,11 @@ public:
 	void saveSettings(QByteArray& data);
 	QByteArray loadSettings();
 	QFile* getFile();
-	void writeLog(QString str, uint8_t group, const QByteArray& data);
+	void writeLog(const QString& str, uint8_t group, const QByteArray& data);
 private:
 	QString dataToStr(const QByteArray& data);
 
 private:
 	QFile* file;
+	const QString logFileName = "logfile.log";
 };

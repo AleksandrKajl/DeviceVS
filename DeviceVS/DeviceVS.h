@@ -1,14 +1,15 @@
 #pragma once
-#include <QtWidgets/QMainWindow>
+#include<QtWidgets/QMainWindow>
 #include<QListView>
+#include<QMessageBox>
 #include<bitset>
 #include<QUdpSocket>
 #include<QTextEdit>
-#include"FileSys.h"
-#include "ui_DeviceVS.h"
+#include"ui_DeviceVS.h"
 
 class GroupTwo;
 class GroupThree;
+class FileSys;
 
 class DeviceVS : public QMainWindow
 {
@@ -17,19 +18,16 @@ public:
     DeviceVS(QWidget *parent = nullptr);
     ~DeviceVS();
 
-    DeviceVS* getPtr();
-
-
+//Поля
 private:
     GroupTwo* m_pGroupTwo;
     GroupThree* m_pGroupThree;
+    FileSys* m_pFs;
+
     QUdpSocket* m_pUdpSock;
-    QIntValidator* m_pValidRG5;
-    FileSys* m_fs;
     QTextEdit* m_txtEdt;
-    QString logFileName = "logfile.log";
-
-
+    QIntValidator* m_pValidRG5;
+    
     //КОНСТАНТЫ ЗАПРОСОВ ДЛЯ УСТРОЙСТВА
     const uint8_t READ_REQ = 31;
     const uint8_t WRITE_REQ = 30;
@@ -42,19 +40,20 @@ private:
     const uint8_t REG_GROUP_2 = 2;
     const uint8_t REG_GROUP_3 = 3;
 
+    const uint16_t PORT_READ = 5555;
+    const uint16_t PORT_WRITE = 4444;
+
 public:
     Ui::DeviceVSClass ui;
     //Массив байт для хранения значений регистров
     QByteArray m_reg;
 
-
+//Слоты
 private slots:
     void slotRecievRequest();
-    //void slotSendData();
     void slotOpenLog();
     void slotSaveSettings();
     void slotLoadSettings();
-
 
     //Группа регистров 1
     void slotEditReg0L();
@@ -64,11 +63,11 @@ private slots:
     void slotEditReg7_0();
     void slotEditReg7_4();
 
-
+//Методы
 private:
     void updateInfo();
     void initReg();
-    char binaryStringToInt(QString str);
+    char binaryStringToInt(const QString& str);
     QByteArray readData(const uint8_t groupReg);
     QByteArray writeData(QByteArray& reg, const uint8_t groupReg);
     void initAllReg();

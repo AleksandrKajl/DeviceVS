@@ -1,7 +1,8 @@
 #include"GroupTwo.h"
 
 GroupTwo::GroupTwo(DeviceVS* pDevice)
-    : m_pDev(pDevice)
+    : QObject(pDevice)
+    , m_pDev(pDevice)
     , m_pValidReg8(new QIntValidator(0, 100, this))
     , m_pValidReg9(new QIntValidator(0, 10, this))
 {

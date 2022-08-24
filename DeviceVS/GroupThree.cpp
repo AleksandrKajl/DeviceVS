@@ -1,8 +1,8 @@
 #include"GroupThree.h"
-#include<QMessageBox>
 
 GroupThree::GroupThree(DeviceVS* pDevice)
-    : m_pDev(pDevice)
+    : QObject(pDevice)
+    , m_pDev(pDevice)
     , m_pValid(new QIntValidator(0, 255, this))
 {
     //ГРУППА РЕГИСТРОВ ТРИ

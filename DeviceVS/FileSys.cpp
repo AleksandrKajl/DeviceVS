@@ -3,9 +3,8 @@
 
 FileSys::FileSys(QWidget* parent)
     : QMainWindow(parent)
-    , file(new QFile("logfile.txt"))
+    , file(new QFile())
 {
-    
 }
 
 FileSys::~FileSys()
@@ -26,10 +25,10 @@ QString FileSys::dataToStr(const QByteArray& data)
     return str;
 }
 
-void FileSys::writeLog(QString str,uint8_t group, const QByteArray& data)
+void FileSys::writeLog(const QString& str, uint8_t group, const QByteArray& data)
 {
     QString txt;
-    file->setFileName("logfile.txt");
+    file->setFileName(logFileName);
     if (file->open(QFile::ReadOnly | QFile::ExistingOnly))
     {
         txt = file->readAll();
@@ -48,7 +47,7 @@ void FileSys::writeLog(QString str,uint8_t group, const QByteArray& data)
 
 QString FileSys::openLog()
 {
-    file->setFileName("logfile.txt");
+    file->setFileName(logFileName);
     if (file->open(QFile::ReadOnly | QFile::Text))
     {
         QString text;
