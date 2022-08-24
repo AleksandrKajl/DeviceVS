@@ -1,6 +1,5 @@
 #pragma once
 #include <QtWidgets/QMainWindow>
-#include<QStringListModel>
 #include<QListView>
 #include<bitset>
 #include<QUdpSocket>

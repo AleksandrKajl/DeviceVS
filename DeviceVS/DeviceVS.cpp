@@ -201,8 +201,19 @@ void DeviceVS::slotSaveSettings()
 
 void DeviceVS::slotLoadSettings()
 {
-    m_reg.replace(0, 40, m_fs->loadSettings());
-    initAllReg();
+    QByteArray data;
+    data = m_fs->loadSettings();
+    if (data.isEmpty())
+        return;
+    else if (data.size() == 40)
+    {
+        m_reg.replace(0, 40, data);
+        initAllReg();
+    }
+    else
+        QMessageBox::warning(this, "Не возможго загрузить настройки",
+            "Настройки не соответствуют требованиям");
+
 }
 
 void DeviceVS::slotEditReg7_0()

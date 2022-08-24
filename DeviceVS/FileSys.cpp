@@ -68,15 +68,12 @@ void FileSys::saveSettings(QByteArray& data)
 
     if (!str.isEmpty())
     {
-        if (str.endsWith(".dat"))
+        file->setFileName(str);
+        if (file->open(QFile::WriteOnly))
         {
-            file->setFileName(str);
-            if (file->open(QFile::WriteOnly))
-            {
-                QDataStream stream(file);
-                stream << data;
-                file->close();
-            }
+            QDataStream stream(file);
+            stream << data;
+            file->close();
         }
     }
 }
