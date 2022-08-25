@@ -1,6 +1,7 @@
 #pragma once
 #include"DeviceVS.h"
 
+//Класс для работы с группой регистров 2
 class GroupTwo : public QObject
 {
     Q_OBJECT

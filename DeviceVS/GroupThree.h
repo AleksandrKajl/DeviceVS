@@ -1,6 +1,7 @@
 #pragma once
 #include"DeviceVS.h"
 
+////Класс для работы с группой регистров 3
 class GroupThree : public QObject
 {
 	Q_OBJECT

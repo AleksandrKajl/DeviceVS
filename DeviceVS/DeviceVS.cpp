@@ -44,7 +44,9 @@ DeviceVS::~DeviceVS()
 //Приём запроса на проведения операции
 void DeviceVS::slotRecievRequest()
 {
-    QByteArray data;
+    if(!data.isEmpty())
+        data.clear();
+
     do
     {
         data.resize(m_pUdpSock->pendingDatagramSize());
@@ -77,7 +79,9 @@ void DeviceVS::slotRecievRequest()
 //Чтение данных для отправки
 QByteArray DeviceVS::readData(const uint8_t groupReg)
 {
-    QByteArray data;
+    if (!data.isEmpty())
+        data.clear();
+
     QDataStream out(&data, QIODevice::WriteOnly);
     QString str = "Чтение данных\t";
 
@@ -111,7 +115,9 @@ QByteArray DeviceVS::readData(const uint8_t groupReg)
 //Запись принятых данных в массив регистров
 QByteArray DeviceVS::writeData(QByteArray& reg, const uint8_t groupReg)
 {
-    QByteArray data;
+    if (!data.isEmpty())
+        data.clear();
+
     QDataStream out(&data, QIODevice::WriteOnly);
 
     switch (groupReg)
@@ -144,6 +150,7 @@ QByteArray DeviceVS::writeData(QByteArray& reg, const uint8_t groupReg)
     return data;
 }
 
+//Инициализация всех групп регистров
 void DeviceVS::initAllReg()
 {
     initReg();
@@ -195,6 +202,7 @@ void DeviceVS::slotEditReg7_4()
     updateInfo();
 }
 
+//Слот для вывода журнала событий в приложении
 void DeviceVS::slotOpenLog()
 {
     m_txtEdt->resize(1150, 800);
@@ -209,9 +217,12 @@ void DeviceVS::slotSaveSettings()
     m_pFs->saveSettings(m_reg);
 }
 
+//Загрузка настроек устройства из данных не 40 байт, то ошибка, настройки не загруженны
 void DeviceVS::slotLoadSettings()
 {
-    QByteArray data;
+    if (!data.isEmpty())
+        data.clear();
+
     data = m_pFs->loadSettings();
     if (data.isEmpty())
         return;
@@ -225,6 +236,7 @@ void DeviceVS::slotLoadSettings()
             "Настройки не соответствуют требованиям");
 }
 
+//Установка полей приложения в соответствии регистрам устройства
 void DeviceVS::initReg()
 {
     //ИНИЦИАЛИЗАЦИЯ ГРУППЫ РЕГИСТРОВ ОДИН
@@ -251,6 +263,7 @@ void DeviceVS::initReg()
     updateInfo();
 }
 
+//Обновляем видимую информацию о регистрах
 void DeviceVS::updateInfo()
 {
     //ОБНОВЛЕНИЕ ИНФОРМАЦИИ О ГРУППЕ РЕГИСТРОВ ОДИН

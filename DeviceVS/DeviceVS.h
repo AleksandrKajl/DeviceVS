@@ -28,6 +28,9 @@ private:
     QUdpSocket* m_pUdpSock;
     QTextEdit* m_txtEdt;
     QIntValidator* m_pValidRG5;
+
+    //Объект для работы с данными
+    QByteArray data;
     
     //КОНСТАНТЫ ЗАПРОСОВ ДЛЯ УСТРОЙСТВА
     const uint8_t READ_REQ = 31;
