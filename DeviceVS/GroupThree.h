@@ -26,4 +26,14 @@ private:
 private:
     DeviceVS* m_pDev;
     QIntValidator* m_pValid;
+
+    //Шесть бит регистра 32
+    std::bitset<6> rg32;
+    //Нужен для работы с четырьмя битами регистра 34
+    std::bitset<4> rg34;
+
+    //Константы для закрашивания полей с текстом
+    const QString GREEN_FIELD = "QLabel { background-color : green; color : black; }";
+    const QString YELLOW_FIELD = "QLabel { background-color : yellow; color : black; }";
+    const QString RED_FIELD = "QLabel { background-color : red; color : black; }";
 };
