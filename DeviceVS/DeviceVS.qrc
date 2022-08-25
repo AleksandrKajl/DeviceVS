@@ -1,4 +1,10 @@
 <RCC>
-    <qresource prefix="DeviceVS">
+    <qresource prefix="/DeviceVS">
+        <file>Resource/open-file.png</file>
+        <file>Resource/save.png</file>
+        <file>Resource/log.png</file>
+        <file>Resource/device.png</file>
+        <file>Resource/info.png</file>
+        <file>Resource/info.txt</file>
     </qresource>
 </RCC>

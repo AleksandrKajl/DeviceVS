@@ -7,9 +7,12 @@
 #include<QTextEdit>
 #include"ui_DeviceVS.h"
 
+
 class GroupTwo;
 class GroupThree;
-class FileSys;
+class MyLog;
+class MyInfo;
+
 
 //Основной класс, хранит группу регистров 1
 class DeviceVS : public QMainWindow
@@ -23,10 +26,12 @@ public:
 private:
     GroupTwo* m_pGroupTwo;
     GroupThree* m_pGroupThree;
-    FileSys* m_pFs;
+    MyLog* m_pMyLog;
+    MyInfo* m_pInfo;
 
     QUdpSocket* m_pUdpSock;
-    QTextEdit* m_txtEdt;
+    QTextEdit* m_pLog;
+//    QTextEdit* m_pInfo;
     QIntValidator* m_pValidRG5;
 
     //Объект для работы с данными
@@ -55,9 +60,6 @@ public:
 //Слоты
 private slots:
     void slotRecievRequest();
-    void slotOpenLog();
-    void slotSaveSettings();
-    void slotLoadSettings();
 
     //Группа регистров 1
     void slotEditReg0L();
@@ -67,6 +69,12 @@ private slots:
     void slotEditReg7_0();
     void slotEditReg7_4();
 
+public slots:
+    void slotOpenLog();
+    void slotSaveSettings();
+    void slotLoadSettings();
+    void slotInfo();
+
 //Методы
 private:
     void updateInfo();
@@ -75,4 +83,7 @@ private:
     QByteArray readData(const uint8_t groupReg);
     QByteArray writeData(QByteArray& reg, const uint8_t groupReg);
     void initAllReg();
+
+protected:
+    void keyPressEvent(QKeyEvent* pe) override;
 };

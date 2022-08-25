@@ -89,9 +89,11 @@
     <QtUic Include="DeviceVS.ui" />
     <QtMoc Include="DeviceVS.h" />
     <ClCompile Include="DeviceVS.cpp" />
-    <ClCompile Include="FileSys.cpp" />
+    <ClCompile Include="MyLog.cpp" />
     <ClCompile Include="GroupThree.cpp" />
     <ClCompile Include="GroupTwo.cpp" />
+    <ClCompile Include="HotKeys.cpp" />
+    <ClCompile Include="Info.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +103,10 @@
     <QtMoc Include="GroupThree.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileSys.h" />
+    <ClInclude Include="MyLog.h" />
+    <ClInclude Include="HotKeys.h" />
+    <ClInclude Include="Info.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

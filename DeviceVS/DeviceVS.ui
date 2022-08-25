@@ -1615,7 +1615,14 @@
     <addaction name="action_3"/>
     <addaction name="action"/>
    </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="actionInfo"/>
+   </widget>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -1628,7 +1635,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action">
    <property name="text">
-    <string>Журнал</string>
+    <string>Журнал событий</string>
    </property>
   </action>
   <action name="action_2">
@@ -1639,6 +1646,11 @@
   <action name="action_3">
    <property name="text">
     <string>Сохранить настройки</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Info</string>
    </property>
   </action>
  </widget>

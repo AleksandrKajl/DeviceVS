@@ -1,7 +1,9 @@
 #include"DeviceVS.h"
 #include"GroupTwo.h"
 #include"GroupThree.h"
-#include"FileSys.h"
+#include"MyLog.h"
+#include"HotKeys.h"
+#include"Info.h"
 
 DeviceVS::DeviceVS(QWidget* parent)
     : QMainWindow(parent)
@@ -9,10 +11,12 @@ DeviceVS::DeviceVS(QWidget* parent)
     , m_pGroupTwo(nullptr)
     , m_pGroupThree(nullptr)
     , m_pValidRG5(new QIntValidator(0, 99999, this))    //Валидатор для РГ5-РГ6
-    , m_pFs(new FileSys(this))
-    , m_txtEdt(new QTextEdit())
+    , m_pMyLog(new MyLog(this))
+    , m_pLog(new QTextEdit())
+    , m_pInfo(new MyInfo(this))
 {
     ui.setupUi(this);
+    setWindowIcon(QIcon(":/DeviceVS/Resource/device.png"));
     m_reg.fill(0, 40);
     m_pGroupTwo = new GroupTwo(this);
     m_pGroupThree = new GroupThree(this);
@@ -20,10 +24,14 @@ DeviceVS::DeviceVS(QWidget* parent)
     // Привязываем сокет к адресу LocalHost и порту для получения данных от клиента 
     m_pUdpSock->bind(5555);
     
-    //ui.mainToolBar->addAction(QIcon(":/Resource/open-file.png"), tr("Open"), this, SLOT(openFile()));
+    ui.mainToolBar->addAction(QIcon(":/DeviceVS/Resource/open-file.png"), "Загрузить настройки", this, SLOT(slotLoadSettings()));
+    ui.mainToolBar->addAction(QIcon(":/DeviceVS/Resource/save.png"), "Сохранить настройки", this, SLOT(slotSaveSettings()));
+    ui.mainToolBar->addAction(QIcon(":/DeviceVS/Resource/log.png"), "Журнал событий", this, SLOT(slotOpenLog()));
+    ui.mainToolBar->addAction(QIcon(":/DeviceVS/Resource/info.png"), "Журнал событий", this, SLOT(slotInfo()));
     connect(ui.action, SIGNAL(triggered()), SLOT(slotOpenLog()));
     connect(ui.action_2, SIGNAL(triggered()), SLOT(slotLoadSettings()));
     connect(ui.action_3, SIGNAL(triggered()), SLOT(slotSaveSettings()));
+    connect(ui.actionInfo, SIGNAL(triggered()), SLOT(slotInfo()));
     connect(m_pUdpSock, SIGNAL(readyRead()), SLOT(slotRecievRequest()));
     //ГРУППА РЕГИСТРОВ ОДИН
     connect(ui.lineEdit, SIGNAL(editingFinished()), SLOT(slotEditReg0L()));
@@ -38,7 +46,8 @@ DeviceVS::DeviceVS(QWidget* parent)
 
 DeviceVS::~DeviceVS()
 {
-    delete m_txtEdt;
+    delete m_pInfo;
+    delete m_pLog;
 }
 
 //Приём запроса на проведения операции
@@ -70,7 +79,7 @@ void DeviceVS::slotRecievRequest()
         in >> reg;
         //Записываем полученные данные
         writeData(reg, groupReg);
-        //m_pUdpSock->writeDatagram(writeData(reg, groupReg), QHostAddress::LocalHost, 4444);
+        //m_pUdpSock->writeDatagram(writeData(reg, groupReg), QHostAddress::LocalHost, PORT_WRITE);
     }
     else
         QMessageBox::warning(this, "Ошибка запроса", "Принят ошибочный запрос!");
@@ -88,23 +97,23 @@ QByteArray DeviceVS::readData(const uint8_t groupReg)
     switch (groupReg)
     {
     case 0:
-        m_pFs->writeLog(str, REG_ALL, m_reg);
+        m_pMyLog->writeLog(str, REG_ALL, m_reg);
         out << REQ_COMPLETED << REG_ALL << m_reg;
         break;
     case 1:
-        m_pFs->writeLog(str, REG_GROUP_1, m_reg.sliced(0, 8));
+        m_pMyLog->writeLog(str, REG_GROUP_1, m_reg.sliced(0, 8));
         out << REQ_COMPLETED << REG_GROUP_1 << m_reg.sliced(0, 8);
         break;
     case 2:
-        m_pFs->writeLog(str, REG_GROUP_2, m_reg.sliced(8, 23));
+        m_pMyLog->writeLog(str, REG_GROUP_2, m_reg.sliced(8, 23));
         out << REQ_COMPLETED << REG_GROUP_2 << m_reg.sliced(8, 23);
         break;
     case 3:
-        m_pFs->writeLog(str, REG_GROUP_3, m_reg.sliced(32, 8));
+        m_pMyLog->writeLog(str, REG_GROUP_3, m_reg.sliced(32, 8));
         out << REQ_COMPLETED << REG_GROUP_3 << m_reg.sliced(32, 8);
         break;
     default:
-        m_pFs->writeLog("Ошибка чтения данных\t", groupReg, nullptr);
+        m_pMyLog->writeLog("Ошибка чтения данных\t", groupReg, nullptr);
         out << REQ_FAILED << groupReg;
         QMessageBox::warning(this, "Ошибка отправки ответа", "Такой группы регистров не существует");
     }
@@ -139,13 +148,13 @@ QByteArray DeviceVS::writeData(QByteArray& reg, const uint8_t groupReg)
         m_pGroupThree->initReg();
         break;
     default:
-        m_pFs->writeLog("Ошибка записи данных\t", groupReg, reg);
+        m_pMyLog->writeLog("Ошибка записи данных\t", groupReg, reg);
         out << REQ_FAILED << groupReg;
         QMessageBox::warning(this, "Ошибка записи", "Заппись в не существующую группу регистров");
         return data;
     }
     
-    m_pFs->writeLog("Запись данных\t", groupReg ,reg);
+    m_pMyLog->writeLog("Запись данных\t", groupReg ,reg);
     out << REQ_COMPLETED << groupReg;
     return data;
 }
@@ -156,6 +165,14 @@ void DeviceVS::initAllReg()
     initReg();
     m_pGroupTwo->initReg();
     m_pGroupThree->initReg();
+}
+
+void DeviceVS::keyPressEvent(QKeyEvent* pe)
+{
+    HotKeys hK;
+
+    if (hK.keysProcessing(this, pe))
+        QWidget::keyPressEvent(pe);
 }
 
 //ГРУППА РЕГИСТРОВ 1
@@ -205,16 +222,16 @@ void DeviceVS::slotEditReg7_4()
 //Слот для вывода журнала событий в приложении
 void DeviceVS::slotOpenLog()
 {
-    m_txtEdt->resize(1150, 800);
-    m_txtEdt->setWindowTitle("Журнал событий");
-    m_txtEdt->show();
-    m_txtEdt->setPlainText(m_pFs->readLog());
-    m_txtEdt->setReadOnly(true);
+    m_pLog->resize(1150, 800);
+    m_pLog->setWindowTitle("Журнал событий");
+    m_pLog->show();
+    m_pLog->setPlainText(m_pMyLog->readLog());
+    m_pLog->setReadOnly(true);
 }
 
 void DeviceVS::slotSaveSettings()
 {
-    m_pFs->saveSettings(m_reg);
+    m_pMyLog->saveSettings(m_reg);
 }
 
 //Загрузка настроек устройства из данных не 40 байт, то ошибка, настройки не загруженны
@@ -223,7 +240,7 @@ void DeviceVS::slotLoadSettings()
     if (!data.isEmpty())
         data.clear();
 
-    data = m_pFs->loadSettings();
+    data = m_pMyLog->loadSettings();
     if (data.isEmpty())
         return;
     else if (data.size() == 40)
@@ -234,6 +251,12 @@ void DeviceVS::slotLoadSettings()
     else
         QMessageBox::warning(this, "Не возможно загрузить настройки",
             "Настройки не соответствуют требованиям");
+}
+
+void DeviceVS::slotInfo()
+{
+    m_pInfo->resize(500, 350);
+    m_pInfo->show();
 }
 
 //Установка полей приложения в соответствии регистрам устройства

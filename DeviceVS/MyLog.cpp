@@ -1,19 +1,19 @@
-#include"FileSys.h"
+#include"MyLog.h"
 #include<QFileDialog>
 
-FileSys::FileSys(QWidget* parent)
+MyLog::MyLog(QWidget* parent)
     : QMainWindow(parent)
     , file(new QFile())
 {
 }
 
-FileSys::~FileSys()
+MyLog::~MyLog()
 {
     delete file;
 }
 
 //Метод преобразованния данных в строку hex данных вида (FF 00 6A)
-QString FileSys::dataToStr(const QByteArray& data)
+QString MyLog::dataToStr(const QByteArray& data)
 {
     QString str;
     for (int i{}; i < data.size(); ++i)
@@ -27,7 +27,7 @@ QString FileSys::dataToStr(const QByteArray& data)
 }
 
 //Метод ля записи данных в log файл 
-void FileSys::writeLog(const QString& reqType, const uint8_t group, const QByteArray& data)
+void MyLog::writeLog(const QString& reqType, const uint8_t group, const QByteArray& data)
 {
     QString txt;
     file->setFileName(logFileName);
@@ -48,7 +48,7 @@ void FileSys::writeLog(const QString& reqType, const uint8_t group, const QByteA
 }
 
 //Метод для чтения лога из файла
-QString FileSys::readLog()
+QString MyLog::readLog()
 {
     file->setFileName(logFileName);
     if (file->open(QFile::ReadOnly))
@@ -64,9 +64,9 @@ QString FileSys::readLog()
 }
 
 //Метод сохранения настроек устройства
-void FileSys::saveSettings(QByteArray& data)
+void MyLog::saveSettings(QByteArray& data)
 {
-    QString str = QFileDialog::getSaveFileName(this, tr("Save settings"),
+    QString str = QFileDialog::getSaveFileName(this, "Сохранить настройки",
         QDir::currentPath(), tr("All(*.*)"));
 
     if (!str.isEmpty())
@@ -82,9 +82,9 @@ void FileSys::saveSettings(QByteArray& data)
 }
 
 //Загрузка настроек устройства
-QByteArray FileSys::loadSettings()
+QByteArray MyLog::loadSettings()
 {
-    QString str = QFileDialog::getOpenFileName(this, tr("Load settings"),
+    QString str = QFileDialog::getOpenFileName(this, "Загрузить настройки",
         QDir::currentPath(), tr("All(*.*)"));
 
     file->setFileName(str);

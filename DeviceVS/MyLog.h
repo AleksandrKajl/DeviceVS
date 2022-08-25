@@ -2,12 +2,12 @@
 #include<QMainWindow>
 #include<QDir>
 
-//Класс для логирования и работы с файловой системой
-class FileSys : public QMainWindow
+//РљР»Р°СЃСЃ РґР»СЏ Р»РѕРіРёСЂРѕРІР°РЅРёСЏ Рё СЂР°Р±РѕС‚С‹ СЃ С„Р°Р№Р»РѕРІРѕР№ СЃРёСЃС‚РµРјРѕР№
+class MyLog : public QMainWindow
 {
 public:
-	FileSys(QWidget* parent = nullptr);
-	~FileSys();
+	MyLog(QWidget* parent = nullptr);
+	~MyLog();
 
 	QString readLog();
 	void saveSettings(QByteArray& data);
