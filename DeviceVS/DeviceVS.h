@@ -11,6 +11,7 @@ class GroupTwo;
 class GroupThree;
 class FileSys;
 
+//Основной класс, хранит группу регистров 1
 class DeviceVS : public QMainWindow
 {
     Q_OBJECT

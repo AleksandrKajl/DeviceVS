@@ -12,6 +12,7 @@ FileSys::~FileSys()
     delete file;
 }
 
+//Метод преобразованния данных в строку hex данных вида (FF 00 6A)
 QString FileSys::dataToStr(const QByteArray& data)
 {
     QString str;
@@ -19,13 +20,14 @@ QString FileSys::dataToStr(const QByteArray& data)
     {
         QString prefix;
         if ((uint8_t)data[i] < 0x10)
-            prefix.append("0");
+            prefix.append("0");         //Добавляем впереди 0 если значение состоит из одной hex цифры
         str.append(prefix + QString::number((uint8_t)data[i], 16).toUpper() + ' ');
     }
     return str;
 }
 
-void FileSys::writeLog(const QString& str, uint8_t group, const QByteArray& data)
+//Метод ля записи данных в log файл 
+void FileSys::writeLog(const QString& reqType, const uint8_t group, const QByteArray& data)
 {
     QString txt;
     file->setFileName(logFileName);
@@ -39,16 +41,17 @@ void FileSys::writeLog(const QString& str, uint8_t group, const QByteArray& data
     {
         QTextStream log(file);
         log << txt <<QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss\t")
-            << str << "Группа регистров " << group <<'\t' 
+            << reqType << "Группа регистров " << group <<'\t' 
             << dataToStr(data) << '\n';
         file->close();
     }
 }
 
-QString FileSys::openLog()
+//Метод для чтения лога из файла
+QString FileSys::readLog()
 {
     file->setFileName(logFileName);
-    if (file->open(QFile::ReadOnly | QFile::Text))
+    if (file->open(QFile::ReadOnly))
     {
         QString text;
         QTextStream stream(file);       
@@ -60,6 +63,7 @@ QString FileSys::openLog()
     return nullptr;
 }
 
+//Метод сохранения настроек устройства
 void FileSys::saveSettings(QByteArray& data)
 {
     QString str = QFileDialog::getSaveFileName(this, tr("Save settings"),
@@ -77,6 +81,7 @@ void FileSys::saveSettings(QByteArray& data)
     }
 }
 
+//Загрузка настроек устройства
 QByteArray FileSys::loadSettings()
 {
     QString str = QFileDialog::getOpenFileName(this, tr("Load settings"),
@@ -93,9 +98,4 @@ QByteArray FileSys::loadSettings()
     }
 
     return nullptr;
-}
-
-QFile* FileSys::getFile()
-{
-    return file;
 }

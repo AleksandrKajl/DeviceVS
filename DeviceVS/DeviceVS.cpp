@@ -41,7 +41,7 @@ DeviceVS::~DeviceVS()
     delete m_txtEdt;
 }
 
-//Приём запроса
+//Приём запроса на проведения операции
 void DeviceVS::slotRecievRequest()
 {
     QByteArray data;
@@ -55,14 +55,18 @@ void DeviceVS::slotRecievRequest()
     uint8_t request{};
     uint8_t groupReg{};
     in >> request >> groupReg;
+
+    //Определяем тип запроса
     if (request == READ_REQ)
     {
+        //Отправляем прочитанные регистры
         m_pUdpSock->writeDatagram(readData(groupReg), QHostAddress::LocalHost, PORT_WRITE);
     }
     else if(request == WRITE_REQ)
     {
         QByteArray reg;
         in >> reg;
+        //Записываем полученные данные
         writeData(reg, groupReg);
         //m_pUdpSock->writeDatagram(writeData(reg, groupReg), QHostAddress::LocalHost, 4444);
     }
@@ -196,7 +200,7 @@ void DeviceVS::slotOpenLog()
     m_txtEdt->resize(1150, 800);
     m_txtEdt->setWindowTitle("Журнал событий");
     m_txtEdt->show();
-    m_txtEdt->setPlainText(m_pFs->openLog());
+    m_txtEdt->setPlainText(m_pFs->readLog());
     m_txtEdt->setReadOnly(true);
 }
 
